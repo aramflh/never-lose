@@ -1,0 +1,7 @@
+C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\PWM_UART.cydsn\PWM_UART.cyprj|7e55ccf6-b680-4177-bced-14fe666cda70
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|eddc96df-76f7-4c30-8be4-f66cdab5ad55
+C:\Users\cleme\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|03b66134-990c-4fb5-9954-874fd4945800
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|44e72aee-8377-4240-aeb4-1c1106447d8c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|0e15971f-84dd-45b8-bec6-e7d96aa3dadf
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|2ffb24df-11a2-4b8e-9992-ee4f6b406d02
+C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\NeverLose.cydsn\NeverLose.cyprj|b3e5354a-9595-4207-9ef9-44ea0533f15b
