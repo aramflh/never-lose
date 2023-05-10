@@ -19,7 +19,7 @@
 • for loop :
 - [ ] Détection avec photores -> call jump() or duck()
 - [ ] Détection button -> call jump() or duck()
-- [ ] Détection keyboard -> call jump() or duck()
+- [x] Détection keyboard -> call jump() or duck()
 - [ ] Détection serial port -> call jump() or duck()
 
 • Function "resetScore":

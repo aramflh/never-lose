@@ -16,13 +16,17 @@ int main(void)
     CyGlobalIntEnable;  /* Enable global interrupts. */
 
     /* Place your initialization/startup code*/
+    LCD_Start();
+    LCD_ClearDisplay();
+    Mux_Start();
+    ADC_Start();  // Start the Analog-to-Digital Converter
 
-    keypadInit();
+    keypadInit();  // Call initialization function form keypad.h
 
 
     // Checking buttons states
 
-    char key                = 'z';
+    char key = 'z';
 
 
 
@@ -33,7 +37,6 @@ int main(void)
 
     }
 }
-
 
 
 // Keyboard detection
@@ -51,3 +54,25 @@ void detectKeyboard(char* key, char* last_key){
         }
     }
 }
+
+// Light detection
+void detectLight(uint32_t* photoResVal){
+
+    Mux_Select(0);
+    CyDelay(10); //This one let some time for the switch to occur. Otherwise conversion does not work properly
+    ADC_StartConvert();
+
+    CyDelay(10);
+    ADC_StartConvert();
+    if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)){
+        *photoResVal = ADC_GetResult32();
+    }
+    if(*photoResVal > 0 && *photoResVal <= 10000){
+        // BLACK
+    }
+    else if(*photoResVal < 10000){
+        // WHITE
+    }
+}
+
+
