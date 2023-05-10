@@ -8,7 +8,6 @@
 
 • Evolution du score avec le temps -> Accélération
 - [x] Afficher le score sur le LCD
-- [ ] Augmenter le score avec le temps
 
 • Function "duck":
 - [ ] Fait fonctionner le servo moteur 2
@@ -17,11 +16,12 @@
 - [ ] Bruit audio type 2
 
 • for loop :
-- [ ] Détection avec photores -> call jump() or duck()
+- [x] Détection avec photores -> call jump() or duck()
 - [x] Détection button -> call jump() or duck()
 - [x] Détection keyboard -> call jump() or duck()
 - [ ] Détection serial port -> call jump() or duck()
 
 • Function "resetScore":
-- [ ] Réinitialise le score et l'accélération
+- [x] Réinitialise le score
+
 

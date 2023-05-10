@@ -6,9 +6,27 @@
 #include "keypad.h"  // Keypad header file
 #include "utils.h"   // Other functions header file
 
-// Interrupt management
-CY_ISR (myISR){
-        // Place ISR code here
+#define PWM_VALUE 5000  // hasarg
+#define COLOR_CHANGE 10000  // The value at wich the color change on the screen
+#define COLOR_DELTA 100  // The minimum value to ignore the delta between de 2 photoresistor
+
+uint8 rxData;
+
+CY_ISR(isr_uart_Handler){
+        uint8 status = 0;
+        do{
+            // Check that rx buffer is not empty and get rx data
+            if ( (status & UART_RX_STS_FIFO_NOTEMPTY) != 0){
+                rxData = UART_ReadRxData();
+                UART_PutChar(rxData);
+                if (rxData == "jump") {
+                    jump();
+                }else if (rxData == "duck") {
+                    duck();
+                }
+            }
+        }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
+
 }
 
 int main(void)
@@ -16,21 +34,30 @@ int main(void)
     CyGlobalIntEnable;  /* Enable global interrupts. */
 
     /* Place your initialization/startup code*/
-    LCD_Start();
-    LCD_ClearDisplay();
-    Mux_Start();
-    ADC_Start();  // Start the Analog-to-Digital Converter
-    keypadInit();  // Call initialization function form keypad.h
-
-    // Variables initialization
-
     uint8_t score = 0;
     uint8_t first_jump = 1;
     uint8_t day = 0;
     uint8_t night = 0;
+    uint16_t pwm_period = 48000;
     uint32_t photoResVal1 = 0;
     uint32_t photoResVal2 = 0;
+    //uint32_t val_CMP;
+    //uint32_t val_adc;
     char key = 'z';
+
+    PWM_WritePeriod(pwm_period);
+    isr_uart_StartEx(isr_uart_Handler);
+
+
+    LCD_Start();
+    LCD_ClearDisplay();
+    Mux_Start();
+    ADC_Start();  // Start the Analog-to-Digital Converter
+    UART_Start(); //Start the UART
+    PWM_Start();
+    keypadInit();  // Call initialization function form keypad.h
+
+
 
 
 
@@ -56,6 +83,7 @@ int main(void)
         } else if (SW3_Read()) {
             // Reset the score
             (*score) = 0;
+            (*first_jump) = 1;
 
         }
         // Light detection
@@ -78,21 +106,29 @@ void jump(uint8_t* first_jump){
     if (*first_jump){
         (*first_jump) = 0;
     }
-    // Printing on LCD
+    //Activate servo motor 1
+    PWM_WriteCompare(PWM_VALUE);
+    // Printing "Jump" on LCD
     LCD_Position(0,0);
-    LCD_PrintString("JUMP");
-    // Lighting LEDs
+    LCD_PrintString("Jump");
+    // Lighting LEDs (1&2)
     LED1_Write(1);
     LED2_Write(1);
+    // Audio Output 1
+    // TODO
 }
 // Down function
 void duck(){
-    // Printing on LCD
+    //Activate servo motor 2
+    PWM_WriteCompare(PWM_VALUE);
+    // Printing "Duck" on LCD
     LCD_Position(0,0);
-    LCD_PrintString("DUCK");
-    // Lighting LEDs
+    LCD_PrintString("Duck");
+    // Lighting LEDs (3&4)
     LED3_Write(1);
     LED4_Write(1);
+    // Audio Output 2
+    // TODO
 }
 
 
@@ -132,29 +168,35 @@ void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0
     }
 
 
-    // TODO: Calculate the speed delta
-    if(*photoResVal1 > 0 && *photoResVal1 <= 10000 && *photoResVal1 != *photoResVal2 ){
+    if(*photoResVal1 > 0 && *photoResVal1 <= COLOR_CHANGE && (*photoResVal1 - *photoResVal2) > COLOR_DELTA ){
         // Top: White, Bottom: Black
         jump();
     }
-    else if(*photoResVal2 > 0 && *photoResVal2 <= 10000 && *photoResVal1 != *photoResVal2 ){
+    else if(*photoResVal2 > 0 && *photoResVal2 <= COLOR_CHANGE && (*photoResVal1 - *photoResVal2) > COLOR_DELTA ){
         // Top: Black, Bottom: White
         duck();
     }
 
     // Checking the cycle of the day
-    if(*photoResVal2 > 10000 && (*photoResVal1 - *photoResVal2) <= 100 ){
+    if(*photoResVal2 > COLOR_CHANGE && (*photoResVal1 - *photoResVal2) <= COLOR_DELTA ){
         // Top: White, Bottom: White
         // Day
         (*day) = 1;
         (*night) = 0;
+        // Printing the cycle on the LCD
+        LCD_Position(0,5);
+        LCD_PrintString("D");
 
     }
-    else if (*photoResVal1 > 0 && *photoResVal1 <= 10000 && (*photoResVal1 - *photoResVal2) <= 100) {
+    else if (*photoResVal1 > 0 && *photoResVal1 <= COLOR_CHANGE && (*photoResVal1 - *photoResVal2) <= COLOR_DELTA) {
         // Top: Black, Bottom: Black
         // Night
+
         (*day) = 0;
         (*night) = 1;
+        // Printing the cycle on the LCD
+        LCD_Position(0,5);
+        LCD_PrintString("N");
 
     }
 
