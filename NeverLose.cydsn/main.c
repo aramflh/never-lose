@@ -1,80 +1,108 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
-#include "project.h"
-#include <stdio.h>
+//
+// Created by Aramson Felho on 10/05/2023.
+//
+#include <math.h>
 
-uint8 rxData;
+#include "keypad.h"  // Keypad header file
+#include "utils.h"   // Other functions header file
 
-
-
-CY_ISR(isr_uart_Handler){
-    uint8 status = 0;
-    do{
-        // Checks if no UART Rx errors
-        status = UART_ReadRxStatus();
-        if ((status & UART_RX_STS_PAR_ERROR) || (status & UART_RX_STS_STOP_ERROR) || (status & UART_RX_STS_BREAK) || (status & UART_RX_STS_OVERRUN) ) {
-            // Parity, framing, break or overrun error
-            // ... process error
-            LCD_Position(1,0);
-            LCD_PrintString("UART err");
-        }
-        // Check that rx buffer is not empty and get rx data
-        if ( (status & UART_RX_STS_FIFO_NOTEMPTY) != 0){
-            rxData = UART_ReadRxData();
-            UART_PutChar(rxData);
-            LCD_Position(1,0);
-            LCD_PrintString("     ");
-            LCD_Position(1,0);
-            LCD_PutChar(rxData);
-            
-        }
-    }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
+// Interrupt management
+CY_ISR (myISR){
+        // Place ISR code here
 }
+
+// Global vaiables
+uint8_t score = 0;
 
 int main(void)
 {
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    //int32 val_adc = 0;
-    uint16_t pwm_period = 48000;
-    uint32_t val_CMP;
-    uint32_t val_adc;
-    
-    // Start PWM
-    ADC_Start();
+    CyGlobalIntEnable;  /* Enable global interrupts. */
+
+    /* Place your initialization/startup code*/
     LCD_Start();
-    PWM_Start();
-    ADC_StartConvert();
-    UART_Start(); //Start the UART
-    
-    PWM_WritePeriod(pwm_period);
-    PWM_WriteCompare(val_CMP); 
-    isr_uart_StartEx(isr_uart_Handler);
-        
+    LCD_ClearDisplay();
+    Mux_Start();
+    ADC_Start();  // Start the Analog-to-Digital Converter
+    keypadInit();  // Call initialization function form keypad.h
+
+    // Variables initialization
+
+    uint8_t sw3_pressed = 0;  // Reset button
+
+    // Checking buttons states
+
+    char key = 'z';
+
+
+
     for(;;)
     {
         /* Place your application code here. */
-        if (ADC_IsEndConversion(ADC_RETURN_STATUS)){
-            val_adc = ADC_GetResult32();
-            val_CMP = ((val_adc /(float)0xFFFF) + 1 ) * 2400; //Conversion from [0x0000,0xFFFF] to [2400,4800] (:= [1,2ms])
-            LCD_Position(0,0);
-            LCD_PrintNumber(val_CMP);
-            PWM_WriteCompare(val_CMP);
-            CyDelay(500);
-            
-        }
-        // Read ADC values and light LEDs accordingly, and write PWM accordingly
-        
+
+        // Printing the score
+        LCD_Position(0,0);
+        LCD_PrintNumber(*score);
+
+
     }
 }
 
-/* [] END OF FILE */
+// Reset the score
+/*
+ * Components name : Button 3 = SW3
+ */
+void resetScore(uint8_t* sw3_pressed, uint8_t* score){
+/* Assignment 3 : here we detect a rising edge on SW2 and display the number
+    of time SW2 has been pressed using ctr */
+
+    if (SW3_Read()){
+        *sw3_pressed = 1;
+    }
+    if ((!SW3_Read()) && *sw3_pressed){
+        *sw3_pressed = 0;
+        (*score) = 0;
+    }
+}
+
+// Keyboard detection
+void detectKeyboard(char* key, char* last_key){
+    // Detect the char pressed on the keybpard
+    *key = keypadScan();
+
+    if (*key != 'z'){
+        if (*key == '2'){
+            // Call "JUMP" fuction
+        }
+        else if (*key == '8') {
+            // Call "DOWN" fuction
+
+        }
+    }
+}
+
+// Light detection
+/*
+ * Components name : ADC = ADC
+ */
+void detectLight(uint32_t* photoResVal){
+
+    Mux_Select(0);
+    CyDelay(10); //This one let some time for the switch to occur. Otherwise conversion does not work properly
+    ADC_StartConvert();
+
+    CyDelay(10);
+    ADC_StartConvert();
+    if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)){
+        *photoResVal = ADC_GetResult32();
+    }
+    if(*photoResVal > 0 && *photoResVal <= 10000){
+        // BLACK
+        // Call "JUMP" fuction
+    }
+    else if(*photoResVal < 10000){
+        // WHITE
+        // Call "DOWN" fuction
+    }
+}
+
 
