@@ -6,6 +6,7 @@
 //#include "keypad.h"  // Keypad header file
 #include "utils.h"   // Other functions header file
 #include "project.h"
+#include "keypad.h"
 #include <stdint.h>
 
 #define PWM_VALUE 5000  // hasarg
@@ -37,7 +38,7 @@ int main(void)
     CyGlobalIntEnable;  /* Enable global interrupts. */
 
     /* Place your initialization/startup code*/
-    uint8_t score = 0;
+    int score = 0;
     uint8_t first_jump = 1;
     uint8_t day = 0;
     uint8_t night = 0;
@@ -47,6 +48,7 @@ int main(void)
     //uint32_t val_CMP;
     //uint32_t val_adc;
     char key = 'z';
+    uint16_t cnt = 0;
 
     PWM1_WritePeriod(pwm_period);
     PWM2_WritePeriod(pwm_period);
@@ -58,23 +60,34 @@ int main(void)
     //Mux_Start();
     ADC_Start();  // Start the Analog-to-Digital Converter
     UART_Start(); //Start the UART
-    //keypadInit();  // Call initialization function form keypad.h
+    keypadInit();  // Call initialization function form keypad.h
     PWM1_Start();
     PWM2_Start();
     PWM1_WriteCompare(3000); //Servo à l'horizontal
     PWM2_WriteCompare(3000); //Servo à l'horizontal
-
-
-
+    
+    Timer_Start();
 
     for(;;)
     {
         /* Place your application code here. */
 
         // TODO: Increase the score over time (10 points per seconds)
+       /* 
+        if(0x80 & Timer_ReadStatusRegister()){ //In case of overflow
+            if (cnt < 1000){
+                cnt++;
+            }
+            else{
+                LED1_Write(!LED1_Read());
+                cnt = 0; //Reset counter
+            }
+        }
+        */
+        
         // Printing the score on the second half of the LCD
         LCD_Position(1,0);
-        LCD_PrintNumber(&score);
+        LCD_PrintNumber(score);
 
         // Button detection
         /*
@@ -88,15 +101,20 @@ int main(void)
 
         } else if (SW3_Read()) {
             // Reset the score
-           // (*score) = 0;
-           // (*first_jump) = 1;
+            LCD_ClearDisplay();
+           (score) = 0;
+           (first_jump) = 1;
 
         }
+        //
+        
+        
+        
         // Light detection
         //detectLight(&photoResVal1, &photoResVal2, &day, &night);
 
         // Keypad detection
-        //detectKeyboard(&key);
+        detectKeyboard(&key);
 
         // Shun-ting down  the LEDs
         LED1_Write(0);
@@ -146,27 +164,31 @@ void duck(){
     // Lighting LEDs (3&4)
     LED3_Write(1);
     LED4_Write(1);
-    CyDelay(500);
+    CyDelay(200);
     // Audio Output 2
     // TODO
 }
 
 
 // Keyboard detection
-/*
+
 void detectKeyboard(char* key){
     // Detect the char pressed on the keybpard
     *key = keypadScan();
 
     if (*key != 'z'){
+        LED1_Write(1);
         if (*key == '2'){
-            jump();
+            jump(0); //attention, on hardcode un zero comme si c'etait pas un first jump
         }
         else if (*key == '8') {
             duck();
         }
     }
-}*/
+    else if(*key == 'z'){
+        LED2_Write(1);
+    }
+}
 
 
 // Light detection
