@@ -2,11 +2,13 @@
 // Created by Aramson Felho on 10/05/2023.
 //
 
+
+
 #ifndef NEVER_LOSE_KEYPAD_H
 #define NEVER_LOSE_KEYPAD_H
 
 #define KBD_DELAY   5
-
+#include <stdint.h>
 
 void keypadInit (void) {
     COL1_Write(1);

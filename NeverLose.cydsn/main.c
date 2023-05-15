@@ -3,15 +3,18 @@
 //
 #include <math.h>
 
-#include "keypad.h"  // Keypad header file
+//#include "keypad.h"  // Keypad header file
 #include "utils.h"   // Other functions header file
+#include "project.h"
+#include <stdint.h>
 
 #define PWM_VALUE 5000  // hasarg
 #define COLOR_CHANGE 10000  // The value at wich the color change on the screen
 #define COLOR_DELTA 100  // The minimum value to ignore the delta between de 2 photoresistor
 
-uint8 rxData;
 
+uint8 rxData;
+/*
 CY_ISR(isr_uart_Handler){
         uint8 status = 0;
         do{
@@ -28,7 +31,7 @@ CY_ISR(isr_uart_Handler){
         }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
 
 }
-
+*/
 int main(void)
 {
     CyGlobalIntEnable;  /* Enable global interrupts. */
@@ -45,18 +48,21 @@ int main(void)
     //uint32_t val_adc;
     char key = 'z';
 
-    PWM_WritePeriod(pwm_period);
-    isr_uart_StartEx(isr_uart_Handler);
+    PWM1_WritePeriod(pwm_period);
+    PWM2_WritePeriod(pwm_period);
+    //isr_uart_StartEx(isr_uart_Handler);
 
 
     LCD_Start();
     LCD_ClearDisplay();
-    Mux_Start();
+    //Mux_Start();
     ADC_Start();  // Start the Analog-to-Digital Converter
     UART_Start(); //Start the UART
-    PWM_Start();
-    keypadInit();  // Call initialization function form keypad.h
-
+    //keypadInit();  // Call initialization function form keypad.h
+    PWM1_Start();
+    PWM2_Start();
+    PWM1_WriteCompare(3000); //Servo à l'horizontal
+    PWM2_WriteCompare(3000); //Servo à l'horizontal
 
 
 
@@ -68,7 +74,7 @@ int main(void)
         // TODO: Increase the score over time (10 points per seconds)
         // Printing the score on the second half of the LCD
         LCD_Position(1,0);
-        LCD_PrintNumber(*score);
+        LCD_PrintNumber(&score);
 
         // Button detection
         /*
@@ -82,15 +88,15 @@ int main(void)
 
         } else if (SW3_Read()) {
             // Reset the score
-            (*score) = 0;
-            (*first_jump) = 1;
+           // (*score) = 0;
+           // (*first_jump) = 1;
 
         }
         // Light detection
-        detectLight(&photoResVal1, &photoResVal2, &day, &night);
+        //detectLight(&photoResVal1, &photoResVal2, &day, &night);
 
         // Keypad detection
-        detectKeyboard(&key);
+        //detectKeyboard(&key);
 
         // Shun-ting down  the LEDs
         LED1_Write(0);
@@ -107,32 +113,47 @@ void jump(uint8_t* first_jump){
         (*first_jump) = 0;
     }
     //Activate servo motor 1
-    PWM_WriteCompare(PWM_VALUE);
+    
+    // A Changer
+    
+    PWM1_WriteCompare(1700);
+    CyDelay(200); 
+    PWM1_WriteCompare(3000);
+    
     // Printing "Jump" on LCD
     LCD_Position(0,0);
     LCD_PrintString("Jump");
     // Lighting LEDs (1&2)
     LED1_Write(1);
     LED2_Write(1);
+    CyDelay(500);
     // Audio Output 1
     // TODO
 }
 // Down function
 void duck(){
     //Activate servo motor 2
-    PWM_WriteCompare(PWM_VALUE);
+    
+    // A Changer
+    
+    PWM2_WriteCompare(1700);
+    CyDelay(200); 
+    PWM2_WriteCompare(3000);
+    
     // Printing "Duck" on LCD
     LCD_Position(0,0);
     LCD_PrintString("Duck");
     // Lighting LEDs (3&4)
     LED3_Write(1);
     LED4_Write(1);
+    CyDelay(500);
     // Audio Output 2
     // TODO
 }
 
 
 // Keyboard detection
+/*
 void detectKeyboard(char* key){
     // Detect the char pressed on the keybpard
     *key = keypadScan();
@@ -145,13 +166,14 @@ void detectKeyboard(char* key){
             duck();
         }
     }
-}
+}*/
 
 
 // Light detection
 /*
  * Components name : ADC
  */
+/*
 void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0, uint8_t* night = 0 ){
 
     Mux_Select(0);
@@ -201,5 +223,5 @@ void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0
     }
 
 }
-
+*/
 

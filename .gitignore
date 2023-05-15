@@ -113,6 +113,8 @@ $RECYCLE.BIN/
 *.lnk
 
 ### PSoCCreator template
+*.cywrk
+*.cywrk.*
 
 # Generated Assets and Resources
 Debug/

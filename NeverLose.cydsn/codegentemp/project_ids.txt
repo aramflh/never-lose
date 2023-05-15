@@ -1,7 +1,6 @@
-C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\PWM_UART.cydsn\PWM_UART.cyprj|7e55ccf6-b680-4177-bced-14fe666cda70
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|eddc96df-76f7-4c30-8be4-f66cdab5ad55
-C:\Users\cleme\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|03b66134-990c-4fb5-9954-874fd4945800
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|44e72aee-8377-4240-aeb4-1c1106447d8c
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|0e15971f-84dd-45b8-bec6-e7d96aa3dadf
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|2ffb24df-11a2-4b8e-9992-ee4f6b406d02
-C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\NeverLose.cydsn\NeverLose.cyprj|b3e5354a-9595-4207-9ef9-44ea0533f15b
+C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\NeverLose.cyprj|7337a94e-cdac-49b1-998a-9ddf8c3e250b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|aff2484f-22fd-4970-ba11-1132ec739aa2
+C:\Users\cleme\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|bcc80aaf-1d4f-49ac-b933-253a1910a70d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5d474e5b-1432-4dca-a0de-f8ce2c396f37
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|4da77b28-da25-4c48-83ee-aa5acc6499b7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|5f3f9a25-dcf8-4e1c-8dcd-5f1c127b8c7d
