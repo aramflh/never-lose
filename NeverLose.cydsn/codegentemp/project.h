@@ -67,6 +67,7 @@
 #include "COL2.h"
 #include "COL3_aliases.h"
 #include "COL3.h"
+#include "Timer_DAC.h"
 #include "ADC_AMux.h"
 #include "ADC_Ext_CP_Clk.h"
 #include "ADC_IRQ.h"

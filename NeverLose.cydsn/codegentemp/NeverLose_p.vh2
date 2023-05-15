@@ -1,5 +1,5 @@
 -- Project:   NeverLose
--- Generated: 05/15/2023 12:25:56
+-- Generated: 05/15/2023 16:43:31
 -- PSoC Creator  4.4
 
 ENTITY NeverLose IS
@@ -150,6 +150,9 @@ ARCHITECTURE __DEFAULT__ OF NeverLose IS
     SIGNAL \Timer:Net_261\ : bit;
     SIGNAL \Timer:Net_51\ : bit;
     SIGNAL \Timer:Net_57\ : bit;
+    SIGNAL \Timer_DAC:Net_261\ : bit;
+    SIGNAL \Timer_DAC:Net_51\ : bit;
+    SIGNAL \Timer_DAC:Net_57\ : bit;
     SIGNAL \UART:BUART:counter_load_not\ : bit;
     SIGNAL \UART:BUART:pollcount_0\ : bit;
     SIGNAL \UART:BUART:pollcount_1\ : bit;
@@ -270,6 +273,20 @@ ARCHITECTURE __DEFAULT__ OF NeverLose IS
     ATTRIBUTE Location OF audio_out(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF PWMOUT2(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF PWMOUT2(0) : LABEL IS "P15[2]";
+    ATTRIBUTE lib_model OF ROW0(0) : LABEL IS "iocell22";
+    ATTRIBUTE Location OF ROW0(0) : LABEL IS "P3[5]";
+    ATTRIBUTE lib_model OF ROW1(0) : LABEL IS "iocell23";
+    ATTRIBUTE Location OF ROW1(0) : LABEL IS "P3[6]";
+    ATTRIBUTE lib_model OF ROW2(0) : LABEL IS "iocell24";
+    ATTRIBUTE Location OF ROW2(0) : LABEL IS "P3[7]";
+    ATTRIBUTE lib_model OF ROW3(0) : LABEL IS "iocell25";
+    ATTRIBUTE Location OF ROW3(0) : LABEL IS "P15[0]";
+    ATTRIBUTE lib_model OF COL1(0) : LABEL IS "iocell26";
+    ATTRIBUTE Location OF COL1(0) : LABEL IS "P3[1]";
+    ATTRIBUTE lib_model OF COL2(0) : LABEL IS "iocell27";
+    ATTRIBUTE Location OF COL2(0) : LABEL IS "P3[3]";
+    ATTRIBUTE lib_model OF COL3(0) : LABEL IS "iocell28";
+    ATTRIBUTE Location OF COL3(0) : LABEL IS "P3[4]";
     ATTRIBUTE lib_model OF \PWM1:PWMUDB:status_2\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF Net_54 : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \UART:BUART:counter_load_not\ : LABEL IS "macrocell3";
@@ -3463,6 +3480,19 @@ BEGIN
             tc => \Timer:Net_51\,
             cmp => \Timer:Net_261\,
             irq => \Timer:Net_57\);
+
+    \Timer_DAC:TimerHW\:timercell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => \ClockBlock.clk_bus_glb_ff__sig\,
+            kill => open,
+            enable => __ONE__,
+            capture => open,
+            timer_reset => open,
+            tc => \Timer_DAC:Net_51\,
+            cmp => \Timer_DAC:Net_261\,
+            irq => \Timer_DAC:Net_57\);
 
     \PWM1:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(

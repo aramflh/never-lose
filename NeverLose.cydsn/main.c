@@ -177,16 +177,12 @@ void detectKeyboard(char* key){
     *key = keypadScan();
 
     if (*key != 'z'){
-        LED1_Write(1);
         if (*key == '2'){
             jump(0); //attention, on hardcode un zero comme si c'etait pas un first jump
         }
         else if (*key == '8') {
             duck();
         }
-    }
-    else if(*key == 'z'){
-        LED2_Write(1);
     }
 }
 

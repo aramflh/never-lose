@@ -1,5 +1,5 @@
 # NeverLose
-# 2023-05-15 10:25:56Z
+# 2023-05-15 14:43:31Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -28,5 +28,12 @@ set_io "Rx_1(0)" iocell 2 7
 set_io "Tx_1(0)" iocell 1 2
 set_io "audio_out(0)" iocell 15 5
 set_io "PWMOUT2(0)" iocell 15 2
+set_io "ROW0(0)" iocell 3 5
+set_io "ROW1(0)" iocell 3 6
+set_io "ROW2(0)" iocell 3 7
+set_io "ROW3(0)" iocell 15 0
+set_io "COL1(0)" iocell 3 1
+set_io "COL2(0)" iocell 3 3
+set_io "COL3(0)" iocell 3 4
 set_location "\ADC:DSM\" dsmodcell -1 -1 0
 set_location "\DAC:viDAC8\" vidaccell -1 -1 0

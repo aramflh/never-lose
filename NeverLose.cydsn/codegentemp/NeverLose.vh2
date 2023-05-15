@@ -2,7 +2,7 @@
 --	Conversion of NeverLose.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Mon May 15 12:25:54 2023
+--	Mon May 15 16:43:30 2023
 --
 
 USE cypress.cypress.all;
@@ -1408,6 +1408,16 @@ SIGNAL tmpFB_0__COL3_net_0 : bit;
 SIGNAL tmpIO_0__COL3_net_0 : bit;
 TERMINAL tmpSIOVREF__COL3_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__COL3_net_0 : bit;
+SIGNAL Net_191 : bit;
+SIGNAL Net_193 : bit;
+SIGNAL \Timer_DAC:Net_260\ : bit;
+SIGNAL \Timer_DAC:Net_266\ : bit;
+SIGNAL \Timer_DAC:Net_51\ : bit;
+SIGNAL \Timer_DAC:Net_261\ : bit;
+SIGNAL \Timer_DAC:Net_57\ : bit;
+SIGNAL Net_197 : bit;
+SIGNAL Net_198 : bit;
+SIGNAL \Timer_DAC:Net_102\ : bit;
 SIGNAL \PWM1:PWMUDB:min_kill_reg\\D\ : bit;
 SIGNAL \PWM1:PWMUDB:prevCapture\\D\ : bit;
 SIGNAL \PWM1:PWMUDB:trig_last\\D\ : bit;
@@ -4193,6 +4203,26 @@ COL3:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__SW1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__COL3_net_0);
+timer_clock_1:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"156b356c-9ec8-44d0-87f2-a868c2707972",
+		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_191,
+		dig_domain_out=>open);
+\Timer_DAC:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_191,
+		kill=>zero,
+		enable=>tmpOE__SW1_net_0,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>\Timer_DAC:Net_51\,
+		compare=>\Timer_DAC:Net_261\,
+		interrupt=>\Timer_DAC:Net_57\);
 \PWM1:PWMUDB:min_kill_reg\:cy_dsrff
 	PORT MAP(d=>tmpOE__SW1_net_0,
 		s=>zero,

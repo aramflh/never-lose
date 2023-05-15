@@ -105,6 +105,9 @@
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\COL3_aliases.h" value="HEADER;;;;;COL3" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\COL3.c" value="SOURCE_C;CortexM3;;;;COL3" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\COL3.h" value="HEADER;;;;;COL3" />
+  <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\Timer_DAC.c" value="SOURCE_C;CortexM3;;;;Timer_DAC" />
+  <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\Timer_DAC.h" value="HEADER;;;;;Timer_DAC" />
+  <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\Timer_DAC_PM.c" value="SOURCE_C;CortexM3;;;;Timer_DAC" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\ADC_AMux.c" value="SOURCE_C;CortexM3;;;;ADC_AMux" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\ADC_AMux.h" value="HEADER;;;;;ADC_AMux" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\ADC_Ext_CP_Clk.c" value="SOURCE_C;CortexM3;;;;ADC_Ext_CP_Clk" />
