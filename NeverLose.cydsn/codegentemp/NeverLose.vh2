@@ -2,7 +2,7 @@
 --	Conversion of NeverLose.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed May 17 14:55:22 2023
+--	Wed May 17 17:07:00 2023
 --
 
 USE cypress.cypress.all;
@@ -85,7 +85,7 @@ TERMINAL \ADC:Net_34\ : bit;
 TERMINAL \ADC:Net_677\ : bit;
 TERMINAL \ADC:Net_20\ : bit;
 SIGNAL \ADC:Net_488\ : bit;
-TERMINAL Net_27 : bit;
+TERMINAL Net_214 : bit;
 TERMINAL \ADC:Net_520\ : bit;
 SIGNAL \ADC:Net_481\ : bit;
 SIGNAL \ADC:Net_482\ : bit;
@@ -124,7 +124,6 @@ TERMINAL tmpSIOVREF__photores2_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__photores2_net_0 : bit;
 SIGNAL tmpOE__photores1_net_0 : bit;
 SIGNAL tmpFB_0__photores1_net_0 : bit;
-TERMINAL Net_36 : bit;
 SIGNAL tmpIO_0__photores1_net_0 : bit;
 TERMINAL tmpSIOVREF__photores1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__photores1_net_0 : bit;
@@ -2360,7 +2359,7 @@ LED4:cy_psoc3_pins_v1_10
 	GENERIC MAP(cy_registers=>"",
 		resolution=>16)
 	PORT MAP(aclock=>\ADC:Net_488\,
-		vplus=>Net_27,
+		vplus=>Net_214,
 		vminus=>\ADC:Net_520\,
 		modbit=>zero,
 		reset_udb=>zero,
@@ -2561,7 +2560,7 @@ photores1:cy_psoc3_pins_v1_10
 	PORT MAP(oe=>(tmpOE__SW1_net_0),
 		y=>(zero),
 		fb=>(tmpFB_0__photores1_net_0),
-		analog=>Net_36,
+		analog=>Net_214,
 		io=>(tmpIO_0__photores1_net_0),
 		siovref=>(tmpSIOVREF__photores1_net_0),
 		annotation=>(open),
@@ -2572,17 +2571,6 @@ photores1:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__SW1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__photores1_net_0);
-Mux:cy_psoc3_amux_v1_0
-	GENERIC MAP(cy_registers=>"",
-		muxin_width=>2,
-		hw_control=>'0',
-		one_active=>'0',
-		init_mux_sel=>"00",
-		api_type=>0,
-		connect_mode=>1)
-	PORT MAP(muxin=>(Net_36, Net_35),
-		hw_ctrl_en=>(others => zero),
-		vout=>Net_27);
 \PWM1:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>Net_142,

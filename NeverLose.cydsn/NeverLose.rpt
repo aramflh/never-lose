@@ -1,13 +1,19 @@
-Loading plugins phase: Elapsed time ==> 0s.144ms
+Loading plugins phase: Elapsed time ==> 3s.739ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\NeverLose.cyprj -d CY8C5888LTI-LP097 -s C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
+ADD: sdb.M0065: information: Analog terminal "photores2.analog_0" on TopDesign is unconnected.
+ * C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\TopDesign\TopDesign.cysch (Signal: Net_35)
+ * C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\TopDesign\TopDesign.cysch (Shape_100)
+ * C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\TopDesign\TopDesign.cysch (Shape_25.1)
+ * C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\TopDesign\TopDesign.cysch (Shape_99)
+
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 2s.628ms
+Elaboration phase: Elapsed time ==> 20s.640ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.069ms
+HDL generation phase: Elapsed time ==> 0s.105ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +47,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cleme
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Wed May 17 14:55:20 2023
+Wed May 17 17:06:57 2023
 
 
 ======================================================================
@@ -51,7 +57,7 @@ Options  :    -yv2 -q10 NeverLose.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Wed May 17 14:55:20 2023
+Wed May 17 17:06:57 2023
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_vref_v1_70\cy_vref_v1_70.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v'
@@ -106,7 +112,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cleme
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Wed May 17 14:55:20 2023
+Wed May 17 17:06:58 2023
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -146,7 +152,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cleme
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Wed May 17 14:55:21 2023
+Wed May 17 17:06:59 2023
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -749,297 +755,297 @@ Removing Lhs of wire \ADC:Net_252\[152] = zero[2]
 Removing Lhs of wire \ADC:soc\[154] = tmpOE__SW1_net_0[1]
 Removing Lhs of wire tmpOE__photores2_net_0[158] = tmpOE__SW1_net_0[1]
 Removing Lhs of wire tmpOE__photores1_net_0[165] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:ctrl_enable\[186] = \PWM1:PWMUDB:control_7\[178]
-Removing Lhs of wire \PWM1:PWMUDB:hwCapture\[196] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:hwEnable\[197] = \PWM1:PWMUDB:control_7\[178]
-Removing Lhs of wire \PWM1:PWMUDB:trig_out\[201] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:runmode_enable\\R\[203] = zero[2]
-Removing Lhs of wire Net_168[204] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:runmode_enable\\S\[205] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:final_enable\[206] = \PWM1:PWMUDB:runmode_enable\[202]
-Removing Lhs of wire \PWM1:PWMUDB:ltch_kill_reg\\R\[210] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:ltch_kill_reg\\S\[211] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:min_kill_reg\\R\[212] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:min_kill_reg\\S\[213] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:final_kill\[216] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:add_vi_vv_MODGEN_1_1\[220] = \PWM1:PWMUDB:MODULE_1:g2:a0:s_1\[507]
-Removing Lhs of wire \PWM1:PWMUDB:add_vi_vv_MODGEN_1_0\[222] = \PWM1:PWMUDB:MODULE_1:g2:a0:s_0\[508]
-Removing Lhs of wire \PWM1:PWMUDB:dith_count_1\\R\[223] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:dith_count_1\\S\[224] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:dith_count_0\\R\[225] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:dith_count_0\\S\[226] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:status_6\[229] = zero[2]
-Removing Rhs of wire \PWM1:PWMUDB:status_5\[230] = \PWM1:PWMUDB:final_kill_reg\[244]
-Removing Lhs of wire \PWM1:PWMUDB:status_4\[231] = zero[2]
-Removing Rhs of wire \PWM1:PWMUDB:status_3\[232] = \PWM1:PWMUDB:fifo_full\[251]
-Removing Rhs of wire \PWM1:PWMUDB:status_1\[234] = \PWM1:PWMUDB:cmp2_status_reg\[243]
-Removing Rhs of wire \PWM1:PWMUDB:status_0\[235] = \PWM1:PWMUDB:cmp1_status_reg\[242]
-Removing Lhs of wire \PWM1:PWMUDB:cmp2_status\[240] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:cmp2\[241] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:cmp1_status_reg\\R\[245] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:cmp1_status_reg\\S\[246] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:cmp2_status_reg\\R\[247] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:cmp2_status_reg\\S\[248] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:final_kill_reg\\R\[249] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:final_kill_reg\\S\[250] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:cs_addr_2\[252] = \PWM1:PWMUDB:tc_i\[208]
-Removing Lhs of wire \PWM1:PWMUDB:cs_addr_1\[253] = \PWM1:PWMUDB:runmode_enable\[202]
-Removing Lhs of wire \PWM1:PWMUDB:cs_addr_0\[254] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:compare1\[335] = \PWM1:PWMUDB:cmp1_less\[306]
-Removing Lhs of wire \PWM1:PWMUDB:pwm1_i\[340] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:pwm2_i\[342] = zero[2]
-Removing Rhs of wire \PWM1:Net_96\[345] = \PWM1:PWMUDB:pwm_i_reg\[337]
-Removing Lhs of wire \PWM1:PWMUDB:pwm_temp\[348] = \PWM1:PWMUDB:cmp1\[238]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_23\[389] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_22\[390] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_21\[391] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_20\[392] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_19\[393] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_18\[394] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_17\[395] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_16\[396] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_15\[397] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_14\[398] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_13\[399] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_12\[400] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_11\[401] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_10\[402] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_9\[403] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_8\[404] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_7\[405] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_6\[406] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_5\[407] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_4\[408] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_3\[409] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_2\[410] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_1\[411] = \PWM1:PWMUDB:MODIN1_1\[412]
-Removing Lhs of wire \PWM1:PWMUDB:MODIN1_1\[412] = \PWM1:PWMUDB:dith_count_1\[219]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_0\[413] = \PWM1:PWMUDB:MODIN1_0\[414]
-Removing Lhs of wire \PWM1:PWMUDB:MODIN1_0\[414] = \PWM1:PWMUDB:dith_count_0\[221]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[546] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[547] = tmpOE__SW1_net_0[1]
-Removing Rhs of wire Net_38[548] = \PWM1:Net_96\[345]
-Removing Lhs of wire tmpOE__PWMOUT1_net_0[556] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_6\[562] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_5\[563] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_4\[564] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_3\[565] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_2\[566] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_1\[567] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \LCD:tmpOE__LCDPort_net_0\[568] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:Net_61\[587] = \UART:Net_9\[586]
-Removing Lhs of wire Net_47[591] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_hd_send_break\[592] = zero[2]
-Removing Lhs of wire \UART:BUART:HalfDuplexSend\[593] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalParityType_1\[594] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalParityType_0\[595] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalAddrMode_2\[596] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalAddrMode_1\[597] = zero[2]
-Removing Lhs of wire \UART:BUART:FinalAddrMode_0\[598] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_ctrl_mark\[599] = zero[2]
-Removing Rhs of wire Net_460[606] = \UART:BUART:rx_interrupt_out\[607]
-Removing Rhs of wire \UART:BUART:tx_bitclk_enable_pre\[611] = \UART:BUART:tx_bitclk_dp\[647]
-Removing Lhs of wire \UART:BUART:tx_counter_tc\[657] = \UART:BUART:tx_counter_dp\[648]
-Removing Lhs of wire \UART:BUART:tx_status_6\[658] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_status_5\[659] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_status_4\[660] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_status_1\[662] = \UART:BUART:tx_fifo_empty\[625]
-Removing Lhs of wire \UART:BUART:tx_status_3\[664] = \UART:BUART:tx_fifo_notfull\[624]
-Removing Lhs of wire \UART:BUART:rx_count7_bit8_wire\[724] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_2_1\[732] = \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_1\[743]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_2_0\[734] = \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_0\[744]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\[735] = \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\[760]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_4\[736] = \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_0\[774]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:a_1\[737] = \UART:BUART:sRX:s23Poll:MODIN2_1\[738]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_1\[738] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:a_0\[739] = \UART:BUART:sRX:s23Poll:MODIN2_0\[740]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_0\[740] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\[746] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\[747] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\[748] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_1\[749] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\[750] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_0\[751] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\[752] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\[753] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\[754] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\[755] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\[756] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\[757] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newa_1\[762] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN4_1\[763] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newa_0\[764] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN4_0\[765] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_1\[766] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_0\[767] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:dataa_1\[768] = \UART:BUART:pollcount_1\[730]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:dataa_0\[769] = \UART:BUART:pollcount_0\[733]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:datab_1\[770] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:datab_0\[771] = zero[2]
-Removing Lhs of wire \UART:BUART:rx_status_1\[778] = zero[2]
-Removing Rhs of wire \UART:BUART:rx_status_2\[779] = \UART:BUART:rx_parity_error_status\[780]
-Removing Rhs of wire \UART:BUART:rx_status_3\[781] = \UART:BUART:rx_stop_bit_error\[782]
-Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_5\[792] = \UART:BUART:sRX:MODULE_5:g2:a0:lta_0\[841]
-Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_6\[796] = \UART:BUART:sRX:MODULE_6:g1:a0:xneq\[863]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_6\[797] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_5\[798] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_4\[799] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_3\[800] = \UART:BUART:sRX:MODIN5_6\[801]
-Removing Lhs of wire \UART:BUART:sRX:MODIN5_6\[801] = \UART:BUART:rx_count_6\[719]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_2\[802] = \UART:BUART:sRX:MODIN5_5\[803]
-Removing Lhs of wire \UART:BUART:sRX:MODIN5_5\[803] = \UART:BUART:rx_count_5\[720]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_1\[804] = \UART:BUART:sRX:MODIN5_4\[805]
-Removing Lhs of wire \UART:BUART:sRX:MODIN5_4\[805] = \UART:BUART:rx_count_4\[721]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_0\[806] = \UART:BUART:sRX:MODIN5_3\[807]
-Removing Lhs of wire \UART:BUART:sRX:MODIN5_3\[807] = \UART:BUART:rx_count_3\[722]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_6\[808] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_5\[809] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_4\[810] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_3\[811] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_2\[812] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_1\[813] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_0\[814] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_6\[815] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_5\[816] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_4\[817] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_3\[818] = \UART:BUART:rx_count_6\[719]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_2\[819] = \UART:BUART:rx_count_5\[720]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_1\[820] = \UART:BUART:rx_count_4\[721]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_0\[821] = \UART:BUART:rx_count_3\[722]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_6\[822] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_5\[823] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_4\[824] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_3\[825] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_2\[826] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_1\[827] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_0\[828] = zero[2]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:newa_0\[843] = \UART:BUART:rx_postpoll\[678]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:newb_0\[844] = \UART:BUART:rx_parity_bit\[795]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:dataa_0\[845] = \UART:BUART:rx_postpoll\[678]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:datab_0\[846] = \UART:BUART:rx_parity_bit\[795]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:a_0\[847] = \UART:BUART:rx_postpoll\[678]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:b_0\[848] = \UART:BUART:rx_parity_bit\[795]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_0\[850] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:eq_0\[851] = \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[849]
-Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:eqi_0\[852] = \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[849]
-Removing Lhs of wire tmpOE__Rx_1_net_0[874] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__Tx_1_net_0[879] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \DAC:Net_83\[886] = zero[2]
-Removing Lhs of wire \DAC:Net_81\[887] = zero[2]
-Removing Lhs of wire \DAC:Net_82\[888] = zero[2]
-Removing Lhs of wire tmpOE__audio_out_net_0[893] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire Net_103[898] = zero[2]
-Removing Lhs of wire tmpOE__PWMOUT2_net_0[900] = tmpOE__SW1_net_0[1]
-Removing Rhs of wire Net_104[901] = \PWM2:Net_96\[1078]
-Removing Rhs of wire Net_104[901] = \PWM2:PWMUDB:pwm_i_reg\[1070]
-Removing Lhs of wire \PWM2:PWMUDB:ctrl_enable\[920] = \PWM2:PWMUDB:control_7\[912]
-Removing Lhs of wire \PWM2:PWMUDB:hwCapture\[930] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:hwEnable\[931] = \PWM2:PWMUDB:control_7\[912]
-Removing Lhs of wire \PWM2:PWMUDB:trig_out\[935] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM2:PWMUDB:runmode_enable\\R\[937] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:runmode_enable\\S\[938] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:final_enable\[939] = \PWM2:PWMUDB:runmode_enable\[936]
-Removing Lhs of wire \PWM2:PWMUDB:ltch_kill_reg\\R\[943] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:ltch_kill_reg\\S\[944] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:min_kill_reg\\R\[945] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:min_kill_reg\\S\[946] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:final_kill\[949] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM2:PWMUDB:add_vi_vv_MODGEN_7_1\[953] = \PWM2:PWMUDB:MODULE_7:g2:a0:s_1\[1240]
-Removing Lhs of wire \PWM2:PWMUDB:add_vi_vv_MODGEN_7_0\[955] = \PWM2:PWMUDB:MODULE_7:g2:a0:s_0\[1241]
-Removing Lhs of wire \PWM2:PWMUDB:dith_count_1\\R\[956] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:dith_count_1\\S\[957] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:dith_count_0\\R\[958] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:dith_count_0\\S\[959] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:status_6\[962] = zero[2]
-Removing Rhs of wire \PWM2:PWMUDB:status_5\[963] = \PWM2:PWMUDB:final_kill_reg\[977]
-Removing Lhs of wire \PWM2:PWMUDB:status_4\[964] = zero[2]
-Removing Rhs of wire \PWM2:PWMUDB:status_3\[965] = \PWM2:PWMUDB:fifo_full\[984]
-Removing Rhs of wire \PWM2:PWMUDB:status_1\[967] = \PWM2:PWMUDB:cmp2_status_reg\[976]
-Removing Rhs of wire \PWM2:PWMUDB:status_0\[968] = \PWM2:PWMUDB:cmp1_status_reg\[975]
-Removing Lhs of wire \PWM2:PWMUDB:cmp2_status\[973] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:cmp2\[974] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:cmp1_status_reg\\R\[978] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:cmp1_status_reg\\S\[979] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:cmp2_status_reg\\R\[980] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:cmp2_status_reg\\S\[981] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:final_kill_reg\\R\[982] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:final_kill_reg\\S\[983] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:cs_addr_2\[985] = \PWM2:PWMUDB:tc_i\[941]
-Removing Lhs of wire \PWM2:PWMUDB:cs_addr_1\[986] = \PWM2:PWMUDB:runmode_enable\[936]
-Removing Lhs of wire \PWM2:PWMUDB:cs_addr_0\[987] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:compare1\[1068] = \PWM2:PWMUDB:cmp1_less\[1039]
-Removing Lhs of wire \PWM2:PWMUDB:pwm1_i\[1073] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:pwm2_i\[1075] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:pwm_temp\[1081] = \PWM2:PWMUDB:cmp1\[971]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_23\[1122] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_22\[1123] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_21\[1124] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_20\[1125] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_19\[1126] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_18\[1127] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_17\[1128] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_16\[1129] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_15\[1130] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_14\[1131] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_13\[1132] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_12\[1133] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_11\[1134] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_10\[1135] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_9\[1136] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_8\[1137] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_7\[1138] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_6\[1139] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_5\[1140] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_4\[1141] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_3\[1142] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_2\[1143] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_1\[1144] = \PWM2:PWMUDB:MODIN6_1\[1145]
-Removing Lhs of wire \PWM2:PWMUDB:MODIN6_1\[1145] = \PWM2:PWMUDB:dith_count_1\[952]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_0\[1146] = \PWM2:PWMUDB:MODIN6_0\[1147]
-Removing Lhs of wire \PWM2:PWMUDB:MODIN6_0\[1147] = \PWM2:PWMUDB:dith_count_0\[954]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_0\[1279] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_0\[1280] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire Net_32[1289] = zero[2]
-Removing Lhs of wire \Timer:Net_260\[1291] = zero[2]
-Removing Lhs of wire \Timer:Net_266\[1292] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \Timer:Net_102\[1298] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__ROW0_net_0[1300] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__ROW1_net_0[1306] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__ROW2_net_0[1312] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__ROW3_net_0[1318] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__COL1_net_0[1324] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__COL2_net_0[1330] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire tmpOE__COL3_net_0[1336] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire Net_193[1343] = zero[2]
-Removing Lhs of wire \Timer_DAC:Net_260\[1345] = zero[2]
-Removing Lhs of wire \Timer_DAC:Net_266\[1346] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \Timer_DAC:Net_102\[1352] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:min_kill_reg\\D\[1353] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:prevCapture\\D\[1354] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:trig_last\\D\[1355] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:ltch_kill_reg\\D\[1358] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM1:PWMUDB:prevCompare1\\D\[1361] = \PWM1:PWMUDB:cmp1\[238]
-Removing Lhs of wire \PWM1:PWMUDB:cmp1_status_reg\\D\[1362] = \PWM1:PWMUDB:cmp1_status\[239]
-Removing Lhs of wire \PWM1:PWMUDB:cmp2_status_reg\\D\[1363] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:pwm_i_reg\\D\[1365] = \PWM1:PWMUDB:pwm_i\[338]
-Removing Lhs of wire \PWM1:PWMUDB:pwm1_i_reg\\D\[1366] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:pwm2_i_reg\\D\[1367] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:tc_i_reg\\D\[1368] = \PWM1:PWMUDB:status_2\[233]
-Removing Lhs of wire \UART:BUART:reset_reg\\D\[1369] = zero[2]
-Removing Lhs of wire \UART:BUART:rx_bitclk\\D\[1384] = \UART:BUART:rx_bitclk_pre\[713]
-Removing Lhs of wire \UART:BUART:rx_parity_error_pre\\D\[1393] = \UART:BUART:rx_parity_error_pre\[790]
-Removing Lhs of wire \UART:BUART:rx_break_status\\D\[1394] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:min_kill_reg\\D\[1398] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM2:PWMUDB:prevCapture\\D\[1399] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:trig_last\\D\[1400] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:ltch_kill_reg\\D\[1403] = tmpOE__SW1_net_0[1]
-Removing Lhs of wire \PWM2:PWMUDB:prevCompare1\\D\[1406] = \PWM2:PWMUDB:cmp1\[971]
-Removing Lhs of wire \PWM2:PWMUDB:cmp1_status_reg\\D\[1407] = \PWM2:PWMUDB:cmp1_status\[972]
-Removing Lhs of wire \PWM2:PWMUDB:cmp2_status_reg\\D\[1408] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:pwm_i_reg\\D\[1410] = \PWM2:PWMUDB:pwm_i\[1071]
-Removing Lhs of wire \PWM2:PWMUDB:pwm1_i_reg\\D\[1411] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:pwm2_i_reg\\D\[1412] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:tc_i_reg\\D\[1413] = \PWM2:PWMUDB:status_2\[966]
+Removing Lhs of wire \PWM1:PWMUDB:ctrl_enable\[184] = \PWM1:PWMUDB:control_7\[176]
+Removing Lhs of wire \PWM1:PWMUDB:hwCapture\[194] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:hwEnable\[195] = \PWM1:PWMUDB:control_7\[176]
+Removing Lhs of wire \PWM1:PWMUDB:trig_out\[199] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM1:PWMUDB:runmode_enable\\R\[201] = zero[2]
+Removing Lhs of wire Net_168[202] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:runmode_enable\\S\[203] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:final_enable\[204] = \PWM1:PWMUDB:runmode_enable\[200]
+Removing Lhs of wire \PWM1:PWMUDB:ltch_kill_reg\\R\[208] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:ltch_kill_reg\\S\[209] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:min_kill_reg\\R\[210] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:min_kill_reg\\S\[211] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:final_kill\[214] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM1:PWMUDB:add_vi_vv_MODGEN_1_1\[218] = \PWM1:PWMUDB:MODULE_1:g2:a0:s_1\[505]
+Removing Lhs of wire \PWM1:PWMUDB:add_vi_vv_MODGEN_1_0\[220] = \PWM1:PWMUDB:MODULE_1:g2:a0:s_0\[506]
+Removing Lhs of wire \PWM1:PWMUDB:dith_count_1\\R\[221] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:dith_count_1\\S\[222] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:dith_count_0\\R\[223] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:dith_count_0\\S\[224] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:status_6\[227] = zero[2]
+Removing Rhs of wire \PWM1:PWMUDB:status_5\[228] = \PWM1:PWMUDB:final_kill_reg\[242]
+Removing Lhs of wire \PWM1:PWMUDB:status_4\[229] = zero[2]
+Removing Rhs of wire \PWM1:PWMUDB:status_3\[230] = \PWM1:PWMUDB:fifo_full\[249]
+Removing Rhs of wire \PWM1:PWMUDB:status_1\[232] = \PWM1:PWMUDB:cmp2_status_reg\[241]
+Removing Rhs of wire \PWM1:PWMUDB:status_0\[233] = \PWM1:PWMUDB:cmp1_status_reg\[240]
+Removing Lhs of wire \PWM1:PWMUDB:cmp2_status\[238] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:cmp2\[239] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:cmp1_status_reg\\R\[243] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:cmp1_status_reg\\S\[244] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:cmp2_status_reg\\R\[245] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:cmp2_status_reg\\S\[246] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:final_kill_reg\\R\[247] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:final_kill_reg\\S\[248] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:cs_addr_2\[250] = \PWM1:PWMUDB:tc_i\[206]
+Removing Lhs of wire \PWM1:PWMUDB:cs_addr_1\[251] = \PWM1:PWMUDB:runmode_enable\[200]
+Removing Lhs of wire \PWM1:PWMUDB:cs_addr_0\[252] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:compare1\[333] = \PWM1:PWMUDB:cmp1_less\[304]
+Removing Lhs of wire \PWM1:PWMUDB:pwm1_i\[338] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:pwm2_i\[340] = zero[2]
+Removing Rhs of wire \PWM1:Net_96\[343] = \PWM1:PWMUDB:pwm_i_reg\[335]
+Removing Lhs of wire \PWM1:PWMUDB:pwm_temp\[346] = \PWM1:PWMUDB:cmp1\[236]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_23\[387] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_22\[388] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_21\[389] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_20\[390] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_19\[391] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_18\[392] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_17\[393] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_16\[394] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_15\[395] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_14\[396] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_13\[397] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_12\[398] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_11\[399] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_10\[400] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_9\[401] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_8\[402] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_7\[403] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_6\[404] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_5\[405] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_4\[406] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_3\[407] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_2\[408] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_1\[409] = \PWM1:PWMUDB:MODIN1_1\[410]
+Removing Lhs of wire \PWM1:PWMUDB:MODIN1_1\[410] = \PWM1:PWMUDB:dith_count_1\[217]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:a_0\[411] = \PWM1:PWMUDB:MODIN1_0\[412]
+Removing Lhs of wire \PWM1:PWMUDB:MODIN1_0\[412] = \PWM1:PWMUDB:dith_count_0\[219]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[544] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[545] = tmpOE__SW1_net_0[1]
+Removing Rhs of wire Net_38[546] = \PWM1:Net_96\[343]
+Removing Lhs of wire tmpOE__PWMOUT1_net_0[554] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_6\[560] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_5\[561] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_4\[562] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_3\[563] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_2\[564] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_1\[565] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \LCD:tmpOE__LCDPort_net_0\[566] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:Net_61\[585] = \UART:Net_9\[584]
+Removing Lhs of wire Net_47[589] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_hd_send_break\[590] = zero[2]
+Removing Lhs of wire \UART:BUART:HalfDuplexSend\[591] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalParityType_1\[592] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalParityType_0\[593] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalAddrMode_2\[594] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalAddrMode_1\[595] = zero[2]
+Removing Lhs of wire \UART:BUART:FinalAddrMode_0\[596] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_ctrl_mark\[597] = zero[2]
+Removing Rhs of wire Net_460[604] = \UART:BUART:rx_interrupt_out\[605]
+Removing Rhs of wire \UART:BUART:tx_bitclk_enable_pre\[609] = \UART:BUART:tx_bitclk_dp\[645]
+Removing Lhs of wire \UART:BUART:tx_counter_tc\[655] = \UART:BUART:tx_counter_dp\[646]
+Removing Lhs of wire \UART:BUART:tx_status_6\[656] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_status_5\[657] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_status_4\[658] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_status_1\[660] = \UART:BUART:tx_fifo_empty\[623]
+Removing Lhs of wire \UART:BUART:tx_status_3\[662] = \UART:BUART:tx_fifo_notfull\[622]
+Removing Lhs of wire \UART:BUART:rx_count7_bit8_wire\[722] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_2_1\[730] = \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_1\[741]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:add_vv_vv_MODGEN_2_0\[732] = \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:s_0\[742]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_3\[733] = \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:lta_0\[758]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:cmp_vv_vv_MODGEN_4\[734] = \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:lta_0\[772]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:a_1\[735] = \UART:BUART:sRX:s23Poll:MODIN2_1\[736]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_1\[736] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:a_0\[737] = \UART:BUART:sRX:s23Poll:MODIN2_0\[738]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN2_0\[738] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\[744] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\[745] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_1\[746] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_1\[747] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newa_0\[748] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN3_0\[749] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_1\[750] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:newb_0\[751] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_1\[752] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:dataa_0\[753] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_1\[754] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_3:g2:a0:datab_0\[755] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newa_1\[760] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN4_1\[761] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newa_0\[762] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODIN4_0\[763] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_1\[764] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:newb_0\[765] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:dataa_1\[766] = \UART:BUART:pollcount_1\[728]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:dataa_0\[767] = \UART:BUART:pollcount_0\[731]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:datab_1\[768] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:s23Poll:MODULE_4:g2:a0:datab_0\[769] = zero[2]
+Removing Lhs of wire \UART:BUART:rx_status_1\[776] = zero[2]
+Removing Rhs of wire \UART:BUART:rx_status_2\[777] = \UART:BUART:rx_parity_error_status\[778]
+Removing Rhs of wire \UART:BUART:rx_status_3\[779] = \UART:BUART:rx_stop_bit_error\[780]
+Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_5\[790] = \UART:BUART:sRX:MODULE_5:g2:a0:lta_0\[839]
+Removing Lhs of wire \UART:BUART:sRX:cmp_vv_vv_MODGEN_6\[794] = \UART:BUART:sRX:MODULE_6:g1:a0:xneq\[861]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_6\[795] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_5\[796] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_4\[797] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_3\[798] = \UART:BUART:sRX:MODIN5_6\[799]
+Removing Lhs of wire \UART:BUART:sRX:MODIN5_6\[799] = \UART:BUART:rx_count_6\[717]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_2\[800] = \UART:BUART:sRX:MODIN5_5\[801]
+Removing Lhs of wire \UART:BUART:sRX:MODIN5_5\[801] = \UART:BUART:rx_count_5\[718]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_1\[802] = \UART:BUART:sRX:MODIN5_4\[803]
+Removing Lhs of wire \UART:BUART:sRX:MODIN5_4\[803] = \UART:BUART:rx_count_4\[719]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newa_0\[804] = \UART:BUART:sRX:MODIN5_3\[805]
+Removing Lhs of wire \UART:BUART:sRX:MODIN5_3\[805] = \UART:BUART:rx_count_3\[720]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_6\[806] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_5\[807] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_4\[808] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_3\[809] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_2\[810] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_1\[811] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:newb_0\[812] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_6\[813] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_5\[814] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_4\[815] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_3\[816] = \UART:BUART:rx_count_6\[717]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_2\[817] = \UART:BUART:rx_count_5\[718]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_1\[818] = \UART:BUART:rx_count_4\[719]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:dataa_0\[819] = \UART:BUART:rx_count_3\[720]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_6\[820] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_5\[821] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_4\[822] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_3\[823] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_2\[824] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_1\[825] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_5:g2:a0:datab_0\[826] = zero[2]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:newa_0\[841] = \UART:BUART:rx_postpoll\[676]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:newb_0\[842] = \UART:BUART:rx_parity_bit\[793]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:dataa_0\[843] = \UART:BUART:rx_postpoll\[676]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:datab_0\[844] = \UART:BUART:rx_parity_bit\[793]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:a_0\[845] = \UART:BUART:rx_postpoll\[676]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:b_0\[846] = \UART:BUART:rx_parity_bit\[793]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:aeqb_0\[848] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:eq_0\[849] = \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[847]
+Removing Lhs of wire \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:eqi_0\[850] = \UART:BUART:sRX:MODULE_6:g1:a0:gx:u0:xnor_array_0\[847]
+Removing Lhs of wire tmpOE__Rx_1_net_0[872] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__Tx_1_net_0[877] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \DAC:Net_83\[884] = zero[2]
+Removing Lhs of wire \DAC:Net_81\[885] = zero[2]
+Removing Lhs of wire \DAC:Net_82\[886] = zero[2]
+Removing Lhs of wire tmpOE__audio_out_net_0[891] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire Net_103[896] = zero[2]
+Removing Lhs of wire tmpOE__PWMOUT2_net_0[898] = tmpOE__SW1_net_0[1]
+Removing Rhs of wire Net_104[899] = \PWM2:Net_96\[1076]
+Removing Rhs of wire Net_104[899] = \PWM2:PWMUDB:pwm_i_reg\[1068]
+Removing Lhs of wire \PWM2:PWMUDB:ctrl_enable\[918] = \PWM2:PWMUDB:control_7\[910]
+Removing Lhs of wire \PWM2:PWMUDB:hwCapture\[928] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:hwEnable\[929] = \PWM2:PWMUDB:control_7\[910]
+Removing Lhs of wire \PWM2:PWMUDB:trig_out\[933] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM2:PWMUDB:runmode_enable\\R\[935] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:runmode_enable\\S\[936] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:final_enable\[937] = \PWM2:PWMUDB:runmode_enable\[934]
+Removing Lhs of wire \PWM2:PWMUDB:ltch_kill_reg\\R\[941] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:ltch_kill_reg\\S\[942] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:min_kill_reg\\R\[943] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:min_kill_reg\\S\[944] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:final_kill\[947] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM2:PWMUDB:add_vi_vv_MODGEN_7_1\[951] = \PWM2:PWMUDB:MODULE_7:g2:a0:s_1\[1238]
+Removing Lhs of wire \PWM2:PWMUDB:add_vi_vv_MODGEN_7_0\[953] = \PWM2:PWMUDB:MODULE_7:g2:a0:s_0\[1239]
+Removing Lhs of wire \PWM2:PWMUDB:dith_count_1\\R\[954] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:dith_count_1\\S\[955] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:dith_count_0\\R\[956] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:dith_count_0\\S\[957] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:status_6\[960] = zero[2]
+Removing Rhs of wire \PWM2:PWMUDB:status_5\[961] = \PWM2:PWMUDB:final_kill_reg\[975]
+Removing Lhs of wire \PWM2:PWMUDB:status_4\[962] = zero[2]
+Removing Rhs of wire \PWM2:PWMUDB:status_3\[963] = \PWM2:PWMUDB:fifo_full\[982]
+Removing Rhs of wire \PWM2:PWMUDB:status_1\[965] = \PWM2:PWMUDB:cmp2_status_reg\[974]
+Removing Rhs of wire \PWM2:PWMUDB:status_0\[966] = \PWM2:PWMUDB:cmp1_status_reg\[973]
+Removing Lhs of wire \PWM2:PWMUDB:cmp2_status\[971] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:cmp2\[972] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:cmp1_status_reg\\R\[976] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:cmp1_status_reg\\S\[977] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:cmp2_status_reg\\R\[978] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:cmp2_status_reg\\S\[979] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:final_kill_reg\\R\[980] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:final_kill_reg\\S\[981] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:cs_addr_2\[983] = \PWM2:PWMUDB:tc_i\[939]
+Removing Lhs of wire \PWM2:PWMUDB:cs_addr_1\[984] = \PWM2:PWMUDB:runmode_enable\[934]
+Removing Lhs of wire \PWM2:PWMUDB:cs_addr_0\[985] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:compare1\[1066] = \PWM2:PWMUDB:cmp1_less\[1037]
+Removing Lhs of wire \PWM2:PWMUDB:pwm1_i\[1071] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:pwm2_i\[1073] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:pwm_temp\[1079] = \PWM2:PWMUDB:cmp1\[969]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_23\[1120] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_22\[1121] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_21\[1122] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_20\[1123] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_19\[1124] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_18\[1125] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_17\[1126] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_16\[1127] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_15\[1128] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_14\[1129] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_13\[1130] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_12\[1131] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_11\[1132] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_10\[1133] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_9\[1134] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_8\[1135] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_7\[1136] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_6\[1137] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_5\[1138] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_4\[1139] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_3\[1140] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_2\[1141] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_1\[1142] = \PWM2:PWMUDB:MODIN6_1\[1143]
+Removing Lhs of wire \PWM2:PWMUDB:MODIN6_1\[1143] = \PWM2:PWMUDB:dith_count_1\[950]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:a_0\[1144] = \PWM2:PWMUDB:MODIN6_0\[1145]
+Removing Lhs of wire \PWM2:PWMUDB:MODIN6_0\[1145] = \PWM2:PWMUDB:dith_count_0\[952]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_0\[1277] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_0\[1278] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire Net_32[1287] = zero[2]
+Removing Lhs of wire \Timer:Net_260\[1289] = zero[2]
+Removing Lhs of wire \Timer:Net_266\[1290] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \Timer:Net_102\[1296] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__ROW0_net_0[1298] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__ROW1_net_0[1304] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__ROW2_net_0[1310] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__ROW3_net_0[1316] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__COL1_net_0[1322] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__COL2_net_0[1328] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire tmpOE__COL3_net_0[1334] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire Net_193[1341] = zero[2]
+Removing Lhs of wire \Timer_DAC:Net_260\[1343] = zero[2]
+Removing Lhs of wire \Timer_DAC:Net_266\[1344] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \Timer_DAC:Net_102\[1350] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM1:PWMUDB:min_kill_reg\\D\[1351] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM1:PWMUDB:prevCapture\\D\[1352] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:trig_last\\D\[1353] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:ltch_kill_reg\\D\[1356] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM1:PWMUDB:prevCompare1\\D\[1359] = \PWM1:PWMUDB:cmp1\[236]
+Removing Lhs of wire \PWM1:PWMUDB:cmp1_status_reg\\D\[1360] = \PWM1:PWMUDB:cmp1_status\[237]
+Removing Lhs of wire \PWM1:PWMUDB:cmp2_status_reg\\D\[1361] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:pwm_i_reg\\D\[1363] = \PWM1:PWMUDB:pwm_i\[336]
+Removing Lhs of wire \PWM1:PWMUDB:pwm1_i_reg\\D\[1364] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:pwm2_i_reg\\D\[1365] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:tc_i_reg\\D\[1366] = \PWM1:PWMUDB:status_2\[231]
+Removing Lhs of wire \UART:BUART:reset_reg\\D\[1367] = zero[2]
+Removing Lhs of wire \UART:BUART:rx_bitclk\\D\[1382] = \UART:BUART:rx_bitclk_pre\[711]
+Removing Lhs of wire \UART:BUART:rx_parity_error_pre\\D\[1391] = \UART:BUART:rx_parity_error_pre\[788]
+Removing Lhs of wire \UART:BUART:rx_break_status\\D\[1392] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:min_kill_reg\\D\[1396] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM2:PWMUDB:prevCapture\\D\[1397] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:trig_last\\D\[1398] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:ltch_kill_reg\\D\[1401] = tmpOE__SW1_net_0[1]
+Removing Lhs of wire \PWM2:PWMUDB:prevCompare1\\D\[1404] = \PWM2:PWMUDB:cmp1\[969]
+Removing Lhs of wire \PWM2:PWMUDB:cmp1_status_reg\\D\[1405] = \PWM2:PWMUDB:cmp1_status\[970]
+Removing Lhs of wire \PWM2:PWMUDB:cmp2_status_reg\\D\[1406] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:pwm_i_reg\\D\[1408] = \PWM2:PWMUDB:pwm_i\[1069]
+Removing Lhs of wire \PWM2:PWMUDB:pwm1_i_reg\\D\[1409] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:pwm2_i_reg\\D\[1410] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:tc_i_reg\\D\[1411] = \PWM2:PWMUDB:status_2\[964]
 
 ------------------------------------------------------
 Aliased 0 equations, 306 wires.
@@ -1355,27 +1361,27 @@ Aliasing \UART:BUART:rx_markspace_status\\D\ to zero
 Aliasing \UART:BUART:rx_parity_error_status\\D\ to zero
 Aliasing \UART:BUART:rx_addr_match_status\\D\ to zero
 Aliasing \PWM2:PWMUDB:final_kill_reg\\D\ to zero
-Removing Lhs of wire \PWM1:PWMUDB:final_capture\[256] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[517] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[527] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\[537] = zero[2]
-Removing Rhs of wire \UART:BUART:rx_bitclk_enable\[677] = \UART:BUART:rx_bitclk\[725]
-Removing Lhs of wire \UART:BUART:rx_status_0\[776] = zero[2]
-Removing Lhs of wire \UART:BUART:rx_status_6\[785] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:final_capture\[989] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_24\[1250] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_16\[1260] = zero[2]
-Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_8\[1270] = zero[2]
-Removing Lhs of wire \PWM1:PWMUDB:runmode_enable\\D\[1356] = \PWM1:PWMUDB:control_7\[178]
-Removing Lhs of wire \PWM1:PWMUDB:final_kill_reg\\D\[1364] = zero[2]
-Removing Lhs of wire \UART:BUART:tx_ctrl_mark_last\\D\[1376] = \UART:BUART:tx_ctrl_mark_last\[668]
-Removing Lhs of wire \UART:BUART:rx_markspace_status\\D\[1388] = zero[2]
-Removing Lhs of wire \UART:BUART:rx_parity_error_status\\D\[1389] = zero[2]
-Removing Lhs of wire \UART:BUART:rx_addr_match_status\\D\[1391] = zero[2]
-Removing Lhs of wire \UART:BUART:rx_markspace_pre\\D\[1392] = \UART:BUART:rx_markspace_pre\[789]
-Removing Lhs of wire \UART:BUART:rx_parity_bit\\D\[1397] = \UART:BUART:rx_parity_bit\[795]
-Removing Lhs of wire \PWM2:PWMUDB:runmode_enable\\D\[1401] = \PWM2:PWMUDB:control_7\[912]
-Removing Lhs of wire \PWM2:PWMUDB:final_kill_reg\\D\[1409] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:final_capture\[254] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[515] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[525] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\[535] = zero[2]
+Removing Rhs of wire \UART:BUART:rx_bitclk_enable\[675] = \UART:BUART:rx_bitclk\[723]
+Removing Lhs of wire \UART:BUART:rx_status_0\[774] = zero[2]
+Removing Lhs of wire \UART:BUART:rx_status_6\[783] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:final_capture\[987] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_24\[1248] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_16\[1258] = zero[2]
+Removing Lhs of wire \PWM2:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_8\[1268] = zero[2]
+Removing Lhs of wire \PWM1:PWMUDB:runmode_enable\\D\[1354] = \PWM1:PWMUDB:control_7\[176]
+Removing Lhs of wire \PWM1:PWMUDB:final_kill_reg\\D\[1362] = zero[2]
+Removing Lhs of wire \UART:BUART:tx_ctrl_mark_last\\D\[1374] = \UART:BUART:tx_ctrl_mark_last\[666]
+Removing Lhs of wire \UART:BUART:rx_markspace_status\\D\[1386] = zero[2]
+Removing Lhs of wire \UART:BUART:rx_parity_error_status\\D\[1387] = zero[2]
+Removing Lhs of wire \UART:BUART:rx_addr_match_status\\D\[1389] = zero[2]
+Removing Lhs of wire \UART:BUART:rx_markspace_pre\\D\[1390] = \UART:BUART:rx_markspace_pre\[787]
+Removing Lhs of wire \UART:BUART:rx_parity_bit\\D\[1395] = \UART:BUART:rx_parity_bit\[793]
+Removing Lhs of wire \PWM2:PWMUDB:runmode_enable\\D\[1399] = \PWM2:PWMUDB:control_7\[910]
+Removing Lhs of wire \PWM2:PWMUDB:final_kill_reg\\D\[1407] = zero[2]
 
 ------------------------------------------------------
 Aliased 0 equations, 21 wires.
@@ -1414,14 +1420,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya "-.fftprj=C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\NeverLose.cyprj" -dcpsoc3 NeverLose.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 1s.987ms
+Warp synthesis phase: Elapsed time ==> 4s.034ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Wednesday, 17 May 2023 14:55:22
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Wednesday, 17 May 2023 17:07:00
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\NeverLose.cyprj -d CY8C5888LTI-LP097 NeverLose.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.021ms
+Design parsing phase: Elapsed time ==> 0s.044ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -1944,7 +1950,6 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => photores2(0)__PA ,
-            analog_term => Net_35 ,
             pad => photores2(0)_PAD );
         Properties:
         {
@@ -1984,7 +1989,7 @@ Design Equations
             IO Voltage: 0
         PORT MAP (
             pa_out => photores1(0)__PA ,
-            analog_term => Net_36 ,
+            analog_term => Net_214 ,
             pad => photores1(0)_PAD );
         Properties:
         {
@@ -3706,8 +3711,8 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    1 :    3 :    4 : 25.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.303ms
-Tech Mapping phase: Elapsed time ==> 0s.387ms
+Technology Mapping: Elapsed time ==> 0s.233ms
+Tech Mapping phase: Elapsed time ==> 0s.333ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Info: apr.M0002: Analog signal "\ADC:Net_35\" is connected to one terminal only. (App=cydsfit)
@@ -3744,9 +3749,9 @@ IO_5@[IOP=(1)][IoId=(5)] : photores2(0) (fixed)
 DSM[0]@[FFB(DSM,0)] : \ADC:DSM\
 Vref[6]@[FFB(Vref,6)] : \ADC:vRef_2\
 VIDAC[1]@[FFB(VIDAC,1)] : \DAC:viDAC8\
-Log: apr.M0058: The analog placement iterative improvement is 42% done. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 66% done. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 86% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 23% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 41% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 89% done. (App=cydsfit)
 Analog Placement Results:
 IO_1@[IOP=(3)][IoId=(1)] : COL1(0) (fixed)
 IO_3@[IOP=(3)][IoId=(3)] : COL2(0) (fixed)
@@ -3781,24 +3786,15 @@ DSM[0]@[FFB(DSM,0)] : \ADC:DSM\
 Vref[6]@[FFB(Vref,6)] : \ADC:vRef_2\
 VIDAC[0]@[FFB(VIDAC,0)] : \DAC:viDAC8\
 
-Analog Placement phase: Elapsed time ==> 0s.632ms
+Analog Placement phase: Elapsed time ==> 0s.526ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
-Analog Routing phase: Elapsed time ==> 0s.004ms
+Analog Routing phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
 Dump of CyAnalogRoutingResultsDB
 Map of net to items {
-  Net: Net_27 {
-    dsm_0_vplus
-  }
-  Net: Net_35 {
-    p1_5
-  }
-  Net: Net_36 {
-    p15_1
-  }
   Net: \ADC:Net_20\ {
     dsm_0_vminus
   }
@@ -3806,6 +3802,15 @@ Map of net to items {
     common_vssa
   }
   Net: \ADC:Net_35\ {
+  }
+  Net: Net_214 {
+    p15_1
+    agr5_x_p15_1
+    agr5
+    agl5_x_agr5
+    agl5
+    agl5_x_dsm_0_vplus
+    dsm_0_vplus
   }
   Net: \ADC:Net_249\ {
   }
@@ -3817,27 +3822,12 @@ Map of net to items {
   }
   Net: Net_73 {
     p15_5
-    amuxbusl_x_p15_5
-    amuxbusl
-    amuxbusl_x_vidac_0_vout
+    agl1_x_p15_5
+    agl1
+    agl1_x_vidac_0_vout
     vidac_0_vout
   }
   Net: \DAC:Net_77\ {
-  }
-  Net: AmuxNet::Mux {
-    dsm_0_vplus
-    agl1_x_dsm_0_vplus
-    agl1
-    agl1_x_agr1
-    agr1
-    agr1_x_p1_5
-    agl5_x_dsm_0_vplus
-    agl5
-    agl5_x_agr5
-    agr5
-    agr5_x_p15_1
-    p1_5
-    p15_1
   }
   Net: AmuxNet::\ADC:AMux\ {
     dsm_0_vminus
@@ -3847,65 +3837,24 @@ Map of net to items {
   }
 }
 Map of item to net {
+  p15_1                                            -> Net_214
+  agr5_x_p15_1                                     -> Net_214
+  agr5                                             -> Net_214
+  agl5_x_agr5                                      -> Net_214
+  agl5                                             -> Net_214
+  agl5_x_dsm_0_vplus                               -> Net_214
+  dsm_0_vplus                                      -> Net_214
   p15_5                                            -> Net_73
-  amuxbusl_x_p15_5                                 -> Net_73
-  amuxbusl                                         -> Net_73
-  amuxbusl_x_vidac_0_vout                          -> Net_73
+  agl1_x_p15_5                                     -> Net_73
+  agl1                                             -> Net_73
+  agl1_x_vidac_0_vout                              -> Net_73
   vidac_0_vout                                     -> Net_73
-  dsm_0_vplus                                      -> Net_27
-  p1_5                                             -> Net_35
-  p15_1                                            -> Net_36
   dsm_0_vminus                                     -> \ADC:Net_20\
   common_vssa                                      -> \ADC:Net_244\
-  agl1_x_dsm_0_vplus                               -> AmuxNet::Mux
-  agl1                                             -> AmuxNet::Mux
-  agl1_x_agr1                                      -> AmuxNet::Mux
-  agr1                                             -> AmuxNet::Mux
-  agr1_x_p1_5                                      -> AmuxNet::Mux
-  agl5_x_dsm_0_vplus                               -> AmuxNet::Mux
-  agl5                                             -> AmuxNet::Mux
-  agl5_x_agr5                                      -> AmuxNet::Mux
-  agr5                                             -> AmuxNet::Mux
-  agr5_x_p15_1                                     -> AmuxNet::Mux
   dsm_0_vminus_x_dsm_0_vminus_vssa                 -> AmuxNet::\ADC:AMux\
   dsm_0_vminus_vssa                                -> AmuxNet::\ADC:AMux\
 }
 Mux Info {
-  Mux: Mux {
-     Mouth: Net_27
-     Guts:  AmuxNet::Mux
-     IsSingleSwitching: False
-     IsStaticSwitching: True
-     IsAtMostOneSwitch: False
-    Arm: 0 {
-      Net:   Net_35
-      Outer: agr1_x_p1_5
-      Inner: agl1_x_dsm_0_vplus
-      Path {
-        p1_5
-        agr1_x_p1_5
-        agr1
-        agl1_x_agr1
-        agl1
-        agl1_x_dsm_0_vplus
-        dsm_0_vplus
-      }
-    }
-    Arm: 1 {
-      Net:   Net_36
-      Outer: agr5_x_p15_1
-      Inner: agl5_x_dsm_0_vplus
-      Path {
-        p15_1
-        agr5_x_p15_1
-        agr5
-        agl5_x_agr5
-        agl5
-        agl5_x_dsm_0_vplus
-        dsm_0_vplus
-      }
-    }
-  }
   Mux: \ADC:AMux\ {
      Mouth: \ADC:Net_20\
      Guts:  AmuxNet::\ADC:AMux\
@@ -3936,11 +3885,11 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.319ms
+Analog Code Generation phase: Elapsed time ==> 0s.367ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 1.1 sec.
+I2076: Total run-time: 1.2 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -3971,7 +3920,7 @@ PLD Packing: Elapsed time ==> 0s.000ms
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.116ms
+Partitioning: Elapsed time ==> 0s.077ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -5356,7 +5305,6 @@ Pin : Name = photores2(0)
         IO Voltage: 0
     PORT MAP (
         pa_out => photores2(0)__PA ,
-        analog_term => Net_35 ,
         pad => photores2(0)_PAD );
     Properties:
     {
@@ -6166,7 +6114,7 @@ Pin : Name = photores1(0)
         IO Voltage: 0
     PORT MAP (
         pa_out => photores1(0)__PA ,
-        analog_term => Net_36 ,
+        analog_term => Net_214 ,
         pad => photores1(0)_PAD );
     Properties:
     {
@@ -6336,7 +6284,7 @@ DSM group 0:
     dsmodcell: Name =\ADC:DSM\
         PORT MAP (
             aclock => \ADC:Net_488\ ,
-            vplus => Net_27 ,
+            vplus => Net_214 ,
             vminus => \ADC:Net_20\ ,
             reset_dec => \ADC:mod_reset\ ,
             extclk_cp_udb => \ADC:Net_93_local\ ,
@@ -6460,22 +6408,6 @@ Blocks not positioned by the digital component placer:
             muxin_width = 2
             one_active = 0
         }
-    Amux Block @ <No Location>: 
-    amuxcell: Name =Mux
-        PORT MAP (
-            muxin_1 => Net_36 ,
-            muxin_0 => Net_35 ,
-            vout => Net_27 );
-        Properties:
-        {
-            api_type = 0
-            connect_mode = 1
-            cy_registers = ""
-            hw_control = 0
-            init_mux_sel = "00"
-            muxin_width = 2
-            one_active = 0
-        }
 </CYPRESSTAG>
 <CYPRESSTAG name="Port Configuration Details">
 
@@ -6484,15 +6416,15 @@ Port Configuration report
 ------------------------------------------------------------
      |     |       | Interrupt |                  |                  | 
 Port | Pin | Fixed |      Type |       Drive Mode |             Name | Connections
------+-----+-------+-----------+------------------+------------------+---------------
+-----+-----+-------+-----------+------------------+------------------+----------------
    0 |   0 |     * |      NONE |         CMOS_OUT |          LED1(0) | 
      |   1 |     * |      NONE |         CMOS_OUT |          LED2(0) | 
      |   5 |     * |      NONE |         CMOS_OUT |          LED3(0) | 
      |   6 |     * |      NONE |         CMOS_OUT |          LED4(0) | 
------+-----+-------+-----------+------------------+------------------+---------------
+-----+-----+-------+-----------+------------------+------------------+----------------
    1 |   2 |     * |      NONE |         CMOS_OUT |          Tx_1(0) | In(Net_54)
-     |   5 |     * |      NONE |      HI_Z_ANALOG |     photores2(0) | Analog(Net_35)
------+-----+-------+-----------+------------------+------------------+---------------
+     |   5 |     * |      NONE |      HI_Z_ANALOG |     photores2(0) | 
+-----+-----+-------+-----------+------------------+------------------+----------------
    2 |   0 |     * |      NONE |         CMOS_OUT | \LCD:LCDPort(0)\ | 
      |   1 |     * |      NONE |         CMOS_OUT | \LCD:LCDPort(1)\ | 
      |   2 |     * |      NONE |         CMOS_OUT | \LCD:LCDPort(2)\ | 
@@ -6501,55 +6433,55 @@ Port | Pin | Fixed |      Type |       Drive Mode |             Name | Connectio
      |   5 |     * |      NONE |         CMOS_OUT | \LCD:LCDPort(5)\ | 
      |   6 |     * |      NONE |         CMOS_OUT | \LCD:LCDPort(6)\ | 
      |   7 |     * |      NONE |     HI_Z_DIGITAL |          Rx_1(0) | FB(Net_50)
------+-----+-------+-----------+------------------+------------------+---------------
+-----+-----+-------+-----------+------------------+------------------+----------------
    3 |   1 |     * |      NONE |    OPEN_DRAIN_LO |          COL1(0) | 
      |   3 |     * |      NONE |    OPEN_DRAIN_LO |          COL2(0) | 
      |   4 |     * |      NONE |    OPEN_DRAIN_LO |          COL3(0) | 
      |   5 |     * |      NONE |      RES_PULL_UP |          ROW0(0) | 
      |   6 |     * |      NONE |      RES_PULL_UP |          ROW1(0) | 
      |   7 |     * |      NONE |      RES_PULL_UP |          ROW2(0) | 
------+-----+-------+-----------+------------------+------------------+---------------
+-----+-----+-------+-----------+------------------+------------------+----------------
   12 |   2 |     * |      NONE |     HI_Z_DIGITAL |           SW4(0) | 
      |   3 |     * |      NONE |     HI_Z_DIGITAL |           SW3(0) | 
      |   4 |     * |      NONE |     HI_Z_DIGITAL |           SW2(0) | 
      |   5 |     * |      NONE |     HI_Z_DIGITAL |           SW1(0) | 
------+-----+-------+-----------+------------------+------------------+---------------
+-----+-----+-------+-----------+------------------+------------------+----------------
   15 |   0 |     * |      NONE |      RES_PULL_UP |          ROW3(0) | 
-     |   1 |     * |      NONE |      HI_Z_ANALOG |     photores1(0) | Analog(Net_36)
+     |   1 |     * |      NONE |      HI_Z_ANALOG |     photores1(0) | Analog(Net_214)
      |   2 |     * |      NONE |         CMOS_OUT |       PWMOUT2(0) | In(Net_104)
      |   3 |     * |      NONE |         CMOS_OUT |       PWMOUT1(0) | In(Net_38)
      |   5 |     * |      NONE |      HI_Z_ANALOG |     audio_out(0) | Analog(Net_73)
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.077ms
-Digital Placement phase: Elapsed time ==> 1s.666ms
+Digital component placer commit/Report: Elapsed time ==> 0s.081ms
+Digital Placement phase: Elapsed time ==> 1s.852ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "NeverLose_r.vh2" --pcf-path "NeverLose.pco" --des-name "NeverLose" --dsf-path "NeverLose.dsf" --sdc-path "NeverLose.sdc" --lib-path "NeverLose_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 1s.808ms
+Digital Routing phase: Elapsed time ==> 1s.566ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.202ms
+Bitstream Generation phase: Elapsed time ==> 0s.238ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.046ms
+Bitstream Verification phase: Elapsed time ==> 0s.033ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Timing report is in NeverLose_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.467ms
+Static timing analysis phase: Elapsed time ==> 0s.526ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.320ms
+Design database save phase: Elapsed time ==> 0s.332ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 6s.009ms
+cydsfit: Elapsed time ==> 5s.966ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 6s.010ms
-API generation phase: Elapsed time ==> 4s.202ms
-Dependency generation phase: Elapsed time ==> 0s.014ms
+Fitter phase: Elapsed time ==> 5s.968ms
+API generation phase: Elapsed time ==> 4s.598ms
+Dependency generation phase: Elapsed time ==> 0s.011ms
 Cleanup phase: Elapsed time ==> 0s.000ms

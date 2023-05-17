@@ -52,8 +52,6 @@
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\photores1_aliases.h" value="HEADER;;;;;photores1" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\photores1.c" value="SOURCE_C;CortexM3;;;;photores1" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\photores1.h" value="HEADER;;;;;photores1" />
-  <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\Mux.c" value="SOURCE_C;CortexM3;;;;Mux" />
-  <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\Mux.h" value="HEADER;;;;;Mux" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\PWM1.c" value="SOURCE_C;CortexM3;;;;PWM1" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\PWM1.h" value="HEADER;;;;;PWM1" />
   <file name="C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\codegentemp\PWM1_PM.c" value="SOURCE_C;CortexM3;;;;PWM1" />

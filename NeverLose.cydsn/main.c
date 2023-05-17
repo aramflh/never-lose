@@ -1,21 +1,22 @@
 //
-// Created by Aramson Felho on 10/05/2023.
+// Created by Aramson Felho on 10/05/2023.             
 //
 #include <math.h>
 
-//#include "keypad.h"  // Keypad header file
+//#include "keypad.h"  // Keypad header filexc
 #include "utils.h"   // Other functions header file
 #include "project.h"
-#include "keypad.h"
+#include "keypad.h"   
 #include <stdint.h>
 
-#define PWM_VALUE 5000  // hasarg
+#define PWM_VALUE 5000  // hasarg    
 #define COLOR_CHANGE 10000  // The value at wich the color changes on the screen
 #define COLOR_DELTA 100  // The minimum value to ignore the delta between de 2 photoresistor
 
 #define PI 3.14
 #define N 100
-float signal[N];
+float signal1[N];
+float signal2[N];
 
 
 uint8 rxData;
@@ -37,17 +38,12 @@ CY_ISR(isr_uart_Handler){
 
 }
 */
-//Filling the vector for the sound
+
 uint16_t i = 0;
 uint8_t value;
-CY_ISR (myISR){
-    value = 128 + 128*signal[i];
-    DAC_SetValue(value);
-    i++; 
-    if (i==N){i=0;}    
-    Timer_DAC_ISR_ReadStatusRegister(); //Do not forget to reset the register
-}
 
+uint8_t sound1 = 0;
+uint8_t sound2 = 0;
 
 int main(void)
 {
@@ -57,6 +53,8 @@ int main(void)
     int score = 0;
     uint8_t first_jump = 0;
     uint8_t move = 0;
+    
+    
     uint8_t day = 0;
     uint8_t night = 0;
     uint16_t pwm_period = 48000;
@@ -76,7 +74,7 @@ int main(void)
 
     LCD_Start();
     LCD_ClearDisplay();
-    Mux_Start();
+    //Mux_Start();
     ADC_Start();  // Start the Analog-to-Digital Converter
     UART_Start(); //Start the UART
     keypadInit();  // Call initialization function form keypad.h
@@ -86,7 +84,19 @@ int main(void)
     PWM2_WriteCompare(3000); //Servo à l'horizontal
     
     Timer_Start();
+    DAC_Start();
+    DAC_SetValue(0);
+    Timer_DAC_Start();
     
+    //Son 1
+    for (int j=0; j<N; j++){
+        signal1[j] = sin(50*j/N);
+    }
+    
+    //Son 2
+    for (int j=0; j<N; j++){
+        signal2[j] = sin(200*j/N);
+    }
 
     for(;;)
     {
@@ -119,6 +129,8 @@ int main(void)
                     LED4_Write(0);
                     LCD_ClearDisplay();
                     cnt2 = 0; //Reset counter
+                    sound1 = 0 ;
+                    sound2 = 0 ;
                 }
                 // Motor
                 if (cnt3 < 200){
@@ -130,6 +142,23 @@ int main(void)
                     cnt3 = 0; //Reset counter
                 }
             }
+        }
+        
+        if(0x80 & Timer_DAC_ReadStatusRegister()){
+            if (sound1) {
+                value = 128 + 128*signal1[i];
+                DAC_SetValue(value);
+                i++;
+                if (i==N){i=0;}
+                Timer_DAC_ReadStatusRegister();
+            }
+            else if (sound2){
+                value = 128 + 128*signal2[i];
+                DAC_SetValue(value);
+                i++;
+                if (i==N){i=0;}
+                Timer_DAC_ReadStatusRegister();
+            }   
         }
         
         // Printing the score on the second half of the LCD
@@ -157,7 +186,7 @@ int main(void)
         //
         
         // Light detection
-        //detectLight(&photoResVal1, &photoResVal2, &move);
+        detectLight(&photoResVal1, &photoResVal2, &move);
 
         // Keypad detection
         detectKeyboard(&key,&first_jump, &move);       
@@ -166,7 +195,7 @@ int main(void)
 }
 
 // Jump function
-void jump(uint8_t* first_jump,uint8_t* move){
+void jump(uint8_t* first_jump,uint8_t* move ){
     (*move) = 1 ;
     if (first_jump){
         (*first_jump) = 1;
@@ -175,7 +204,7 @@ void jump(uint8_t* first_jump,uint8_t* move){
     
     // A Changer
     
-    PWM1_WriteCompare(1700);
+    PWM1_WriteCompare(1600);
     //CyDelay(200); 
     //PWM1_WriteCompare(3000);
     
@@ -187,6 +216,7 @@ void jump(uint8_t* first_jump,uint8_t* move){
     LED2_Write(1);
     //CyDelay(500);
     // Audio Output 1
+    sound1 = 1 ;
     // TODO
 }
 // Down function
@@ -208,6 +238,7 @@ void duck(uint8_t* move){
     LED4_Write(1);
     //CyDelay(200);
     // Audio Output 2
+    sound2 = 1 ;
     // TODO
 }
 
@@ -235,23 +266,23 @@ void detectKeyboard(char* key,uint8_t* first_jump,uint8_t* move){
  */
 
 void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2, uint8_t* move){
-
+/*
     Mux_Select(0);
-    CyDelay(10); //This one let some time for the switch to occur. Otherwise conversion does not work properly
+    //CyDelay(10); //This one let some time for the switch to occur. Otherwise conversion does not work properly
     ADC_StartConvert();
     if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)){
         *photoResVal1 = ADC_GetResult32();
     }
-   
-    Mux_Select(1);
-    CyDelay(10);
+   */
+    //Mux_Select(1);
+    //CyDelay(10);
     ADC_StartConvert();
     if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)){
         *photoResVal2 = ADC_GetResult32();
     }
 
 
-    if(*photoResVal2 < 17000){
+    if(*photoResVal2 > 30000){
         // Top: White, Bottom: Black
         jump(0, move);
     }/*

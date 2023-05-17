@@ -1,59 +1,52 @@
---------------- Build Started: 05/17/2023 15:03:08 Project: NeverLose, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/17/2023 17:32:20 Project: NeverLose, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
-main.c: In function 'myISR':
-main.c:48:5: warning: implicit declaration of function 'Timer_DAC_ISR_ReadStatusRegister' [-Wimplicit-function-declaration]
-     Timer_DAC_ISR_ReadStatusRegister(); //Do not forget to reset the register
-     ^
 main.c: In function 'main':
-main.c:144:12: warning: implicit declaration of function 'jump' [-Wimplicit-function-declaration]
+main.c:173:12: warning: implicit declaration of function 'jump' [-Wimplicit-function-declaration]
             jump(&first_jump, &move);
             ^
-main.c:148:13: warning: implicit declaration of function 'duck' [-Wimplicit-function-declaration]
+main.c:177:13: warning: implicit declaration of function 'duck' [-Wimplicit-function-declaration]
              duck(&move);
              ^
-main.c:163:9: warning: implicit declaration of function 'detectKeyboard' [-Wimplicit-function-declaration]
+main.c:202:9: warning: implicit declaration of function 'detectKeyboard' [-Wimplicit-function-declaration]
          detectKeyboard(&key,&first_jump, &move);       
          ^
-main.c:64:14: warning: unused variable 'photoResVal2' [-Wunused-variable]
+main.c:62:14: warning: unused variable 'photoResVal2' [-Wunused-variable]
      uint32_t photoResVal2 = 0;
               ^
-main.c:63:14: warning: unused variable 'photoResVal1' [-Wunused-variable]
-     uint32_t photoResVal1 = 0;
-              ^
-main.c:61:13: warning: unused variable 'night' [-Wunused-variable]
+main.c:59:13: warning: unused variable 'night' [-Wunused-variable]
      uint8_t night = 0;
              ^
-main.c:60:13: warning: unused variable 'day' [-Wunused-variable]
+main.c:58:13: warning: unused variable 'day' [-Wunused-variable]
      uint8_t day = 0;
              ^
 main.c: At top level:
-main.c:169:6: warning: conflicting types for 'jump'
- void jump(uint8_t* first_jump,uint8_t* move){
+main.c:208:6: warning: conflicting types for 'jump'
+ void jump(uint8_t* first_jump,uint8_t* move ){
       ^
-main.c:144:12: note: previous implicit declaration of 'jump' was here
+main.c:173:12: note: previous implicit declaration of 'jump' was here
             jump(&first_jump, &move);
             ^
-main.c:193:6: warning: conflicting types for 'duck'
+main.c:233:6: warning: conflicting types for 'duck'
  void duck(uint8_t* move){
       ^
-main.c:148:13: note: previous implicit declaration of 'duck' was here
+main.c:177:13: note: previous implicit declaration of 'duck' was here
              duck(&move);
              ^
-main.c:217:6: warning: conflicting types for 'detectKeyboard'
+main.c:258:6: warning: conflicting types for 'detectKeyboard'
  void detectKeyboard(char* key,uint8_t* first_jump,uint8_t* move){
       ^
-main.c:163:9: note: previous implicit declaration of 'detectKeyboard' was here
+main.c:202:9: note: previous implicit declaration of 'detectKeyboard' was here
          detectKeyboard(&key,&first_jump, &move);       
          ^
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\NeverLose.a .\CortexM3\ARM_GCC_541\Debug\SW1.o .\CortexM3\ARM_GCC_541\Debug\SW2.o .\CortexM3\ARM_GCC_541\Debug\SW3.o .\CortexM3\ARM_GCC_541\Debug\SW4.o .\CortexM3\ARM_GCC_541\Debug\LED1.o .\CortexM3\ARM_GCC_541\Debug\LED2.o .\CortexM3\ARM_GCC_541\Debug\LED3.o .\CortexM3\ARM_GCC_541\Debug\LED4.o .\CortexM3\ARM_GCC_541\Debug\ADC.o .\CortexM3\ARM_GCC_541\Debug\ADC_PM.o .\CortexM3\ARM_GCC_541\Debug\ADC_INT.o .\CortexM3\ARM_GCC_541\Debug\CLK24MHz.o .\CortexM3\ARM_GCC_541\Debug\LCD.o .\CortexM3\ARM_GCC_541\Debug\LCD_PM.o .\CortexM3\ARM_GCC_541\Debug\UART.o .\CortexM3\ARM_GCC_541\Debug\UART_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_541\Debug\isr_uart.o .\CortexM3\ARM_GCC_541\Debug\ADC_AMux.o .\CortexM3\ARM_GCC_541\Debug\ADC_Ext_CP_Clk.o .\CortexM3\ARM_GCC_541\Debug\ADC_IRQ.o .\CortexM3\ARM_GCC_541\Debug\ADC_theACLK.o .\CortexM3\ARM_GCC_541\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\DAC.o .\CortexM3\ARM_GCC_541\Debug\DAC_PM.o .\CortexM3\ARM_GCC_541\Debug\audio_out.o .\CortexM3\ARM_GCC_541\Debug\PWM1.o .\CortexM3\ARM_GCC_541\Debug\PWM1_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM2.o .\CortexM3\ARM_GCC_541\Debug\PWM2_PM.o .\CortexM3\ARM_GCC_541\Debug\CLK24MHz_1.o .\CortexM3\ARM_GCC_541\Debug\PWMOUT1.o .\CortexM3\ARM_GCC_541\Debug\PWMOUT2.o .\CortexM3\ARM_GCC_541\Debug\Timer.o .\CortexM3\ARM_GCC_541\Debug\Timer_PM.o .\CortexM3\ARM_GCC_541\Debug\ROW0.o .\CortexM3\ARM_GCC_541\Debug\ROW1.o .\CortexM3\ARM_GCC_541\Debug\ROW2.o .\CortexM3\ARM_GCC_541\Debug\ROW3.o .\CortexM3\ARM_GCC_541\Debug\COL1.o .\CortexM3\ARM_GCC_541\Debug\COL2.o .\CortexM3\ARM_GCC_541\Debug\COL3.o .\CortexM3\ARM_GCC_541\Debug\Timer_DAC.o .\CortexM3\ARM_GCC_541\Debug\Timer_DAC_PM.o .\CortexM3\ARM_GCC_541\Debug\Mux.o .\CortexM3\ARM_GCC_541\Debug\photores2.o .\CortexM3\ARM_GCC_541\Debug\photores1.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\NeverLose.a .\CortexM3\ARM_GCC_541\Debug\SW1.o .\CortexM3\ARM_GCC_541\Debug\SW2.o .\CortexM3\ARM_GCC_541\Debug\SW3.o .\CortexM3\ARM_GCC_541\Debug\SW4.o .\CortexM3\ARM_GCC_541\Debug\LED1.o .\CortexM3\ARM_GCC_541\Debug\LED2.o .\CortexM3\ARM_GCC_541\Debug\LED3.o .\CortexM3\ARM_GCC_541\Debug\LED4.o .\CortexM3\ARM_GCC_541\Debug\ADC.o .\CortexM3\ARM_GCC_541\Debug\ADC_PM.o .\CortexM3\ARM_GCC_541\Debug\ADC_INT.o .\CortexM3\ARM_GCC_541\Debug\CLK24MHz.o .\CortexM3\ARM_GCC_541\Debug\LCD.o .\CortexM3\ARM_GCC_541\Debug\LCD_PM.o .\CortexM3\ARM_GCC_541\Debug\UART.o .\CortexM3\ARM_GCC_541\Debug\UART_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_541\Debug\isr_uart.o .\CortexM3\ARM_GCC_541\Debug\ADC_AMux.o .\CortexM3\ARM_GCC_541\Debug\ADC_Ext_CP_Clk.o .\CortexM3\ARM_GCC_541\Debug\ADC_IRQ.o .\CortexM3\ARM_GCC_541\Debug\ADC_theACLK.o .\CortexM3\ARM_GCC_541\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\DAC.o .\CortexM3\ARM_GCC_541\Debug\DAC_PM.o .\CortexM3\ARM_GCC_541\Debug\audio_out.o .\CortexM3\ARM_GCC_541\Debug\PWM1.o .\CortexM3\ARM_GCC_541\Debug\PWM1_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM2.o .\CortexM3\ARM_GCC_541\Debug\PWM2_PM.o .\CortexM3\ARM_GCC_541\Debug\CLK24MHz_1.o .\CortexM3\ARM_GCC_541\Debug\PWMOUT1.o .\CortexM3\ARM_GCC_541\Debug\PWMOUT2.o .\CortexM3\ARM_GCC_541\Debug\Timer.o .\CortexM3\ARM_GCC_541\Debug\Timer_PM.o .\CortexM3\ARM_GCC_541\Debug\ROW0.o .\CortexM3\ARM_GCC_541\Debug\ROW1.o .\CortexM3\ARM_GCC_541\Debug\ROW2.o .\CortexM3\ARM_GCC_541\Debug\ROW3.o .\CortexM3\ARM_GCC_541\Debug\COL1.o .\CortexM3\ARM_GCC_541\Debug\COL2.o .\CortexM3\ARM_GCC_541\Debug\COL3.o .\CortexM3\ARM_GCC_541\Debug\Timer_DAC.o .\CortexM3\ARM_GCC_541\Debug\Timer_DAC_PM.o .\CortexM3\ARM_GCC_541\Debug\photores2.o .\CortexM3\ARM_GCC_541\Debug\photores1.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\NeverLose.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\CortexM3\ARM_GCC_541\Debug\NeverLose.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\keypad.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\NeverLose.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/NeverLose.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\CortexM3\ARM_GCC_541\Debug\NeverLose.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\keypad.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\NeverLose.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -l m -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/NeverLose.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
 cyelftool.exe -C "C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\CortexM3\ARM_GCC_541\Debug\NeverLose.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
 No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\CortexM3\ARM_GCC_541\Debug\NeverLose.elf"
-Flash used: 6390 of 262144 bytes (2,4 %).
-SRAM used: 2561 of 65536 bytes (3,9 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/17/2023 15:03:10 ---------------
+Flash used: 16182 of 262144 bytes (6,2 %).
+SRAM used: 3377 of 65536 bytes (5,2 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/17/2023 17:32:22 ---------------

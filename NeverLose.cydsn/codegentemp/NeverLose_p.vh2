@@ -1,5 +1,5 @@
 -- Project:   NeverLose
--- Generated: 05/17/2023 14:55:23
+-- Generated: 05/17/2023 17:07:01
 -- PSoC Creator  4.4
 
 ENTITY NeverLose IS
@@ -12,6 +12,7 @@ ENTITY NeverLose IS
         LED2(0)_PAD : OUT std_ulogic;
         LED3(0)_PAD : OUT std_ulogic;
         LED4(0)_PAD : OUT std_ulogic;
+        photores2(0)_PAD : INOUT std_ulogic;
         PWMOUT1(0)_PAD : OUT std_ulogic;
         \LCD:LCDPort(0)_PAD\ : OUT std_ulogic;
         \LCD:LCDPort(1)_PAD\ : OUT std_ulogic;
@@ -1558,6 +1559,7 @@ BEGIN
         PORT MAP(
             pa_out => photores2(0)__PA,
             oe => open,
+            pad_in => photores2(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',

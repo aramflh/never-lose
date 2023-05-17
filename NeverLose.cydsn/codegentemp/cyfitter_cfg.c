@@ -312,9 +312,10 @@ static void AnalogSetDefault(void)
 	uint8 bg_xover_inl_trim = CY_GET_XTND_REG8((void CYFAR *)(CYREG_FLSHID_MFG_CFG_BG_XOVER_INL_TRIM + 1u));
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_BG_DFT0), (bg_xover_inl_trim & 0x07u));
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_BG_DFT1), ((bg_xover_inl_trim >> 4) & 0x0Fu));
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT15_AMUX, 0x20u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_DAC0_SW3, 0x01u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_BUS_SW0, 0x22u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT15_AG, 0x22u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_DAC0_SW0, 0x02u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_DSM0_SW0, 0x20u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_BUS_SW0, 0x20u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_PUMP_CR0, 0x44u);
 }
 
@@ -352,69 +353,6 @@ void SetAnalogRoutingPumps(uint8 enabled)
 
 
 #define CY_AMUX_UNUSED CYREG_BOOST_SR
-/* This is an implementation detail of the AMux. Code that depends on it may be
-   incompatible with other versions of PSoC Creator. */
-uint8 CYXDATA * const CYCODE Mux__addrTable[4] = {
-	(uint8 CYXDATA *)CYREG_PRT1_AG, (uint8 CYXDATA *)CYREG_DSM0_SW0, 
-	(uint8 CYXDATA *)CYREG_PRT15_AG, (uint8 CYXDATA *)CYREG_DSM0_SW0, 
-};
-
-/* This is an implementation detail of the AMux. Code that depends on it may be
-   incompatible with other versions of PSoC Creator. */
-const uint8 CYCODE Mux__maskTable[4] = {
-	0x20u, 0x02u, 
-	0x02u, 0x20u, 
-};
-
-/*******************************************************************************
-* Function Name: Mux_Set
-********************************************************************************
-* Summary:
-*  This function is used to set a particular channel as active on the AMux.
-*
-* Parameters:  
-*   channel - The mux channel input to set as active
-*
-* Return:
-*   void
-*
-*******************************************************************************/
-void Mux_Set(uint8 channel)
-{
-	if (channel < 2)
-	{
-		channel += channel;
-		*Mux__addrTable[channel] |= Mux__maskTable[channel];
-		channel++;
-		*Mux__addrTable[channel] |= Mux__maskTable[channel];
-	}
-}
-
-/*******************************************************************************
-* Function Name: Mux_Unset
-********************************************************************************
-* Summary:
-*  This function is used to clear a particular channel from being active on the
-*  AMux.
-*
-* Parameters:  
-*   channel - The mux channel input to mark inactive
-*
-* Return:
-*   void
-*
-*******************************************************************************/
-void Mux_Unset(uint8 channel)
-{
-	if (channel < 2)
-	{
-		channel += channel;
-		*Mux__addrTable[channel] &= (uint8)~Mux__maskTable[channel];
-		channel++;
-		*Mux__addrTable[channel] &= (uint8)~Mux__maskTable[channel];
-	}
-}
-
 /* This is an implementation detail of the AMux. Code that depends on it may be
    incompatible with other versions of PSoC Creator. */
 uint8 CYXDATA * const CYCODE ADC_AMux__addrTable[2] = {

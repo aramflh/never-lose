@@ -40,7 +40,6 @@
 #include "photores2.h"
 #include "photores1_aliases.h"
 #include "photores1.h"
-#include "Mux.h"
 #include "PWM1.h"
 #include "CLK24MHz.h"
 #include "PWMOUT1_aliases.h"

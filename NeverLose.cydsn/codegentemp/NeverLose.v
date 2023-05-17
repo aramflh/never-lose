@@ -1,6 +1,6 @@
 // ======================================================================
 // NeverLose.v generated from TopDesign.cysch
-// 05/17/2023 at 14:55
+// 05/17/2023 at 17:06
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -1100,8 +1100,7 @@ module top ;
     electrical  Net_3;
     electrical  Net_2;
     electrical  Net_1;
-    electrical  Net_36;
-    electrical  Net_27;
+    electrical  Net_214;
     electrical  Net_35;
           wire  Net_193;
           wire  Net_191;
@@ -2001,7 +2000,7 @@ module top ;
         .nVref(Net_211),
         .soc(1'b1),
         .vminus(Net_213),
-        .vplus(Net_27));
+        .vplus(Net_214));
 
 	wire [0:0] tmpOE__photores2_net;
 	wire [0:0] tmpFB_0__photores2_net;
@@ -2142,7 +2141,7 @@ module top ;
 		 (.oe(tmpOE__photores1_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__photores1_net[0:0]}),
-		  .analog({Net_36}),
+		  .analog({Net_214}),
 		  .io({tmpIO_0__photores1_net[0:0]}),
 		  .siovref(tmpSIOVREF__photores1_net),
 		  .interrupt({tmpINTERRUPT_0__photores1_net[0:0]}),
@@ -2154,24 +2153,6 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__photores1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-    // -- AMux Mux start -- ***
-    // -- Mux A --
-    
-    cy_psoc3_amux_v1_0 Mux(
-        .muxin({
-            Net_36,
-            Net_35
-            }),
-        .vout(Net_27)
-        );
-    
-    defparam Mux.muxin_width = 2;
-    defparam Mux.init_mux_sel = 2'h0;
-    defparam Mux.one_active = 0;
-    defparam Mux.connect_mode = 1;
-    
-    // -- AMux Mux end --
 
     PWM_v3_30_1 PWM1 (
         .capture(1'b0),

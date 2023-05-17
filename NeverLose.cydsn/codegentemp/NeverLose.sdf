@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2023-05-17T12:55:27Z")
+ (DATE "2023-05-17T15:07:05Z")
  (DESIGN "NeverLose")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -277,6 +277,7 @@
     (INTERCONNECT LED2\(0\)_PAD LED2\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LED3\(0\)_PAD LED3\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LED4\(0\)_PAD LED4\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT photores2\(0\)_PAD photores2\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT PWMOUT1\(0\).pad_out PWMOUT1\(0\)_PAD (0.000:0.000:0.000))
     (INTERCONNECT PWMOUT1\(0\)_PAD PWMOUT1\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT \\LCD\:LCDPort\(0\)_PAD\\ \\LCD\:LCDPort\(0\)\\.pad_in (0.000:0.000:0.000))
