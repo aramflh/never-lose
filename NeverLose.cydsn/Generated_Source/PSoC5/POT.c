@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: POT.c  
+* File Name: pot.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "POT.h"
+#include "pot.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 POT__PORT == 15 && ((POT__MASK & 0xC0) != 0))
+	 pot__PORT == 15 && ((pot__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: POT_Write
+* Function Name: pot_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet POT_SUT.c usage_POT_Write
+*  \snippet pot_SUT.c usage_pot_Write
 *******************************************************************************/
-void POT_Write(uint8 value)
+void pot_Write(uint8 value)
 {
-    uint8 staticBits = (POT_DR & (uint8)(~POT_MASK));
-    POT_DR = staticBits | ((uint8)(value << POT_SHIFT) & POT_MASK);
+    uint8 staticBits = (pot_DR & (uint8)(~pot_MASK));
+    pot_DR = staticBits | ((uint8)(value << pot_SHIFT) & pot_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: POT_SetDriveMode
+* Function Name: pot_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void POT_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet POT_SUT.c usage_POT_SetDriveMode
+*  \snippet pot_SUT.c usage_pot_SetDriveMode
 *******************************************************************************/
-void POT_SetDriveMode(uint8 mode)
+void pot_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(POT_0, mode);
+	CyPins_SetPinDriveMode(pot_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: POT_Read
+* Function Name: pot_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void POT_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet POT_SUT.c usage_POT_Read  
+*  \snippet pot_SUT.c usage_pot_Read  
 *******************************************************************************/
-uint8 POT_Read(void)
+uint8 pot_Read(void)
 {
-    return (POT_PS & POT_MASK) >> POT_SHIFT;
+    return (pot_PS & pot_MASK) >> pot_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: POT_ReadDataReg
+* Function Name: pot_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 POT_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred POT_Read() API because the 
-* POT_ReadDataReg() reads the data register instead of the status 
+* preferred pot_Read() API because the 
+* pot_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 POT_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet POT_SUT.c usage_POT_ReadDataReg 
+*  \snippet pot_SUT.c usage_pot_ReadDataReg 
 *******************************************************************************/
-uint8 POT_ReadDataReg(void)
+uint8 pot_ReadDataReg(void)
 {
-    return (POT_DR & POT_MASK) >> POT_SHIFT;
+    return (pot_DR & pot_MASK) >> pot_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(POT_INTSTAT) 
+#if defined(pot_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: POT_SetInterruptMode
+    * Function Name: pot_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 POT_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use POT_INTR_ALL to configure the
+    *  component. Or you may use pot_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - POT_0_INTR       (First pin in the list)
-    *  - POT_1_INTR       (Second pin in the list)
+    *  - pot_0_INTR       (First pin in the list)
+    *  - pot_1_INTR       (Second pin in the list)
     *  - ...
-    *  - POT_INTR_ALL     (All pins in Pins component)
+    *  - pot_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 POT_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet POT_SUT.c usage_POT_SetInterruptMode
+    *  \snippet pot_SUT.c usage_pot_SetInterruptMode
     *******************************************************************************/
-    void POT_SetInterruptMode(uint16 position, uint16 mode)
+    void pot_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & POT_0_INTR) != 0u) 
+		if((position & pot_0_INTR) != 0u) 
 		{ 
-			 POT_0_INTTYPE_REG = (uint8)mode; 
+			 pot_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: POT_ClearInterrupt
+    * Function Name: pot_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 POT_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet POT_SUT.c usage_POT_ClearInterrupt
+    *  \snippet pot_SUT.c usage_pot_ClearInterrupt
     *******************************************************************************/
-    uint8 POT_ClearInterrupt(void)
+    uint8 pot_ClearInterrupt(void)
     {
-        return (POT_INTSTAT & POT_MASK) >> POT_SHIFT;
+        return (pot_INTSTAT & pot_MASK) >> pot_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 

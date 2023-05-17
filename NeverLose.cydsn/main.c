@@ -10,7 +10,7 @@
 #include <stdint.h>
 
 #define PWM_VALUE 5000  // hasarg
-#define COLOR_CHANGE 10000  // The value at wich the color change on the screen
+#define COLOR_CHANGE 10000  // The value at wich the color changes on the screen
 #define COLOR_DELTA 100  // The minimum value to ignore the delta between de 2 photoresistor
 
 #define PI 3.14
@@ -76,7 +76,7 @@ int main(void)
 
     LCD_Start();
     LCD_ClearDisplay();
-    //Mux_Start();
+    Mux_Start();
     ADC_Start();  // Start the Analog-to-Digital Converter
     UART_Start(); //Start the UART
     keypadInit();  // Call initialization function form keypad.h
@@ -157,12 +157,10 @@ int main(void)
         //
         
         // Light detection
-        //detectLight(&photoResVal1, &photoResVal2, &day, &night);
+        //detectLight(&photoResVal1, &photoResVal2, &move);
 
         // Keypad detection
-        detectKeyboard(&key,&first_jump, &move);
-
-        
+        detectKeyboard(&key,&first_jump, &move);       
 
     }
 }
@@ -235,8 +233,8 @@ void detectKeyboard(char* key,uint8_t* first_jump,uint8_t* move){
 /*
  * Components name : ADC
  */
-/*
-void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0, uint8_t* night = 0 ){
+
+void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2, uint8_t* move){
 
     Mux_Select(0);
     CyDelay(10); //This one let some time for the switch to occur. Otherwise conversion does not work properly
@@ -244,6 +242,7 @@ void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0
     if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT)){
         *photoResVal1 = ADC_GetResult32();
     }
+   
     Mux_Select(1);
     CyDelay(10);
     ADC_StartConvert();
@@ -252,21 +251,21 @@ void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0
     }
 
 
-    if(*photoResVal1 > 0 && *photoResVal1 <= COLOR_CHANGE && (*photoResVal1 - *photoResVal2) > COLOR_DELTA ){
+    if(*photoResVal2 < 17000){
         // Top: White, Bottom: Black
-        jump();
-    }
+        jump(0, move);
+    }/*
     else if(*photoResVal2 > 0 && *photoResVal2 <= COLOR_CHANGE && (*photoResVal1 - *photoResVal2) > COLOR_DELTA ){
         // Top: Black, Bottom: White
-        duck();
-    }
-
+        duck(move);
+    }*/
+    
     // Checking the cycle of the day
-    if(*photoResVal2 > COLOR_CHANGE && (*photoResVal1 - *photoResVal2) <= COLOR_DELTA ){
+    /*if(*photoResVal2 > COLOR_CHANGE && (*photoResVal1 - *photoResVal2) <= COLOR_DELTA ){
         // Top: White, Bottom: White
         // Day
-        (*day) = 1;
-        (*night) = 0;
+        //(*day) = 1;
+        //(*night) = 0;
         // Printing the cycle on the LCD
         LCD_Position(0,5);
         LCD_PrintString("D");
@@ -276,14 +275,14 @@ void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2,uint8_t* day = 0
         // Top: Black, Bottom: Black
         // Night
 
-        (*day) = 0;
-        (*night) = 1;
+        //(*day) = 0;
+        //(*night) = 1;
         // Printing the cycle on the LCD
         LCD_Position(0,5);
         LCD_PrintString("N");
 
-    }
+    }*/
 
 }
-*/
+
 

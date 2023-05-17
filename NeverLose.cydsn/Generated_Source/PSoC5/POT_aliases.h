@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: POT.h  
+* File Name: pot.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_POT_ALIASES_H) /* Pins POT_ALIASES_H */
-#define CY_PINS_POT_ALIASES_H
+#if !defined(CY_PINS_pot_ALIASES_H) /* Pins pot_ALIASES_H */
+#define CY_PINS_pot_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define POT_0			(POT__0__PC)
-#define POT_0_INTR	((uint16)((uint16)0x0001u << POT__0__SHIFT))
+#define pot_0			(pot__0__PC)
+#define pot_0_INTR	((uint16)((uint16)0x0001u << pot__0__SHIFT))
 
-#define POT_INTR_ALL	 ((uint16)(POT_0_INTR))
+#define pot_INTR_ALL	 ((uint16)(pot_0_INTR))
 
-#endif /* End Pins POT_ALIASES_H */
+#endif /* End Pins pot_ALIASES_H */
 
 
 /* [] END OF FILE */

@@ -11,8 +11,6 @@
 */
 #include "project.h"
 
-#define KBD_DELAY   5
-
 
 void keypadInit (void) {
     COL1_Write(1);
@@ -23,7 +21,6 @@ void keypadInit (void) {
 uint8_t keypadScan (void) {
     
     COL2_Write(0);
-    //CyDelay(KBD_DELAY);
     if (!ROW0_Read()) {
         COL2_Write(1);
         return('0');
