@@ -13,6 +13,10 @@
 #define COLOR_CHANGE 10000  // The value at wich the color change on the screen
 #define COLOR_DELTA 100  // The minimum value to ignore the delta between de 2 photoresistor
 
+#define PI 3.14
+#define N 100
+float signal[N];
+
 
 uint8 rxData;
 /*
@@ -33,13 +37,26 @@ CY_ISR(isr_uart_Handler){
 
 }
 */
+//Filling the vector for the sound
+uint16_t i = 0;
+uint8_t value;
+CY_ISR (myISR){
+    value = 128 + 128*signal[i];
+    DAC_SetValue(value);
+    i++; 
+    if (i==N){i=0;}    
+    Timer_DAC_ISR_ReadStatusRegister(); //Do not forget to reset the register
+}
+
+
 int main(void)
 {
     CyGlobalIntEnable;  /* Enable global interrupts. */
 
     /* Place your initialization/startup code*/
     int score = 0;
-    uint8_t first_jump = 1;
+    uint8_t first_jump = 0;
+    uint8_t move = 0;
     uint8_t day = 0;
     uint8_t night = 0;
     uint16_t pwm_period = 48000;
@@ -48,7 +65,9 @@ int main(void)
     //uint32_t val_CMP;
     //uint32_t val_adc;
     char key = 'z';
-    uint16_t cnt = 0;
+    uint16_t cnt1 = 0;
+    uint16_t cnt2 = 0;
+    uint16_t cnt3 = 0;
 
     PWM1_WritePeriod(pwm_period);
     PWM2_WritePeriod(pwm_period);
@@ -67,23 +86,51 @@ int main(void)
     PWM2_WriteCompare(3000); //Servo à l'horizontal
     
     Timer_Start();
+    
 
     for(;;)
     {
         /* Place your application code here. */
 
         // TODO: Increase the score over time (10 points per seconds)
-       /* 
+       
         if(0x80 & Timer_ReadStatusRegister()){ //In case of overflow
-            if (cnt < 1000){
-                cnt++;
+            //Score +10 si on a sauté une fois
+            if (first_jump) {
+                if (cnt1 < 1000){
+                    cnt1++;
+                }
+                else{
+                    score += 10 ;
+                    cnt1 = 0; //Reset counter
+                }
             }
-            else{
-                LED1_Write(!LED1_Read());
-                cnt = 0; //Reset counter
+            // Apres un mouvement , désactiver led, motor , son , lcd apres X secondes
+            if (move) {
+                // Led, LCD, 
+                if (cnt2 < 1000){
+                    cnt2++;
+                }
+                else{
+                    move = 0 ;
+                    LED1_Write(0);
+                    LED2_Write(0);
+                    LED3_Write(0);
+                    LED4_Write(0);
+                    LCD_ClearDisplay();
+                    cnt2 = 0; //Reset counter
+                }
+                // Motor
+                if (cnt3 < 200){
+                    cnt3++;
+                }
+                else{
+                    PWM1_WriteCompare(3000);
+                    PWM2_WriteCompare(3000);
+                    cnt3 = 0; //Reset counter
+                }
             }
         }
-        */
         
         // Printing the score on the second half of the LCD
         LCD_Position(1,0);
@@ -94,49 +141,45 @@ int main(void)
          * Components name: SW1, SW2, SW3
          */
         if (SW1_Read()){
-           jump(&first_jump);
+           jump(&first_jump, &move);
         }
         else if (SW2_Read()) {
-            duck();
+            move = 1 ;
+            duck(&move);
 
         } else if (SW3_Read()) {
             // Reset the score
             LCD_ClearDisplay();
            (score) = 0;
-           (first_jump) = 1;
+           (first_jump) = 0;
 
         }
         //
-        
-        
         
         // Light detection
         //detectLight(&photoResVal1, &photoResVal2, &day, &night);
 
         // Keypad detection
-        detectKeyboard(&key);
+        detectKeyboard(&key,&first_jump, &move);
 
-        // Shun-ting down  the LEDs
-        LED1_Write(0);
-        LED2_Write(0);
-        LED3_Write(0);
-        LED4_Write(0);
+        
 
     }
 }
 
 // Jump function
-void jump(uint8_t* first_jump){
-    if (*first_jump){
-        (*first_jump) = 0;
+void jump(uint8_t* first_jump,uint8_t* move){
+    (*move) = 1 ;
+    if (first_jump){
+        (*first_jump) = 1;
     }
     //Activate servo motor 1
     
     // A Changer
     
     PWM1_WriteCompare(1700);
-    CyDelay(200); 
-    PWM1_WriteCompare(3000);
+    //CyDelay(200); 
+    //PWM1_WriteCompare(3000);
     
     // Printing "Jump" on LCD
     LCD_Position(0,0);
@@ -144,19 +187,20 @@ void jump(uint8_t* first_jump){
     // Lighting LEDs (1&2)
     LED1_Write(1);
     LED2_Write(1);
-    CyDelay(500);
+    //CyDelay(500);
     // Audio Output 1
     // TODO
 }
 // Down function
-void duck(){
+void duck(uint8_t* move){
+    (*move) = 1 ;
     //Activate servo motor 2
     
     // A Changer
     
     PWM2_WriteCompare(1700);
-    CyDelay(200); 
-    PWM2_WriteCompare(3000);
+    //CyDelay(200); 
+    //PWM2_WriteCompare(3000);
     
     // Printing "Duck" on LCD
     LCD_Position(0,0);
@@ -164,7 +208,7 @@ void duck(){
     // Lighting LEDs (3&4)
     LED3_Write(1);
     LED4_Write(1);
-    CyDelay(200);
+    //CyDelay(200);
     // Audio Output 2
     // TODO
 }
@@ -172,16 +216,16 @@ void duck(){
 
 // Keyboard detection
 
-void detectKeyboard(char* key){
-    // Detect the char pressed on the keybpard
+void detectKeyboard(char* key,uint8_t* first_jump,uint8_t* move){
+    // Detect the char pressed on the keypadd
     *key = keypadScan();
 
     if (*key != 'z'){
         if (*key == '2'){
-            jump(0); //attention, on hardcode un zero comme si c'etait pas un first jump
+            jump(first_jump, move); 
         }
         else if (*key == '8') {
-            duck();
+            duck(move);
         }
     }
 }

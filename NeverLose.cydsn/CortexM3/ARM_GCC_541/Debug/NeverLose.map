@@ -34,12 +34,14 @@ Archive member included to satisfy reference by file (symbol)
                               .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (CyHalt)
 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
                               .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o) (CyPmReadStatus)
+.\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (DAC_SetValue)
 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
                               .\CortexM3\ARM_GCC_541\Debug\main.o (PWM1_WritePeriod)
 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
                               .\CortexM3\ARM_GCC_541\Debug\main.o (PWM2_WritePeriod)
 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                              .\CortexM3\ARM_GCC_541\Debug\main.o (Timer_Start)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (Timer_ReadStatusRegister)
 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
                               .\CortexM3\ARM_GCC_541\Debug\keypad.o (ROW0_Read)
 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
@@ -63,11 +65,11 @@ c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
                               .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o) (__aeabi_dcmpgt)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
-                              .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o) (__aeabi_ui2f)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (__aeabi_fadd)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
-                              .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o) (__aeabi_fmul)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (__aeabi_fmul)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
-                              .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o) (__aeabi_f2uiz)
+                              .\CortexM3\ARM_GCC_541\Debug\main.o (__aeabi_f2uiz)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
                               .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o (__errno)
 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
@@ -86,7 +88,9 @@ Common symbol       size              file
 
 rxData              0x1               .\CortexM3\ARM_GCC_541\Debug\main.o
 ADC_CountsPerVolt   0x4               .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+signal              0x190             .\CortexM3\ARM_GCC_541\Debug\main.o
 dieTemperature      0x2               .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+value               0x1               .\CortexM3\ARM_GCC_541\Debug\main.o
 
 Discarded input sections
 
@@ -101,8 +105,9 @@ Discarded input sections
  .ARM.exidx     0x00000000        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m/crt0.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
- .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\main.o
- COMMON         0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .bss           0x00000000        0x2 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text.myISR    0x00000000       0x4c .\CortexM3\ARM_GCC_541\Debug\main.o
+ COMMON         0x00000000      0x195 .\CortexM3\ARM_GCC_541\Debug\main.o
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\keypad.o
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\keypad.o
  .bss           0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\keypad.o
@@ -550,6 +555,25 @@ Discarded input sections
  .text.CyPmFtwSetInterval
                 0x00000000       0x5c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
  .rodata        0x00000000        0xf .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .bss           0x00000000        0x1 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_Enable
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_Stop
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_SetSpeed
+                0x00000000       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_SetValue
+                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_DacTrim
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_SetRange
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_Init
+                0x00000000       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .text.DAC_Start
+                0x00000000       0x24 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
  .text          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
  .data          0x00000000        0x0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
  .text.PWM1_Stop
@@ -583,8 +607,6 @@ Discarded input sections
  .text.Timer_Stop
                 0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
  .text.Timer_SoftwareCapture
-                0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
- .text.Timer_ReadStatusRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
  .text.Timer_ReadControlRegister
                 0x00000000        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
@@ -819,7 +841,7 @@ END GROUP
                 0x00000800                ee_size = (CY_APPL_LOADABLE && ! (CY_EE_IN_BTLDR))?(CY_EE_SIZE / CY_APPL_MAX):CY_EE_SIZE
                 [!provide]                PROVIDE (CY_ECC_OFFSET, ecc_offset)
 
-.text           0x00000000     0x14a6
+.text           0x00000000     0x1506
  CREATE_OBJECT_SYMBOLS
                 0x00000000                PROVIDE (__cy_interrupt_vector, RomVectors)
  *(.romvectors)
@@ -836,375 +858,377 @@ END GROUP
                 0x00000001                ASSERT ((((appl_start + .) <= 0x10000) || 0x1), DMA Init must be within the first 64k of flash)
  *(.text .text.* .gnu.linkonce.t.*)
  .text          0x00000028       0x5c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .text.jump     0x00000084       0x48 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .text.jump     0x00000084       0x34 .\CortexM3\ARM_GCC_541\Debug\main.o
                 0x00000084                jump
- .text.duck     0x000000cc       0x40 .\CortexM3\ARM_GCC_541\Debug\main.o
-                0x000000cc                duck
+ .text.duck     0x000000b8       0x30 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000b8                duck
  .text.detectKeyboard
-                0x0000010c       0x24 .\CortexM3\ARM_GCC_541\Debug\main.o
-                0x0000010c                detectKeyboard
- .text.main     0x00000130       0xb4 .\CortexM3\ARM_GCC_541\Debug\main.o
-                0x00000130                main
+                0x000000e8       0x2c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x000000e8                detectKeyboard
+ .text.main     0x00000114      0x12c .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000114                main
  .text.keypadInit
-                0x000001e4       0x18 .\CortexM3\ARM_GCC_541\Debug\keypad.o
-                0x000001e4                keypadInit
+                0x00000240       0x18 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+                0x00000240                keypadInit
  .text.keypadScan
-                0x000001fc       0x48 .\CortexM3\ARM_GCC_541\Debug\keypad.o
-                0x000001fc                keypadScan
+                0x00000258       0x44 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+                0x00000258                keypadScan
  .text.CyClockStartupError
-                0x00000244        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000029c        0x4 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.cfg_write_bytes32
-                0x00000248       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000002a0       0x34 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.AnalogSetDefault
-                0x0000027c       0x44 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x000002d4       0x44 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYMEMZERO
-                0x000002c0        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000318        0xc .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.CYCONFIGCPY
-                0x000002cc        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000324        0x8 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ClockSetup
-                0x000002d4      0x10c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000032c      0x10c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .text.ADC_AMux_Set
-                0x000003e0       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x000003e0                ADC_AMux_Set
+                0x00000438       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000438                ADC_AMux_Set
  .text.ADC_AMux_Unset
-                0x000003fc       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x000003fc                ADC_AMux_Unset
+                0x00000454       0x1c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000454                ADC_AMux_Unset
  .text.cyfitter_cfg
-                0x00000418      0x14c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x00000418                cyfitter_cfg
+                0x00000470      0x14c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000470                cyfitter_cfg
  .text.IntDefaultHandler
-                0x00000564       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000564                IntDefaultHandler
- .text.Start_c  0x00000574       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00000574                Start_c
+                0x000005bc       0x10 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000005bc                IntDefaultHandler
+ .text.Start_c  0x000005cc       0x4c .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000005cc                Start_c
  .text.initialize_psoc
-                0x000005c0       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x000005c0                initialize_psoc
+                0x00000618       0x68 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00000618                initialize_psoc
  .text.SW1_Read
-                0x00000628       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
-                0x00000628                SW1_Read
+                0x00000680       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+                0x00000680                SW1_Read
  .text.SW2_Read
-                0x00000638       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
-                0x00000638                SW2_Read
+                0x00000690       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+                0x00000690                SW2_Read
  .text.SW3_Read
-                0x00000648       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
-                0x00000648                SW3_Read
+                0x000006a0       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+                0x000006a0                SW3_Read
  .text.LED1_Write
-                0x00000658       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
-                0x00000658                LED1_Write
+                0x000006b0       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+                0x000006b0                LED1_Write
  .text.LED2_Write
-                0x00000670       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
-                0x00000670                LED2_Write
+                0x000006c8       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+                0x000006c8                LED2_Write
  .text.LED3_Write
-                0x00000688       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
-                0x00000688                LED3_Write
+                0x000006e0       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+                0x000006e0                LED3_Write
  .text.LED4_Write
-                0x000006a0       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
-                0x000006a0                LED4_Write
+                0x000006f8       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+                0x000006f8                LED4_Write
  .text.ADC_GainCompensation
-                0x000006b8       0xdc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x00000710       0xdc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
  .text.ADC_SetDSMRef0Reg
-                0x00000794       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x000007ec       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
  .text.ADC_InitConfig
-                0x000007e0       0xe4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x00000838       0xe4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
  .text.ADC_Init
-                0x000008c4       0xc4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
-                0x000008c4                ADC_Init
+                0x0000091c       0xc4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x0000091c                ADC_Init
  .text.ADC_Enable
-                0x00000988       0xd8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
-                0x00000988                ADC_Enable
+                0x000009e0       0xd8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x000009e0                ADC_Enable
  .text.ADC_Start
-                0x00000a60       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
-                0x00000a60                ADC_Start
+                0x00000ab8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x00000ab8                ADC_Start
  .text.ADC_ISR1
-                0x00000a88        0x4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
-                0x00000a88                ADC_ISR1
+                0x00000ae0        0x4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+                0x00000ae0                ADC_ISR1
  .text.LCD_WrCntrlNib
-                0x00000a8c       0x34 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000ae4       0x34 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
  .text.LCD_WrDatNib
-                0x00000ac0       0x44 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000b18       0x44 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
  .text.LCD_IsReady
-                0x00000b04       0xe4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000b04                LCD_IsReady
+                0x00000b5c       0xe4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000b5c                LCD_IsReady
  .text.LCD_WriteData
-                0x00000be8       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000be8                LCD_WriteData
+                0x00000c40       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000c40                LCD_WriteData
  .text.LCD_PrintString
-                0x00000c00       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000c00                LCD_PrintString
+                0x00000c58       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000c58                LCD_PrintString
  .text.LCD_WriteControl
-                0x00000c1c       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000c1c                LCD_WriteControl
+                0x00000c74       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000c74                LCD_WriteControl
  .text.LCD_Init
-                0x00000c34       0x6c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000c34                LCD_Init
+                0x00000c8c       0x6c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000c8c                LCD_Init
  .text.LCD_Enable
-                0x00000ca0       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000ca0                LCD_Enable
+                0x00000cf8       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000cf8                LCD_Enable
  .text.LCD_Start
-                0x00000cb4       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000cb4                LCD_Start
+                0x00000d0c       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000d0c                LCD_Start
  .text.LCD_Position
-                0x00000cd0       0x3c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000cd0                LCD_Position
+                0x00000d28       0x3c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000d28                LCD_Position
  .text.LCD_PrintU32Number
-                0x00000d0c       0x64 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
-                0x00000d0c                LCD_PrintU32Number
+                0x00000d64       0x64 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x00000d64                LCD_PrintU32Number
  .text.UART_Init
-                0x00000d70       0x24 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
-                0x00000d70                UART_Init
+                0x00000dc8       0x24 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+                0x00000dc8                UART_Init
  .text.UART_Enable
-                0x00000d94       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
-                0x00000d94                UART_Enable
+                0x00000dec       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+                0x00000dec                UART_Enable
  .text.UART_Start
-                0x00000dcc       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
-                0x00000dcc                UART_Start
+                0x00000e24       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+                0x00000e24                UART_Start
  .text.ADC_AMux_Start
-                0x00000de8       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
-                0x00000de8                ADC_AMux_Start
+                0x00000e40       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+                0x00000e40                ADC_AMux_Start
  .text.ADC_AMux_Select
-                0x00000e08       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
-                0x00000e08                ADC_AMux_Select
+                0x00000e60       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+                0x00000e60                ADC_AMux_Select
  .text.ADC_Ext_CP_Clk_GetDividerRegister
-                0x00000e20        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
-                0x00000e20                ADC_Ext_CP_Clk_GetDividerRegister
+                0x00000e78        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+                0x00000e78                ADC_Ext_CP_Clk_GetDividerRegister
  .text.ADC_Ext_CP_Clk_SetModeRegister
-                0x00000e2c       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
-                0x00000e2c                ADC_Ext_CP_Clk_SetModeRegister
+                0x00000e84       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+                0x00000e84                ADC_Ext_CP_Clk_SetModeRegister
  .text.ADC_Ext_CP_Clk_GetSourceRegister
-                0x00000e40       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
-                0x00000e40                ADC_Ext_CP_Clk_GetSourceRegister
+                0x00000e98       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+                0x00000e98                ADC_Ext_CP_Clk_GetSourceRegister
  .text.ADC_Ext_CP_Clk_SetDividerRegister
-                0x00000e50       0xdc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
-                0x00000e50                ADC_Ext_CP_Clk_SetDividerRegister
+                0x00000ea8       0xdc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+                0x00000ea8                ADC_Ext_CP_Clk_SetDividerRegister
  .text.ADC_theACLK_GetDividerRegister
-                0x00000f2c        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
-                0x00000f2c                ADC_theACLK_GetDividerRegister
+                0x00000f84        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+                0x00000f84                ADC_theACLK_GetDividerRegister
  .text.ADC_theACLK_SetModeRegister
-                0x00000f38       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
-                0x00000f38                ADC_theACLK_SetModeRegister
+                0x00000f90       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+                0x00000f90                ADC_theACLK_SetModeRegister
  .text.ADC_theACLK_GetSourceRegister
-                0x00000f4c       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
-                0x00000f4c                ADC_theACLK_GetSourceRegister
+                0x00000fa4       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+                0x00000fa4                ADC_theACLK_GetSourceRegister
  .text.ADC_theACLK_SetDividerRegister
-                0x00000f5c       0xd8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
-                0x00000f5c                ADC_theACLK_SetDividerRegister
+                0x00000fb4       0xd8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+                0x00000fb4                ADC_theACLK_SetDividerRegister
  .text.UART_IntClock_Start
-                0x00001034       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
-                0x00001034                UART_IntClock_Start
- .text.CyHalt   0x00001050        0x4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
-                0x00001050                CyHalt
- .text.CyDelay  0x00001054       0x2c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
-                0x00001054                CyDelay
+                0x0000108c       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+                0x0000108c                UART_IntClock_Start
+ .text.CyHalt   0x000010a8        0x4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+                0x000010a8                CyHalt
+ .text.CyDelay  0x000010ac       0x2c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+                0x000010ac                CyDelay
  .text.CyDelayUs
-                0x00001080       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
-                0x00001080                CyDelayUs
+                0x000010d8       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+                0x000010d8                CyDelayUs
  .text.CyIntSetVector
-                0x00001094       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
-                0x00001094                CyIntSetVector
+                0x000010ec       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+                0x000010ec                CyIntSetVector
  .text.CyIntSetPriority
-                0x000010bc       0x30 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
-                0x000010bc                CyIntSetPriority
+                0x00001114       0x30 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+                0x00001114                CyIntSetPriority
  .text.PWM1_Enable
-                0x000010ec       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x000010ec                PWM1_Enable
+                0x00001144       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001144                PWM1_Enable
  .text.PWM1_WriteCounter
-                0x000010fc        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x000010fc                PWM1_WriteCounter
+                0x00001154        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001154                PWM1_WriteCounter
  .text.PWM1_WritePeriod
-                0x00001108        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x00001108                PWM1_WritePeriod
+                0x00001160        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001160                PWM1_WritePeriod
  .text.PWM1_WriteCompare
-                0x00001114        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x00001114                PWM1_WriteCompare
+                0x0000116c        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x0000116c                PWM1_WriteCompare
  .text.PWM1_SetInterruptMode
-                0x00001120        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x00001120                PWM1_SetInterruptMode
+                0x00001178        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001178                PWM1_SetInterruptMode
  .text.PWM1_ReadStatusRegister
-                0x0000112c        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x0000112c                PWM1_ReadStatusRegister
+                0x00001184        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001184                PWM1_ReadStatusRegister
  .text.PWM1_ReadCapture
-                0x00001138        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x00001138                PWM1_ReadCapture
+                0x00001190        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001190                PWM1_ReadCapture
  .text.PWM1_ClearFIFO
-                0x00001144       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x00001144                PWM1_ClearFIFO
+                0x0000119c       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x0000119c                PWM1_ClearFIFO
  .text.PWM1_Init
-                0x00001158       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x00001158                PWM1_Init
+                0x000011b0       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x000011b0                PWM1_Init
  .text.PWM1_Start
-                0x000011b8       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
-                0x000011b8                PWM1_Start
+                0x00001210       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00001210                PWM1_Start
  .text.PWM2_Enable
-                0x000011d4       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x000011d4                PWM2_Enable
+                0x0000122c       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x0000122c                PWM2_Enable
  .text.PWM2_WriteCounter
-                0x000011e4        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x000011e4                PWM2_WriteCounter
+                0x0000123c        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x0000123c                PWM2_WriteCounter
  .text.PWM2_WritePeriod
-                0x000011f0        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x000011f0                PWM2_WritePeriod
+                0x00001248        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00001248                PWM2_WritePeriod
  .text.PWM2_WriteCompare
-                0x000011fc        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x000011fc                PWM2_WriteCompare
+                0x00001254        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00001254                PWM2_WriteCompare
  .text.PWM2_SetInterruptMode
-                0x00001208        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x00001208                PWM2_SetInterruptMode
+                0x00001260        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00001260                PWM2_SetInterruptMode
  .text.PWM2_ReadStatusRegister
-                0x00001214        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x00001214                PWM2_ReadStatusRegister
+                0x0000126c        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x0000126c                PWM2_ReadStatusRegister
  .text.PWM2_ReadCapture
-                0x00001220        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x00001220                PWM2_ReadCapture
+                0x00001278        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00001278                PWM2_ReadCapture
  .text.PWM2_ClearFIFO
-                0x0000122c       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x0000122c                PWM2_ClearFIFO
+                0x00001284       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00001284                PWM2_ClearFIFO
  .text.PWM2_Init
-                0x00001240       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x00001240                PWM2_Init
+                0x00001298       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00001298                PWM2_Init
  .text.PWM2_Start
-                0x000012a0       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
-                0x000012a0                PWM2_Start
+                0x000012f8       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x000012f8                PWM2_Start
  .text.Timer_Enable
-                0x000012bc       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                0x000012bc                Timer_Enable
+                0x00001314       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x00001314                Timer_Enable
  .text.Timer_SetInterruptMode
-                0x000012e4        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                0x000012e4                Timer_SetInterruptMode
+                0x0000133c        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x0000133c                Timer_SetInterruptMode
+ .text.Timer_ReadStatusRegister
+                0x00001348        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x00001348                Timer_ReadStatusRegister
  .text.Timer_WritePeriod
-                0x000012f0        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                0x000012f0                Timer_WritePeriod
+                0x00001354        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x00001354                Timer_WritePeriod
  .text.Timer_WriteCounter
-                0x000012fc        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                0x000012fc                Timer_WriteCounter
+                0x00001360        0xc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x00001360                Timer_WriteCounter
  .text.Timer_Init
-                0x00001308       0x68 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                0x00001308                Timer_Init
+                0x0000136c       0x68 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x0000136c                Timer_Init
  .text.Timer_Start
-                0x00001370       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
-                0x00001370                Timer_Start
+                0x000013d4       0x1c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x000013d4                Timer_Start
  .text.ROW0_Read
-                0x0000138c       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
-                0x0000138c                ROW0_Read
+                0x000013f0       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+                0x000013f0                ROW0_Read
  .text.ROW1_Read
-                0x0000139c       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
-                0x0000139c                ROW1_Read
+                0x00001400       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+                0x00001400                ROW1_Read
  .text.ROW3_Read
-                0x000013ac       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
-                0x000013ac                ROW3_Read
+                0x00001410       0x10 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+                0x00001410                ROW3_Read
  .text.COL1_Write
-                0x000013bc       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
-                0x000013bc                COL1_Write
+                0x00001420       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+                0x00001420                COL1_Write
  .text.COL2_Write
-                0x000013d4       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
-                0x000013d4                COL2_Write
+                0x00001438       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+                0x00001438                COL2_Write
  .text.COL3_Write
-                0x000013ec       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
-                0x000013ec                COL3_Write
- *fill*         0x00001404        0x4 
- .text          0x00001408       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
-                0x00001408                CyDelayCycles
-                0x00001418                CyEnterCriticalSection
-                0x00001420                CyExitCriticalSection
- .text.__errno  0x00001428        0xc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
-                0x00001428                __errno
+                0x00001450       0x18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+                0x00001450                COL3_Write
+ .text          0x00001468       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
+                0x00001468                CyDelayCycles
+                0x00001478                CyEnterCriticalSection
+                0x00001480                CyExitCriticalSection
+ .text.__errno  0x00001488        0xc c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x00001488                __errno
  .text.__libc_init_array
-                0x00001434       0x4c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
-                0x00001434                __libc_init_array
- .text.memcpy   0x00001480       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
-                0x00001480                memcpy
- .text.memset   0x00001496       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
-                0x00001496                memset
+                0x00001494       0x4c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00001494                __libc_init_array
+ .text.memcpy   0x000014e0       0x16 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x000014e0                memcpy
+ .text.memset   0x000014f6       0x10 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x000014f6                memset
  *(.plt)
  *(.gnu.warning)
  *(.glue_7t)
- .glue_7t       0x000014a6        0x0 linker stubs
+ .glue_7t       0x00001506        0x0 linker stubs
  *(.glue_7)
- .glue_7        0x000014a6        0x0 linker stubs
+ .glue_7        0x00001506        0x0 linker stubs
  *(.vfp11_veneer)
- .vfp11_veneer  0x000014a6        0x0 linker stubs
+ .vfp11_veneer  0x00001506        0x0 linker stubs
  *(.bootloader)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
  *(.gcc_except_table)
 
-.v4_bx          0x000014a8        0x0
- .v4_bx         0x000014a8        0x0 linker stubs
+.v4_bx          0x00001508        0x0
+ .v4_bx         0x00001508        0x0 linker stubs
 
-.iplt           0x000014a8        0x0
- .iplt          0x000014a8        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.iplt           0x00001508        0x0
+ .iplt          0x00001508        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x000014a8        0x4
+.eh_frame       0x00001508        0x4
  *(.eh_frame)
- .eh_frame      0x000014a8        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .eh_frame      0x000014a8        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .eh_frame      0x00001508        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .eh_frame      0x00001508        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
                 [!provide]                PROVIDE (__exidx_start, .)
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x000014ac                __exidx_end = .
+                0x0000150c                __exidx_end = .
 
-.rodata         0x000014ac       0x8c
+.rodata         0x0000150c       0x8c
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x000014ac       0x10 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x0000150c       0x10 .\CortexM3\ARM_GCC_541\Debug\main.o
                                   0xd (size before relaxing)
- .rodata        0x000014bc       0x46 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                0x000014bc                ADC_AMux__addrTable
-                0x000014c4                ADC_AMux__maskTable
+ .rodata        0x0000151c       0x46 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x0000151c                ADC_AMux__addrTable
+                0x00001524                ADC_AMux__maskTable
  .rodata.str1.1
-                0x00001502        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
-                0x00001504                . = ALIGN (0x4)
+                0x00001562        0x2 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x00001564                . = ALIGN (0x4)
  *(.init)
- .init          0x00001504        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x00001504                _init
- .init          0x00001508        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00001510                . = ALIGN (0x4)
-                0x00001510                __preinit_array_start = .
+ .init          0x00001564        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00001564                _init
+ .init          0x00001568        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00001570                . = ALIGN (0x4)
+                0x00001570                __preinit_array_start = .
  *(.preinit_array)
-                0x00001510                __preinit_array_end = .
-                0x00001510                . = ALIGN (0x4)
-                0x00001510                __init_array_start = .
+                0x00001570                __preinit_array_end = .
+                0x00001570                . = ALIGN (0x4)
+                0x00001570                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00001510        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
- .init_array    0x00001514        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                0x00001518                __init_array_end = .
-                0x00001518                . = ALIGN (0x4)
+ .init_array    0x00001570        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .init_array    0x00001574        0x4 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x00001578                __init_array_end = .
+                0x00001578                . = ALIGN (0x4)
  *(.fini)
- .fini          0x00001518        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
-                0x00001518                _fini
- .fini          0x0000151c        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
-                0x00001524                . = ALIGN (0x4)
-                0x00001524                __fini_array_start = .
+ .fini          0x00001578        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crti.o
+                0x00001578                _fini
+ .fini          0x0000157c        0x8 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x00001584                . = ALIGN (0x4)
+                0x00001584                __fini_array_start = .
  *(.fini_array)
- .fini_array    0x00001524        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+ .fini_array    0x00001584        0x4 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
  *(SORT(.fini_array.*))
-                0x00001528                __fini_array_end = .
-                0x00001528                . = ALIGN (0x4)
+                0x00001588                __fini_array_end = .
+                0x00001588                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x00001528                . = ALIGN (0x4)
+                0x00001588                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x00001528                . = ALIGN (0x4)
-                0x00001528                __cy_regions = .
-                0x00001528        0x4 LONG 0x1538 __cy_region_init_ram
-                0x0000152c        0x4 LONG 0x1fff80c8 __cy_region_start_data
-                0x00001530        0x4 LONG 0x80 __cy_region_init_size_ram
-                0x00001534        0x4 LONG 0x38 __cy_region_zero_size_ram
-                0x00001538                __cy_regions_end = .
-                0x00001538                . = ALIGN (0x8)
-                0x00001538                _etext = .
+                0x00001588                . = ALIGN (0x4)
+                0x00001588                __cy_regions = .
+                0x00001588        0x4 LONG 0x1598 __cy_region_init_ram
+                0x0000158c        0x4 LONG 0x1fff80c8 __cy_region_start_data
+                0x00001590        0x4 LONG 0x80 __cy_region_init_size_ram
+                0x00001594        0x4 LONG 0x38 __cy_region_zero_size_ram
+                0x00001598                __cy_regions_end = .
+                0x00001598                . = ALIGN (0x8)
+                0x00001598                _etext = .
 
 .cy_checksum_exclude
-                0x00001538        0x0
+                0x00001598        0x0
  *(.cy_checksum_exclude)
 
 .ramvectors     0x1fff8000       0xc0
@@ -1218,7 +1242,7 @@ END GROUP
  .noinit        0x1fff80c0        0x1 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
                 0x1fff80c0                CyResetStatus
 
-.data           0x1fff80c8       0x80 load address 0x00001538
+.data           0x1fff80c8       0x80 load address 0x00001598
                 0x1fff80c8                __cy_region_start_data = .
  *(.jcr)
  .jcr           0x1fff80c8        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
@@ -1246,10 +1270,10 @@ END GROUP
  *(.ram)
                 0x1fff8148                _edata = .
 
-.igot.plt       0x1fff8148        0x0 load address 0x000015b8
+.igot.plt       0x1fff8148        0x0 load address 0x00001618
  .igot.plt      0x1fff8148        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
-.bss            0x1fff8148       0x38 load address 0x000015b8
+.bss            0x1fff8148       0x38 load address 0x00001618
                 0x1fff8148                PROVIDE (__bss_start__, .)
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
@@ -1282,11 +1306,11 @@ END GROUP
                 0x1fff8180                __end = .
                 0x1fff8180                PROVIDE (end, .)
                 0x1fff8180                PROVIDE (__bss_end__, .)
-                0x00001538                __cy_region_init_ram = LOADADDR (.data)
+                0x00001598                __cy_region_init_ram = LOADADDR (.data)
                 0x00000080                __cy_region_init_size_ram = (_edata - ADDR (.data))
                 0x00000038                __cy_region_zero_size_ram = (_end - _edata)
 
-.heap           0x1fff8180       0x80 load address 0x000015b8
+.heap           0x1fff8180       0x80 load address 0x00001618
                 0x1fff8180                . = _end
                 0x1fff8200                . = (. + 0x80)
  *fill*         0x1fff8180       0x80 
@@ -1337,8 +1361,8 @@ END GROUP
  .cymeta        0x90500000        0xc .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
                 0x90500000                cy_metadata
 
-.rel.dyn        0x000015b8        0x0 load address 0x9050000c
- .rel.iplt      0x000015b8        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
+.rel.dyn        0x00001618        0x0 load address 0x9050000c
+ .rel.iplt      0x00001618        0x0 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtbegin.o
 
 .stab
  *(.stab)
@@ -1358,369 +1382,379 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0xe50
+.debug_aranges  0x00000000      0xeb0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x38 .\CortexM3\ARM_GCC_541\Debug\main.o
+                0x00000000       0x40 .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_aranges
-                0x00000038       0x28 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+                0x00000040       0x28 .\CortexM3\ARM_GCC_541\Debug\keypad.o
  .debug_aranges
-                0x00000060       0x68 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                0x00000068       0x68 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
  .debug_aranges
-                0x000000c8       0x18 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                0x000000d0       0x18 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
  .debug_aranges
-                0x000000e0       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                0x000000e8       0x48 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
  .debug_aranges
-                0x00000128       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+                0x00000130       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
  .debug_aranges
-                0x00000160       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+                0x00000168       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
  .debug_aranges
-                0x00000198       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+                0x000001a0       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
  .debug_aranges
-                0x000001d0       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+                0x000001d8       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
  .debug_aranges
-                0x00000208       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+                0x00000210       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
  .debug_aranges
-                0x00000240       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+                0x00000248       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
  .debug_aranges
-                0x00000278       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+                0x00000280       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
  .debug_aranges
-                0x000002b0       0xe8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+                0x000002b8       0xe8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
  .debug_aranges
-                0x00000398       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+                0x000003a0       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
  .debug_aranges
-                0x000003d0       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+                0x000003d8       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
  .debug_aranges
-                0x00000468       0xf0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+                0x00000470       0xf0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
  .debug_aranges
-                0x00000558       0x30 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+                0x00000560       0x30 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
  .debug_aranges
-                0x00000588       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+                0x00000590       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
  .debug_aranges
-                0x000005f8       0x80 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+                0x00000600       0x80 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
  .debug_aranges
-                0x00000678       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+                0x00000680       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
  .debug_aranges
-                0x000006e8      0x2a0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+                0x000006f0      0x2a0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
  .debug_aranges
-                0x00000988       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+                0x00000990       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
  .debug_aranges
-                0x00000a20       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x00000a28       0x58 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
  .debug_aranges
-                0x00000ab8       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x00000a80       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
  .debug_aranges
-                0x00000b50       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x00000b18       0x98 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
  .debug_aranges
-                0x00000bd8       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+                0x00000bb0       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
  .debug_aranges
-                0x00000c10       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+                0x00000c38       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
  .debug_aranges
-                0x00000c48       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+                0x00000c70       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
  .debug_aranges
-                0x00000c80       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+                0x00000ca8       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
  .debug_aranges
-                0x00000cb8       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+                0x00000ce0       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
  .debug_aranges
-                0x00000cf0       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+                0x00000d18       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
  .debug_aranges
-                0x00000d28       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
+                0x00000d50       0x38 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
  .debug_aranges
-                0x00000d48       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+                0x00000d88       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
  .debug_aranges
-                0x00000dd0       0x80 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+                0x00000da8       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_aranges
+                0x00000e30       0x80 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x771d
+.debug_info     0x00000000     0x79d7
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x661 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_info    0x00000661      0x207 .\CortexM3\ARM_GCC_541\Debug\keypad.o
- .debug_info    0x00000868      0x6d9 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_info    0x00000f41      0x137 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_info    0x00001078      0x3bb .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_info    0x00001433      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
- .debug_info    0x00001552      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
- .debug_info    0x00001671      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
- .debug_info    0x00001790      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
- .debug_info    0x000018af      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
- .debug_info    0x000019ce      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
- .debug_info    0x00001aed      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
- .debug_info    0x00001c0c      0xa18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
- .debug_info    0x00002624       0xd3 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
- .debug_info    0x000026f7      0x715 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
- .debug_info    0x00002e0c      0x60c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
- .debug_info    0x00003418      0x165 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
- .debug_info    0x0000357d      0x283 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
- .debug_info    0x00003800      0x2c4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
- .debug_info    0x00003ac4      0x283 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
- .debug_info    0x00003d47     0x1374 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
- .debug_info    0x000050bb      0xa2a .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
- .debug_info    0x00005ae5      0x354 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
- .debug_info    0x00005e39      0x354 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
- .debug_info    0x0000618d      0x295 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
- .debug_info    0x00006422      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
- .debug_info    0x00006541      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
- .debug_info    0x00006660      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
- .debug_info    0x0000677f      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
- .debug_info    0x0000689e      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
- .debug_info    0x000069bd      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
- .debug_info    0x00006adc       0xa4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
- .debug_info    0x00006b80      0x64d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
- .debug_info    0x000071cd      0x550 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_info    0x00000000      0x759 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_info    0x00000759      0x1e9 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+ .debug_info    0x00000942      0x6d9 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_info    0x0000101b      0x137 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_info    0x00001152      0x3bb .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_info    0x0000150d      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_info    0x0000162c      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_info    0x0000174b      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_info    0x0000186a      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_info    0x00001989      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_info    0x00001aa8      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_info    0x00001bc7      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_info    0x00001ce6      0xa18 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_info    0x000026fe       0xd3 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+ .debug_info    0x000027d1      0x715 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_info    0x00002ee6      0x60c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_info    0x000034f2      0x165 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_info    0x00003657      0x283 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_info    0x000038da      0x2c4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_info    0x00003b9e      0x283 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_info    0x00003e21     0x1374 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_info    0x00005195      0xa2a .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_info    0x00005bbf      0x1e0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .debug_info    0x00005d9f      0x354 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_info    0x000060f3      0x354 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_info    0x00006447      0x295 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+ .debug_info    0x000066dc      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_info    0x000067fb      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_info    0x0000691a      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_info    0x00006a39      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_info    0x00006b58      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_info    0x00006c77      0x11f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_info    0x00006d96       0xa4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
+ .debug_info    0x00006e3a      0x64d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_info    0x00007487      0x550 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
 
-.debug_abbrev   0x00000000     0x223f
+.debug_abbrev   0x00000000     0x236a
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x193 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_abbrev  0x00000193       0xc5 .\CortexM3\ARM_GCC_541\Debug\keypad.o
- .debug_abbrev  0x00000258      0x22d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_abbrev  0x00000485       0x77 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_abbrev  0x000004fc      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_abbrev  0x000006e4       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
- .debug_abbrev  0x00000774       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
- .debug_abbrev  0x00000804       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
- .debug_abbrev  0x00000894       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
- .debug_abbrev  0x00000924       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
- .debug_abbrev  0x000009b4       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
- .debug_abbrev  0x00000a44       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
- .debug_abbrev  0x00000ad4      0x1eb .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
- .debug_abbrev  0x00000cbf       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
- .debug_abbrev  0x00000d01      0x157 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
- .debug_abbrev  0x00000e58      0x175 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
- .debug_abbrev  0x00000fcd       0xb1 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
- .debug_abbrev  0x0000107e      0x139 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
- .debug_abbrev  0x000011b7      0x121 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
- .debug_abbrev  0x000012d8      0x139 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
- .debug_abbrev  0x00001411      0x254 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
- .debug_abbrev  0x00001665      0x1ab .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
- .debug_abbrev  0x00001810      0x133 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
- .debug_abbrev  0x00001943      0x133 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
- .debug_abbrev  0x00001a76      0x11a .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
- .debug_abbrev  0x00001b90       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
- .debug_abbrev  0x00001c20       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
- .debug_abbrev  0x00001cb0       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
- .debug_abbrev  0x00001d40       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
- .debug_abbrev  0x00001dd0       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
- .debug_abbrev  0x00001e60       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
- .debug_abbrev  0x00001ef0       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
- .debug_abbrev  0x00001f04      0x1a7 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
- .debug_abbrev  0x000020ab      0x194 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_abbrev  0x00000000      0x1c7 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_abbrev  0x000001c7       0xc5 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+ .debug_abbrev  0x0000028c      0x22d .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_abbrev  0x000004b9       0x77 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_abbrev  0x00000530      0x1e8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_abbrev  0x00000718       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_abbrev  0x000007a8       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_abbrev  0x00000838       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_abbrev  0x000008c8       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_abbrev  0x00000958       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_abbrev  0x000009e8       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_abbrev  0x00000a78       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_abbrev  0x00000b08      0x1eb .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_abbrev  0x00000cf3       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+ .debug_abbrev  0x00000d35      0x157 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_abbrev  0x00000e8c      0x175 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_abbrev  0x00001001       0xb1 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_abbrev  0x000010b2      0x139 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_abbrev  0x000011eb      0x121 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_abbrev  0x0000130c      0x139 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_abbrev  0x00001445      0x254 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_abbrev  0x00001699      0x1ab .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_abbrev  0x00001844       0xf7 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .debug_abbrev  0x0000193b      0x133 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_abbrev  0x00001a6e      0x133 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_abbrev  0x00001ba1      0x11a .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+ .debug_abbrev  0x00001cbb       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_abbrev  0x00001d4b       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_abbrev  0x00001ddb       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_abbrev  0x00001e6b       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_abbrev  0x00001efb       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_abbrev  0x00001f8b       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_abbrev  0x0000201b       0x14 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
+ .debug_abbrev  0x0000202f      0x1a7 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_abbrev  0x000021d6      0x194 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
 
-.debug_line     0x00000000     0x3384
+.debug_line     0x00000000     0x3485
  *(.debug_line)
- .debug_line    0x00000000      0x264 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_line    0x00000264      0x1c1 .\CortexM3\ARM_GCC_541\Debug\keypad.o
- .debug_line    0x00000425      0x229 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_line    0x0000064e      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
- .debug_line    0x0000078f      0x234 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_line    0x000009c3       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
- .debug_line    0x00000a53       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
- .debug_line    0x00000ae3       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
- .debug_line    0x00000b73       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
- .debug_line    0x00000c04       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
- .debug_line    0x00000c95       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
- .debug_line    0x00000d26       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
- .debug_line    0x00000db7      0x34f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
- .debug_line    0x00001106       0x80 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
- .debug_line    0x00001186      0x1dc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
- .debug_line    0x00001362      0x2bc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
- .debug_line    0x0000161e       0xac .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
- .debug_line    0x000016ca      0x17d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
- .debug_line    0x00001847      0x19d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
- .debug_line    0x000019e4      0x17c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
- .debug_line    0x00001b60      0x816 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
- .debug_line    0x00002376      0x367 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
- .debug_line    0x000026dd      0x187 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
- .debug_line    0x00002864      0x187 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
- .debug_line    0x000029eb      0x153 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
- .debug_line    0x00002b3e       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
- .debug_line    0x00002bcf       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
- .debug_line    0x00002c60       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
- .debug_line    0x00002cf1       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
- .debug_line    0x00002d82       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
- .debug_line    0x00002e13       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
- .debug_line    0x00002ea4       0x66 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
- .debug_line    0x00002f0a      0x21a .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
- .debug_line    0x00003124      0x260 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_line    0x00000000      0x291 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_line    0x00000291      0x1b5 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+ .debug_line    0x00000446      0x229 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_line    0x0000066f      0x141 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_line    0x000007b0      0x234 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_line    0x000009e4       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_line    0x00000a74       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_line    0x00000b04       0x90 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_line    0x00000b94       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_line    0x00000c25       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_line    0x00000cb6       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_line    0x00000d47       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_line    0x00000dd8      0x34f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_line    0x00001127       0x80 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+ .debug_line    0x000011a7      0x1dc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_line    0x00001383      0x2bc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_line    0x0000163f       0xac .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_line    0x000016eb      0x17d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_line    0x00001868      0x19d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_line    0x00001a05      0x17c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_line    0x00001b81      0x816 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_line    0x00002397      0x367 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_line    0x000026fe       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .debug_line    0x000027de      0x187 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_line    0x00002965      0x187 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_line    0x00002aec      0x153 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+ .debug_line    0x00002c3f       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_line    0x00002cd0       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_line    0x00002d61       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_line    0x00002df2       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_line    0x00002e83       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_line    0x00002f14       0x91 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_line    0x00002fa5       0x66 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
+ .debug_line    0x0000300b      0x21a .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_line    0x00003225      0x260 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
 
-.debug_frame    0x00000000     0x2128
+.debug_frame    0x00000000     0x2208
  *(.debug_frame)
- .debug_frame   0x00000000       0x80 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_frame   0x00000080       0x48 .\CortexM3\ARM_GCC_541\Debug\keypad.o
- .debug_frame   0x000000c8      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_frame   0x000001cc       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_frame   0x00000284       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
- .debug_frame   0x000002d4       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
- .debug_frame   0x00000324       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
- .debug_frame   0x00000374       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
- .debug_frame   0x000003c4       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
- .debug_frame   0x00000414       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
- .debug_frame   0x00000464       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
- .debug_frame   0x000004b4      0x278 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
- .debug_frame   0x0000072c       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
- .debug_frame   0x0000077c      0x1e8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
- .debug_frame   0x00000964      0x250 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
- .debug_frame   0x00000bb4       0x64 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
- .debug_frame   0x00000c18       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
- .debug_frame   0x00000cf8      0x100 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
- .debug_frame   0x00000df8       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
- .debug_frame   0x00000ed8      0x738 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
- .debug_frame   0x00001610      0x1f8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
- .debug_frame   0x00001808      0x134 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
- .debug_frame   0x0000193c      0x134 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
- .debug_frame   0x00001a70      0x108 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
- .debug_frame   0x00001b78       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
- .debug_frame   0x00001bc8       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
- .debug_frame   0x00001c18       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
- .debug_frame   0x00001c68       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
- .debug_frame   0x00001cb8       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
- .debug_frame   0x00001d08       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
- .debug_frame   0x00001d58      0x194 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
- .debug_frame   0x00001eec      0x180 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
- .debug_frame   0x0000206c       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
- .debug_frame   0x0000208c       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
- .debug_frame   0x000020b4       0x2c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
- .debug_frame   0x000020e0       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00002108       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+ .debug_frame   0x00000000       0xac .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_frame   0x000000ac       0x48 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+ .debug_frame   0x000000f4      0x104 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_frame   0x000001f8       0xb8 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_frame   0x000002b0       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_frame   0x00000300       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_frame   0x00000350       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_frame   0x000003a0       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_frame   0x000003f0       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_frame   0x00000440       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_frame   0x00000490       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_frame   0x000004e0      0x278 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_frame   0x00000758       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+ .debug_frame   0x000007a8      0x1e8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_frame   0x00000990      0x250 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_frame   0x00000be0       0x64 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_frame   0x00000c44       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_frame   0x00000d24      0x100 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_frame   0x00000e24       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_frame   0x00000f04      0x738 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_frame   0x0000163c      0x1f8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_frame   0x00001834       0xb4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .debug_frame   0x000018e8      0x134 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_frame   0x00001a1c      0x134 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_frame   0x00001b50      0x108 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+ .debug_frame   0x00001c58       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_frame   0x00001ca8       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_frame   0x00001cf8       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_frame   0x00001d48       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_frame   0x00001d98       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_frame   0x00001de8       0x50 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_frame   0x00001e38      0x194 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_frame   0x00001fcc      0x180 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_frame   0x0000214c       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000216c       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+ .debug_frame   0x00002194       0x2c c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+ .debug_frame   0x000021c0       0x28 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x000021e8       0x20 c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x2838
+.debug_str      0x00000000     0x2909
  *(.debug_str)
- .debug_str     0x00000000      0x323 .\CortexM3\ARM_GCC_541\Debug\main.o
-                                0x38a (size before relaxing)
- .debug_str     0x00000323       0x48 .\CortexM3\ARM_GCC_541\Debug\keypad.o
-                                0x226 (size before relaxing)
- .debug_str     0x0000036b      0x1fb .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_str     0x00000000      0x389 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x3f0 (size before relaxing)
+ .debug_str     0x00000389       0x48 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+                                0x21e (size before relaxing)
+ .debug_str     0x000003d1      0x1f5 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
                                 0x3a4 (size before relaxing)
- .debug_str     0x00000566       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_str     0x000005c6       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
                                 0x1f8 (size before relaxing)
- .debug_str     0x000005db      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_str     0x0000063b      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
                                 0x31e (size before relaxing)
- .debug_str     0x0000071f       0x58 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_str     0x0000077f       0x58 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
                                 0x1ec (size before relaxing)
- .debug_str     0x00000777       0x48 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_str     0x000007d7       0x48 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
                                 0x1ec (size before relaxing)
- .debug_str     0x000007bf       0x48 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_str     0x0000081f       0x48 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
                                 0x1ec (size before relaxing)
- .debug_str     0x00000807       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_str     0x00000867       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x00000852       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_str     0x000008b2       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x0000089d       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_str     0x000008fd       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x000008e8       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_str     0x00000948       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x00000933      0x3d3 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_str     0x00000993      0x3d3 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
                                 0x5dd (size before relaxing)
- .debug_str     0x00000d06       0x45 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+ .debug_str     0x00000d66       0x45 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
                                 0x1d4 (size before relaxing)
- .debug_str     0x00000d4b      0x12c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_str     0x00000dab      0x134 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
                                 0x33f (size before relaxing)
- .debug_str     0x00000e77      0x26f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_str     0x00000edf      0x26f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
                                 0x489 (size before relaxing)
- .debug_str     0x000010e6       0x5f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_str     0x0000114e       0x5f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
                                 0x213 (size before relaxing)
- .debug_str     0x00001145      0x173 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_str     0x000011ad      0x173 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
                                 0x356 (size before relaxing)
- .debug_str     0x000012b8      0x14f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_str     0x00001320      0x14f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
                                 0x375 (size before relaxing)
- .debug_str     0x00001407      0x138 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_str     0x0000146f      0x138 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
                                 0x34a (size before relaxing)
- .debug_str     0x0000153f      0x7cc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_str     0x000015a7      0x7cc .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
                                 0xa5b (size before relaxing)
- .debug_str     0x00001d0b      0x365 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_str     0x00001d73      0x365 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
                                 0x747 (size before relaxing)
- .debug_str     0x00002070      0x147 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_str     0x000020d8       0x82 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+                                0x21f (size before relaxing)
+ .debug_str     0x0000215a      0x147 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
                                 0x35f (size before relaxing)
- .debug_str     0x000021b7      0x124 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_str     0x000022a1      0x124 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
                                 0x35f (size before relaxing)
- .debug_str     0x000022db      0x131 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+ .debug_str     0x000023c5      0x118 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
                                 0x309 (size before relaxing)
- .debug_str     0x0000240c       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_str     0x000024dd       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x00002458       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_str     0x00002529       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x000024a4       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_str     0x00002575       0x4c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x000024f0       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_str     0x000025c1       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x0000253b       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_str     0x0000260c       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x00002586       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_str     0x00002657       0x4b .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
                                 0x1f1 (size before relaxing)
- .debug_str     0x000025d1      0x1bb .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_str     0x000026a2      0x1bb .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
                                 0x3d4 (size before relaxing)
- .debug_str     0x0000278c       0xac .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_str     0x0000285d       0xac .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
                                 0x34c (size before relaxing)
 
-.debug_loc      0x00000000     0x2f19
+.debug_loc      0x00000000     0x30fd
  *(.debug_loc)
- .debug_loc     0x00000000       0x3f .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_loc     0x0000003f      0x29c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_loc     0x000002db      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_loc     0x0000041f       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
- .debug_loc     0x00000461       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
- .debug_loc     0x000004a3       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
- .debug_loc     0x000004e5       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
- .debug_loc     0x00000527       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
- .debug_loc     0x00000569       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
- .debug_loc     0x000005ab       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
- .debug_loc     0x000005ed      0x681 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
- .debug_loc     0x00000c6e      0x3c6 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
- .debug_loc     0x00001034      0x258 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
- .debug_loc     0x0000128c       0x6c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
- .debug_loc     0x000012f8      0x128 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
- .debug_loc     0x00001420      0x14d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
- .debug_loc     0x0000156d      0x128 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
- .debug_loc     0x00001695      0xa11 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
- .debug_loc     0x000020a6      0x1e4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
- .debug_loc     0x0000228a       0x26 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
- .debug_loc     0x000022b0       0x26 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
- .debug_loc     0x000022d6       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
- .debug_loc     0x00002318       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
- .debug_loc     0x0000235a       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
- .debug_loc     0x0000239c       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
- .debug_loc     0x000023de       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
- .debug_loc     0x00002420       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
- .debug_loc     0x00002462      0x3b2 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
- .debug_loc     0x00002814      0x705 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_loc     0x00000000      0x1aa .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_loc     0x000001aa      0x29c .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_loc     0x00000446      0x144 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_loc     0x0000058a       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_loc     0x000005cc       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_loc     0x0000060e       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_loc     0x00000650       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_loc     0x00000692       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_loc     0x000006d4       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_loc     0x00000716       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_loc     0x00000758      0x681 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_loc     0x00000dd9      0x3c6 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_loc     0x0000119f      0x258 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_loc     0x000013f7       0x6c .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_loc     0x00001463      0x128 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_loc     0x0000158b      0x14d .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_loc     0x000016d8      0x128 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_loc     0x00001800      0xa11 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_loc     0x00002211      0x1e4 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_loc     0x000023f5       0x79 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .debug_loc     0x0000246e       0x26 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_loc     0x00002494       0x26 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_loc     0x000024ba       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_loc     0x000024fc       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_loc     0x0000253e       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_loc     0x00002580       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_loc     0x000025c2       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_loc     0x00002604       0x42 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_loc     0x00002646      0x3b2 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_loc     0x000029f8      0x705 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
 
 .debug_macinfo
  *(.debug_macinfo)
 
-.debug_ranges   0x00000000      0xc18
+.debug_ranges   0x00000000      0xc68
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x28 .\CortexM3\ARM_GCC_541\Debug\main.o
- .debug_ranges  0x00000028       0x18 .\CortexM3\ARM_GCC_541\Debug\keypad.o
- .debug_ranges  0x00000040       0x58 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
- .debug_ranges  0x00000098       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
- .debug_ranges  0x000000d0       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
- .debug_ranges  0x000000f8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
- .debug_ranges  0x00000120       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
- .debug_ranges  0x00000148       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
- .debug_ranges  0x00000170       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
- .debug_ranges  0x00000198       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
- .debug_ranges  0x000001c0       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
- .debug_ranges  0x000001e8       0xd8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
- .debug_ranges  0x000002c0       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
- .debug_ranges  0x000002e8       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
- .debug_ranges  0x00000370       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
- .debug_ranges  0x00000450       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
- .debug_ranges  0x00000470       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
- .debug_ranges  0x000004d0       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
- .debug_ranges  0x00000540       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
- .debug_ranges  0x000005a0      0x290 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
- .debug_ranges  0x00000830       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
- .debug_ranges  0x000008b8       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
- .debug_ranges  0x00000940       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
- .debug_ranges  0x000009c8       0x78 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
- .debug_ranges  0x00000a40       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
- .debug_ranges  0x00000a68       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
- .debug_ranges  0x00000a90       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
- .debug_ranges  0x00000ab8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
- .debug_ranges  0x00000ae0       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
- .debug_ranges  0x00000b08       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
- .debug_ranges  0x00000b30       0x78 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
- .debug_ranges  0x00000ba8       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+ .debug_ranges  0x00000000       0x30 .\CortexM3\ARM_GCC_541\Debug\main.o
+ .debug_ranges  0x00000030       0x18 .\CortexM3\ARM_GCC_541\Debug\keypad.o
+ .debug_ranges  0x00000048       0x58 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+ .debug_ranges  0x000000a0       0x38 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+ .debug_ranges  0x000000d8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW1.o)
+ .debug_ranges  0x00000100       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW2.o)
+ .debug_ranges  0x00000128       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(SW3.o)
+ .debug_ranges  0x00000150       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED1.o)
+ .debug_ranges  0x00000178       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED2.o)
+ .debug_ranges  0x000001a0       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED3.o)
+ .debug_ranges  0x000001c8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LED4.o)
+ .debug_ranges  0x000001f0       0xd8 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC.o)
+ .debug_ranges  0x000002c8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_INT.o)
+ .debug_ranges  0x000002f0       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(LCD.o)
+ .debug_ranges  0x00000378       0xe0 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART.o)
+ .debug_ranges  0x00000458       0x20 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_AMux.o)
+ .debug_ranges  0x00000478       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_Ext_CP_Clk.o)
+ .debug_ranges  0x000004d8       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ADC_theACLK.o)
+ .debug_ranges  0x00000548       0x60 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
+ .debug_ranges  0x000005a8      0x290 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
+ .debug_ranges  0x00000838       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .debug_ranges  0x000008c0       0x48 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
+ .debug_ranges  0x00000908       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+ .debug_ranges  0x00000990       0x88 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+ .debug_ranges  0x00000a18       0x78 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+ .debug_ranges  0x00000a90       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+ .debug_ranges  0x00000ab8       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+ .debug_ranges  0x00000ae0       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+ .debug_ranges  0x00000b08       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+ .debug_ranges  0x00000b30       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+ .debug_ranges  0x00000b58       0x28 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+ .debug_ranges  0x00000b80       0x78 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+ .debug_ranges  0x00000bf8       0x70 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
 
 .comment        0x00000000       0x6e
  .comment       0x00000000       0x6e .\CortexM3\ARM_GCC_541\Debug\main.o
@@ -1746,6 +1780,7 @@ END GROUP
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(UART_IntClock.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyLib.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
+ .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
  .comment       0x0000006e       0x6f .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
@@ -1827,55 +1862,57 @@ END GROUP
  .ARM.attributes
                 0x00000494       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(cyPm.o)
  .ARM.attributes
-                0x000004c7       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
+                0x000004c7       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(DAC.o)
  .ARM.attributes
-                0x000004fa       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
+                0x000004fa       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM1.o)
  .ARM.attributes
-                0x0000052d       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
+                0x0000052d       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(PWM2.o)
  .ARM.attributes
-                0x00000560       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
+                0x00000560       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(Timer.o)
  .ARM.attributes
-                0x00000593       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
+                0x00000593       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW0.o)
  .ARM.attributes
-                0x000005c6       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
+                0x000005c6       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW1.o)
  .ARM.attributes
-                0x000005f9       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
+                0x000005f9       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(ROW3.o)
  .ARM.attributes
-                0x0000062c       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
+                0x0000062c       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL1.o)
  .ARM.attributes
-                0x0000065f       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
+                0x0000065f       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL2.o)
  .ARM.attributes
-                0x00000692       0x21 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
+                0x00000692       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(COL3.o)
  .ARM.attributes
-                0x000006b3       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
+                0x000006c5       0x21 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyBootAsmGnu.o)
  .ARM.attributes
-                0x000006e6       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
+                0x000006e6       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CyFlash.o)
  .ARM.attributes
-                0x00000719       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
+                0x00000719       0x33 .\CortexM3\ARM_GCC_541\Debug\NeverLose.a(CySpc.o)
  .ARM.attributes
-                0x00000736       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
+                0x0000074c       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000753       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
+                0x00000769       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x00000770       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
+                0x00000786       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x0000078d       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
+                0x000007a3       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x000007aa       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
+                0x000007c0       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m\libgcc.a(_arm_fixunssfsi.o)
  .ARM.attributes
-                0x000007d7       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
+                0x000007dd       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-errno.o)
  .ARM.attributes
-                0x00000804       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
+                0x0000080a       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-exit.o)
  .ARM.attributes
-                0x00000831       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
+                0x00000837       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-impure.o)
  .ARM.attributes
-                0x0000085e       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
+                0x00000864       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x0000088b       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
+                0x00000891       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x000008b8       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+                0x000008be       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
  .ARM.attributes
-                0x000008e5       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
+                0x000008eb       0x2d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtend.o
+ .ARM.attributes
+                0x00000918       0x1d c:/program files (x86)/cypress/psoc creator/4.4/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/armv7-m/crtn.o
 
 /DISCARD/
  *(.note.GNU-stack)
