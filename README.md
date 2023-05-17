@@ -1,7 +1,7 @@
 # never-lose
 
 • Function "jump":
-- [ ] Fait fonctionner le servo moteur 1
+- [x] Fait fonctionner le servo moteur 1
 - [x] Allume un LED 1&2
 - [x] Ecrit "JUMP" sur le LCD
 - [ ] Bruit audio type 1
@@ -10,7 +10,7 @@
 - [x] Afficher le score sur le LCD
 
 • Function "duck":
-- [ ] Fait fonctionner le servo moteur 2
+- [x] Fait fonctionner le servo moteur 2
 - [x] Allume un LED 3&4
 - [x] Ecrit "DUCK" sur le LCD
 - [ ] Bruit audio type 2
