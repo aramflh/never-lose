@@ -19,7 +19,7 @@
 #include <cydevice_trm.h>
 #include <CyLib.h>
 #include <ADC_IRQ.h>
-#include "cyapicallbacks.h"
+
 
 #if !defined(ADC_IRQ__REMOVED) /* Check for removal by optimization */
 

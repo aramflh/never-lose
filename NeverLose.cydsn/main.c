@@ -53,6 +53,7 @@ int main(void)
     int score = 0;
     uint8_t first_jump = 0;
     uint8_t move = 0;
+    uint8_t delayMove = 0;
     
     
     uint8_t day = 0;
@@ -66,6 +67,8 @@ int main(void)
     uint16_t cnt1 = 0;
     uint16_t cnt2 = 0;
     uint16_t cnt3 = 0;
+    uint16_t cnt4 = 0;
+    uint16_t cnt5 = 0;
 
     PWM1_WritePeriod(pwm_period);
     PWM2_WritePeriod(pwm_period);
@@ -142,6 +145,17 @@ int main(void)
                     cnt3 = 0; //Reset counter
                 }
             }
+            if(delayMove){
+                if (cnt4 < 500){
+                    cnt4++;
+                }
+                else{
+                    jump(0, &move);
+                    cnt4 = 0; //Reset counter
+                    delayMove = 0;
+                }
+            }
+          
         }
         
         if(0x80 & Timer_DAC_ReadStatusRegister()){
@@ -186,7 +200,7 @@ int main(void)
         //
         
         // Light detection
-        detectLight(&photoResVal1, &photoResVal2, &move);
+        detectLight(&photoResVal1, &photoResVal2, &move, &delayMove);
 
         // Keypad detection
         detectKeyboard(&key,&first_jump, &move);       
@@ -204,19 +218,19 @@ void jump(uint8_t* first_jump,uint8_t* move ){
     
     // A Changer
     
-    PWM1_WriteCompare(1600);
+    PWM1_WriteCompare(2000);
     //CyDelay(200); 
     //PWM1_WriteCompare(3000);
-    
+     
     // Printing "Jump" on LCD
     LCD_Position(0,0);
     LCD_PrintString("Jump");
     // Lighting LEDs (1&2)
     LED1_Write(1);
     LED2_Write(1);
-    //CyDelay(500);
+    //CyDelay(500)       
     // Audio Output 1
-    sound1 = 1 ;
+    sound1 = 1 ;    
     // TODO
 }
 // Down function
@@ -226,7 +240,7 @@ void duck(uint8_t* move){
     
     // A Changer
     
-    PWM2_WriteCompare(1700);
+    PWM2_WriteCompare(2000);
     //CyDelay(200); 
     //PWM2_WriteCompare(3000);
     
@@ -241,7 +255,6 @@ void duck(uint8_t* move){
     sound2 = 1 ;
     // TODO
 }
-
 
 // Keyboard detection
 
@@ -265,7 +278,7 @@ void detectKeyboard(char* key,uint8_t* first_jump,uint8_t* move){
  * Components name : ADC
  */
 
-void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2, uint8_t* move){
+void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2, uint8_t* move, uint8_t* delayMove){
 /*
     Mux_Select(0);
     //CyDelay(10); //This one let some time for the switch to occur. Otherwise conversion does not work properly
@@ -282,10 +295,11 @@ void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2, uint8_t* move){
     }
 
 
-    if(*photoResVal2 > 30000){
+    if(*photoResVal2 < 10000){
         // Top: White, Bottom: Black
-        jump(0, move);
-    }/*
+        *delayMove = 1;
+    }
+    /*
     else if(*photoResVal2 > 0 && *photoResVal2 <= COLOR_CHANGE && (*photoResVal1 - *photoResVal2) > COLOR_DELTA ){
         // Top: Black, Bottom: White
         duck(move);

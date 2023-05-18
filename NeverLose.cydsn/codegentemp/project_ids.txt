@@ -1,6 +1,6 @@
-C:\Users\cleme\Desktop\Cours\Q2\Digital Electronics\Projet\never-lose\NeverLose.cydsn\NeverLose.cyprj|a65cc0d8-f481-4b88-bf79-80db9fc65458
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|fc1ad488-20a6-4c0a-98c7-11460ba66239
-C:\Users\cleme\OneDrive\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|996e828f-522d-48f9-b638-9b8f4af9d968
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|b70fa235-b225-4d90-9e67-016438a50f58
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a2b88832-0794-4397-8d3f-2d05706ce878
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8247a42a-3f42-48e6-8353-ed38e31e8e03
+C:\Users\Baptiste\Documents\master\elec\never-lose\NeverLose.cydsn\NeverLose.cyprj|96b5d9b5-1814-4731-84ae-bf9a9f34282e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|7cb6271c-8008-4f03-b4b4-b5ef2049ac7d
+C:\Users\Baptiste\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|13f5c83b-1e05-4412-ba55-b3be40cff38a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|54ca309e-a0d7-4f23-a96e-19274a0c0c93
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|16dc9af5-c365-4f8a-9a3a-7a3f79ef77d0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8b968537-bbee-4ec4-96bb-02ea7061e31d
