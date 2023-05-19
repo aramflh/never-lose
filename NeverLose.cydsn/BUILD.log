@@ -1,51 +1,66 @@
---------------- Build Started: 05/18/2023 14:31:47 Project: NeverLose, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 05/19/2023 14:27:25 Project: NeverLose, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+main.c: In function 'isr_uart_Handler':
+main.c:34:28: warning: comparison between pointer and integer
+                 if (rxData == "jump") {
+                            ^
+main.c:34:28: warning: comparison with string literal results in unspecified behavior [-Waddress]
+main.c:36:34: warning: comparison between pointer and integer
+                 }else if (rxData == "duck") {
+                                  ^
+main.c:36:34: warning: comparison with string literal results in unspecified behavior [-Waddress]
 main.c: In function 'main':
-main.c:153:21: warning: implicit declaration of function 'jump' [-Wimplicit-function-declaration]
+main.c:175:21: warning: implicit declaration of function 'jump' [-Wimplicit-function-declaration]
                      jump(0, &move);
                      ^
-main.c:191:13: warning: implicit declaration of function 'duck' [-Wimplicit-function-declaration]
+main.c:213:13: warning: implicit declaration of function 'duck' [-Wimplicit-function-declaration]
              duck(&move);
              ^
-main.c:203:9: warning: implicit declaration of function 'detectLight' [-Wimplicit-function-declaration]
+main.c:226:9: warning: implicit declaration of function 'detectLight' [-Wimplicit-function-declaration]
          detectLight(&photoResVal1, &photoResVal2, &move, &delayMove);
          ^
-main.c:206:9: warning: implicit declaration of function 'detectKeyboard' [-Wimplicit-function-declaration]
-         detectKeyboard(&key,&first_jump, &move);       
+main.c:229:9: warning: implicit declaration of function 'detectKeyboard' [-Wimplicit-function-declaration]
+         detectKeyboard(&key,&first_jump, &move);   
          ^
-main.c:71:14: warning: unused variable 'cnt5' [-Wunused-variable]
+main.c:89:14: warning: unused variable 'cnt5' [-Wunused-variable]
      uint16_t cnt5 = 0;
               ^
-main.c:60:13: warning: unused variable 'night' [-Wunused-variable]
+main.c:83:14: warning: unused variable 'val_adc' [-Wunused-variable]
+     uint32_t val_adc;
+              ^
+main.c:82:14: warning: unused variable 'val_CMP' [-Wunused-variable]
+     uint32_t val_CMP;
+              ^
+main.c:78:13: warning: unused variable 'night' [-Wunused-variable]
      uint8_t night = 0;
              ^
-main.c:59:13: warning: unused variable 'day' [-Wunused-variable]
+main.c:77:13: warning: unused variable 'day' [-Wunused-variable]
      uint8_t day = 0;
              ^
 main.c: At top level:
-main.c:212:6: warning: conflicting types for 'jump'
+main.c:236:6: warning: conflicting types for 'jump'
  void jump(uint8_t* first_jump,uint8_t* move ){
       ^
-main.c:153:21: note: previous implicit declaration of 'jump' was here
+main.c:175:21: note: previous implicit declaration of 'jump' was here
                      jump(0, &move);
                      ^
-main.c:237:6: warning: conflicting types for 'duck'
+main.c:261:6: warning: conflicting types for 'duck'
  void duck(uint8_t* move){
       ^
-main.c:191:13: note: previous implicit declaration of 'duck' was here
+main.c:213:13: note: previous implicit declaration of 'duck' was here
              duck(&move);
              ^
-main.c:261:6: warning: conflicting types for 'detectKeyboard'
+main.c:285:6: warning: conflicting types for 'detectKeyboard'
  void detectKeyboard(char* key,uint8_t* first_jump,uint8_t* move){
       ^
-main.c:206:9: note: previous implicit declaration of 'detectKeyboard' was here
-         detectKeyboard(&key,&first_jump, &move);       
+main.c:229:9: note: previous implicit declaration of 'detectKeyboard' was here
+         detectKeyboard(&key,&first_jump, &move);   
          ^
-main.c:281:6: warning: conflicting types for 'detectLight'
+main.c:305:6: warning: conflicting types for 'detectLight'
  void detectLight(uint32_t* photoResVal1, uint32_t* photoResVal2, uint8_t* move, uint8_t* delayMove){
       ^
-main.c:203:9: note: previous implicit declaration of 'detectLight' was here
+main.c:226:9: note: previous implicit declaration of 'detectLight' was here
          detectLight(&photoResVal1, &photoResVal2, &move, &delayMove);
          ^
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\NeverLose.a .\CortexM3\ARM_GCC_541\Debug\SW1.o .\CortexM3\ARM_GCC_541\Debug\SW2.o .\CortexM3\ARM_GCC_541\Debug\SW3.o .\CortexM3\ARM_GCC_541\Debug\SW4.o .\CortexM3\ARM_GCC_541\Debug\LED1.o .\CortexM3\ARM_GCC_541\Debug\LED2.o .\CortexM3\ARM_GCC_541\Debug\LED3.o .\CortexM3\ARM_GCC_541\Debug\LED4.o .\CortexM3\ARM_GCC_541\Debug\ADC.o .\CortexM3\ARM_GCC_541\Debug\ADC_PM.o .\CortexM3\ARM_GCC_541\Debug\ADC_INT.o .\CortexM3\ARM_GCC_541\Debug\CLK24MHz.o .\CortexM3\ARM_GCC_541\Debug\LCD.o .\CortexM3\ARM_GCC_541\Debug\LCD_PM.o .\CortexM3\ARM_GCC_541\Debug\UART.o .\CortexM3\ARM_GCC_541\Debug\UART_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_541\Debug\isr_uart.o .\CortexM3\ARM_GCC_541\Debug\ADC_AMux.o .\CortexM3\ARM_GCC_541\Debug\ADC_Ext_CP_Clk.o .\CortexM3\ARM_GCC_541\Debug\ADC_IRQ.o .\CortexM3\ARM_GCC_541\Debug\ADC_theACLK.o .\CortexM3\ARM_GCC_541\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\DAC.o .\CortexM3\ARM_GCC_541\Debug\DAC_PM.o .\CortexM3\ARM_GCC_541\Debug\audio_out.o .\CortexM3\ARM_GCC_541\Debug\PWM1.o .\CortexM3\ARM_GCC_541\Debug\PWM1_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM2.o .\CortexM3\ARM_GCC_541\Debug\PWM2_PM.o .\CortexM3\ARM_GCC_541\Debug\CLK24MHz_1.o .\CortexM3\ARM_GCC_541\Debug\PWMOUT1.o .\CortexM3\ARM_GCC_541\Debug\PWMOUT2.o .\CortexM3\ARM_GCC_541\Debug\Timer.o .\CortexM3\ARM_GCC_541\Debug\Timer_PM.o .\CortexM3\ARM_GCC_541\Debug\ROW0.o .\CortexM3\ARM_GCC_541\Debug\ROW1.o .\CortexM3\ARM_GCC_541\Debug\ROW2.o .\CortexM3\ARM_GCC_541\Debug\ROW3.o .\CortexM3\ARM_GCC_541\Debug\COL1.o .\CortexM3\ARM_GCC_541\Debug\COL2.o .\CortexM3\ARM_GCC_541\Debug\COL3.o .\CortexM3\ARM_GCC_541\Debug\Timer_DAC.o .\CortexM3\ARM_GCC_541\Debug\Timer_DAC_PM.o .\CortexM3\ARM_GCC_541\Debug\photores2.o .\CortexM3\ARM_GCC_541\Debug\photores1.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
@@ -56,6 +71,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Baptiste\Documents\master\elec\never-lose\NeverLose.cydsn\CortexM3\ARM_GCC_541\Debug\NeverLose.elf
-Flash used: 16230 of 262144 bytes (6,2 %).
-SRAM used: 3377 of 65536 bytes (5,2 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 05/18/2023 14:31:48 ---------------
+Flash used: 16262 of 262144 bytes (6,2 %).
+SRAM used: 3385 of 65536 bytes (5,2 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 05/19/2023 14:27:26 ---------------

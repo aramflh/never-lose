@@ -3,47 +3,47 @@
 //
 #include <math.h>
 
-//#include "keypad.h"  // Keypad header filexc
-#include "utils.h"   // Other functions header file
+#include "utils.h"   
 #include "project.h"
 #include "keypad.h"   
 #include <stdint.h>
 
-#define PWM_VALUE 5000  // hasarg    
-#define COLOR_CHANGE 10000  // The value at wich the color changes on the screen
-#define COLOR_DELTA 100  // The minimum value to ignore the delta between de 2 photoresistor
 
 #define PI 3.14
 #define N 100
+
 float signal1[N];
 float signal2[N];
-
-
 uint8 rxData;
+uint8_t sound1 = 0;
+uint8_t sound2 = 0;
+uint16_t i = 0;
+uint8_t value;
+
+
+int obstacle_flag = 0;
+uint16 ms_count = 0;
 /*
 CY_ISR(isr_uart_Handler){
         uint8 status = 0;
         do{
             // Check that rx buffer is not empty and get rx data
             if ( (status & UART_RX_STS_FIFO_NOTEMPTY) != 0){
-                rxData = UART_ReadRxData();
-                UART_PutChar(rxData);
+                rxData = UART_GetChar();
+                //UART_PutChar(rxData);
                 if (rxData == "jump") {
-                    jump();
+                    LED1_Write(1);//jump(&first_jump, &move);
                 }else if (rxData == "duck") {
-                    duck();
+                    LED1_Write(0);//duck(&move);
                 }
+                else{
+                    LCD_Position(0,0);
+                    LCD_PrintInt8(rxData);}
             }
         }while ((status & UART_RX_STS_FIFO_NOTEMPTY) != 0);
 
-}
-*/
+}*/
 
-uint16_t i = 0;
-uint8_t value;
-
-uint8_t sound1 = 0;
-uint8_t sound2 = 0;
 
 int main(void)
 {
@@ -61,14 +61,15 @@ int main(void)
     uint16_t pwm_period = 48000;
     uint32_t photoResVal1 = 0;
     uint32_t photoResVal2 = 0;
-    //uint32_t val_CMP;
-    //uint32_t val_adc;
+    uint32_t val_CMP;
+    uint32_t val_adc;
     char key = 'z';
     uint16_t cnt1 = 0;
     uint16_t cnt2 = 0;
     uint16_t cnt3 = 0;
     uint16_t cnt4 = 0;
     uint16_t cnt5 = 0;
+    int delay = 600;
 
     PWM1_WritePeriod(pwm_period);
     PWM2_WritePeriod(pwm_period);
@@ -115,13 +116,16 @@ int main(void)
                 }
                 else{
                     score += 10 ;
+                    if(score%100 == 0){
+                        delay -= 100;
+                    }
                     cnt1 = 0; //Reset counter
                 }
             }
             // Apres un mouvement , désactiver led, motor , son , lcd apres X secondes
             if (move) {
                 // Led, LCD, 
-                if (cnt2 < 1000){
+                if (cnt2 < 200){
                     cnt2++;
                 }
                 else{
@@ -146,7 +150,7 @@ int main(void)
                 }
             }
             if(delayMove){
-                if (cnt4 < 500){
+                if (cnt4 < delay){
                     cnt4++;
                 }
                 else{
@@ -193,8 +197,9 @@ int main(void)
         } else if (SW3_Read()) {
             // Reset the score
             LCD_ClearDisplay();
-           (score) = 0;
-           (first_jump) = 0;
+           score = 0;
+           delay = 600;
+           first_jump = 0;
 
         }
         //
@@ -203,7 +208,8 @@ int main(void)
         detectLight(&photoResVal1, &photoResVal2, &move, &delayMove);
 
         // Keypad detection
-        detectKeyboard(&key,&first_jump, &move);       
+        detectKeyboard(&key,&first_jump, &move);   
+        
 
     }
 }
