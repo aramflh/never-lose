@@ -1,6 +1,13 @@
-//
-// Created by Aramson Felho on 10/05/2023.             
-//
+/*
+ * [ELEC-H-310] Digital Electronics
+ * Project: Never-lose
+ * Authors:
+ * Mushingelete FELHO 574088
+ * Ayoub TOUHAMI 575007
+ * Clément ALLOIN 573143
+ * Baptiste BEMELMANS
+ *
+ */
 #include <math.h>
 
 #include "project.h"
