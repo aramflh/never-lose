@@ -14,7 +14,7 @@ const uint16_t MOTOR_PRESS = 2000;
 const uint32_t RES_VAL_1 = 28000; // A verifier
 const uint32_t RES_VAL_2 = 28000; // A verifier
 
-// Global varialbes
+// Global varialbes: 'g_...'
 float g_signal1[N];
 float g_signal2[N];
 uint16_t g_soundCounter = 0;
@@ -28,7 +28,6 @@ uint8 rxData; // TODO
 uint8_t g_dac_value;
 uint8_t startGame = 0;
 uint8_t moved = 0;
-uint8_t cactus = 0;
 uint8_t mux_selector = 0;
 
 
@@ -220,19 +219,23 @@ int main(void)
                 initial_state(*iniStatesTimer)
             }
 
-            if(cactus){
+            if(objDetected(0, RES_VAL_1)){
                 if (jumpTimer < jumpDelay){
                     jumpTimer++;
                 }
                 else{
                     jump(&moved);
                     jumpTimer = 0;
-                    cactus = 0;
+
                 }
+            } else if ( objDetected(1, RES_VAL_2) )
+            {
+                duck(&moved);
             }
-            if (keypadScan() == '2' || SW1_Read() || objDetected(0, RES_VAL_1) ) {
+        }
+            if (keypadScan() == '2' || SW1_Read() ) {
                 jump(&moved);
-            } else if (keypadScan() == '8' || SW2_Read() || || objDetected(1, RES_VAL_2)) {
+            } else if (keypadScan() == '8' || SW2_Read() ) {
                 duck(&moved);
             } else if (SW3_Read()) {
                 LCD_ClearDisplay();
@@ -240,7 +243,6 @@ int main(void)
                 startGame = 0;
                 jumpDelay = START_DELAY;
             }
-          
         }
 
 
