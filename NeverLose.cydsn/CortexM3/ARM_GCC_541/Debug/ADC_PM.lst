@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
   28:Generated_Source\PSoC5/ADC_PM.c **** * Function Name: ADC_SaveConfig
   29:Generated_Source\PSoC5/ADC_PM.c **** ********************************************************************************
   30:Generated_Source\PSoC5/ADC_PM.c **** *
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 2
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 2
 
 
   31:Generated_Source\PSoC5/ADC_PM.c **** * Summary:
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
   58:Generated_Source\PSoC5/ADC_PM.c **** *
   59:Generated_Source\PSoC5/ADC_PM.c **** * Parameters:
   60:Generated_Source\PSoC5/ADC_PM.c **** *  None
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 3
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 3
 
 
   61:Generated_Source\PSoC5/ADC_PM.c **** *
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
   88:Generated_Source\PSoC5/ADC_PM.c **** *  None
   89:Generated_Source\PSoC5/ADC_PM.c **** *
   90:Generated_Source\PSoC5/ADC_PM.c **** * Global variables:
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 4
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 4
 
 
   91:Generated_Source\PSoC5/ADC_PM.c **** *  ADC_backup:  The structure field 'enableState' is modified
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  115              		.loc 1 110 0
  116 002c FFF7FEFF 		bl	ADC_Stop
  117              	.LVL0:
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 5
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 5
 
 
  118 0030 02E0     		b	.L10
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  137:Generated_Source\PSoC5/ADC_PM.c **** *  ADC_backup:  The structure field 'enableState' is used to
  138:Generated_Source\PSoC5/ADC_PM.c **** *  restore the enable state of block after wakeup from sleep mode.
  139:Generated_Source\PSoC5/ADC_PM.c **** *
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 6
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 6
 
 
  140:Generated_Source\PSoC5/ADC_PM.c **** *******************************************************************************/
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  187 0000 00       		.byte	0
  188 0001 34       		.byte	52
  189              		.text
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 7
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 7
 
 
  190              	.Letext0:
@@ -373,15 +373,15 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  199 000b 01       		.uleb128 0x1
  200 000c 55000000 		.4byte	.LASF26
  201 0010 0C       		.byte	0xc
- 202 0011 08020000 		.4byte	.LASF27
- 203 0015 8D010000 		.4byte	.LASF28
+ 202 0011 FE010000 		.4byte	.LASF27
+ 203 0015 29010000 		.4byte	.LASF28
  204 0019 00000000 		.4byte	.Ldebug_ranges0+0
  205 001d 00000000 		.4byte	0
  206 0021 00000000 		.4byte	.Ldebug_line0
  207 0025 02       		.uleb128 0x2
  208 0026 01       		.byte	0x1
  209 0027 06       		.byte	0x6
- 210 0028 F1010000 		.4byte	.LASF0
+ 210 0028 E7010000 		.4byte	.LASF0
  211 002c 02       		.uleb128 0x2
  212 002d 01       		.byte	0x1
  213 002e 08       		.byte	0x8
@@ -389,7 +389,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  215 0033 02       		.uleb128 0x2
  216 0034 02       		.byte	0x2
  217 0035 05       		.byte	0x5
- 218 0036 83010000 		.4byte	.LASF2
+ 218 0036 BC010000 		.4byte	.LASF2
  219 003a 02       		.uleb128 0x2
  220 003b 02       		.byte	0x2
  221 003c 07       		.byte	0x7
@@ -397,7 +397,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  223 0041 02       		.uleb128 0x2
  224 0042 04       		.byte	0x4
  225 0043 05       		.byte	0x5
- 226 0044 D0010000 		.4byte	.LASF4
+ 226 0044 C6010000 		.4byte	.LASF4
  227 0048 02       		.uleb128 0x2
  228 0049 04       		.byte	0x4
  229 004a 07       		.byte	0x7
@@ -409,7 +409,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  235 0056 02       		.uleb128 0x2
  236 0057 08       		.byte	0x8
  237 0058 07       		.byte	0x7
- 238 0059 29010000 		.4byte	.LASF7
+ 238 0059 62010000 		.4byte	.LASF7
  239 005d 03       		.uleb128 0x3
  240 005e 04       		.byte	0x4
  241 005f 05       		.byte	0x5
@@ -418,13 +418,13 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  244 0065 04       		.byte	0x4
  245 0066 07       		.byte	0x7
  246 0067 11010000 		.4byte	.LASF8
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 8
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 8
 
 
  247 006b 04       		.uleb128 0x4
  248 006c FA000000 		.4byte	.LASF12
  249 0070 02       		.byte	0x2
- 250 0071 E801     		.2byte	0x1e8
+ 250 0071 E401     		.2byte	0x1e4
  251 0073 2C000000 		.4byte	0x2c
  252 0077 02       		.uleb128 0x2
  253 0078 04       		.byte	0x4
@@ -437,29 +437,29 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  260 0085 02       		.uleb128 0x2
  261 0086 01       		.byte	0x1
  262 0087 08       		.byte	0x8
- 263 0088 6C010000 		.4byte	.LASF11
+ 263 0088 A5010000 		.4byte	.LASF11
  264 008c 04       		.uleb128 0x4
  265 008d E3000000 		.4byte	.LASF13
  266 0091 02       		.byte	0x2
- 267 0092 9202     		.2byte	0x292
+ 267 0092 8E02     		.2byte	0x28e
  268 0094 98000000 		.4byte	0x98
  269 0098 05       		.uleb128 0x5
  270 0099 6B000000 		.4byte	0x6b
  271 009d 02       		.uleb128 0x2
  272 009e 08       		.byte	0x8
  273 009f 04       		.byte	0x4
- 274 00a0 E5010000 		.4byte	.LASF14
+ 274 00a0 DB010000 		.4byte	.LASF14
  275 00a4 02       		.uleb128 0x2
  276 00a5 04       		.byte	0x4
  277 00a6 07       		.byte	0x7
- 278 00a7 40010000 		.4byte	.LASF15
+ 278 00a7 79010000 		.4byte	.LASF15
  279 00ab 06       		.uleb128 0x6
  280 00ac 02       		.byte	0x2
  281 00ad 03       		.byte	0x3
  282 00ae 28       		.byte	0x28
  283 00af CC000000 		.4byte	0xcc
  284 00b3 07       		.uleb128 0x7
- 285 00b4 D9010000 		.4byte	.LASF16
+ 285 00b4 CF010000 		.4byte	.LASF16
  286 00b8 03       		.byte	0x3
  287 00b9 2A       		.byte	0x2a
  288 00ba 6B000000 		.4byte	0x6b
@@ -472,13 +472,13 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  295 00ca 01       		.byte	0x1
  296 00cb 00       		.byte	0
  297 00cc 08       		.uleb128 0x8
- 298 00cd 5A010000 		.4byte	.LASF18
+ 298 00cd 93010000 		.4byte	.LASF18
  299 00d1 03       		.byte	0x3
  300 00d2 2C       		.byte	0x2c
  301 00d3 AB000000 		.4byte	0xab
  302 00d7 09       		.uleb128 0x9
  303 00d8 19000000 		.4byte	.LASF19
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 9
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 9
 
 
  304 00dc 01       		.byte	0x1
@@ -488,7 +488,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  308 00e6 01       		.uleb128 0x1
  309 00e7 9C       		.byte	0x9c
  310 00e8 09       		.uleb128 0x9
- 311 00e9 71010000 		.4byte	.LASF20
+ 311 00e9 AA010000 		.4byte	.LASF20
  312 00ed 01       		.byte	0x1
  313 00ee 47       		.byte	0x47
  314 00ef 00000000 		.4byte	.LFB1
@@ -531,19 +531,19 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  351 014d 79010000 		.4byte	0x179
  352 0151 00       		.byte	0
  353 0152 0C       		.uleb128 0xc
- 354 0153 FD010000 		.4byte	.LASF29
+ 354 0153 F3010000 		.4byte	.LASF29
  355 0157 01       		.byte	0x1
  356 0158 14       		.byte	0x14
  357 0159 CC000000 		.4byte	0xcc
  358 015d 05       		.uleb128 0x5
  359 015e 03       		.byte	0x3
  360 015f 00000000 		.4byte	ADC_backup
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 10
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 10
 
 
  361 0163 0D       		.uleb128 0xd
- 362 0164 28020000 		.4byte	.LASF23
- 363 0168 28020000 		.4byte	.LASF23
+ 362 0164 1E020000 		.4byte	.LASF23
+ 363 0168 1E020000 		.4byte	.LASF23
  364 016c 03       		.byte	0x3
  365 016d 3B       		.byte	0x3b
  366 016e 0D       		.uleb128 0xd
@@ -552,8 +552,8 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  369 0177 03       		.byte	0x3
  370 0178 4D       		.byte	0x4d
  371 0179 0D       		.uleb128 0xd
- 372 017a 49010000 		.4byte	.LASF25
- 373 017e 49010000 		.4byte	.LASF25
+ 372 017a 82010000 		.4byte	.LASF25
+ 373 017e 82010000 		.4byte	.LASF25
  374 0182 03       		.byte	0x3
  375 0183 3D       		.byte	0x3d
  376 0184 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  415 0024 0B       		.uleb128 0xb
  416 0025 03       		.uleb128 0x3
  417 0026 08       		.uleb128 0x8
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 11
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 11
 
 
  418 0027 00       		.byte	0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  472 005d 0E       		.uleb128 0xe
  473 005e 3A       		.uleb128 0x3a
  474 005f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 12
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 12
 
 
  475 0060 3B       		.uleb128 0x3b
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  529 0098 0B       		.uleb128 0xb
  530 0099 898201   		.uleb128 0x4109
  531 009c 00       		.byte	0
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 13
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 13
 
 
  532 009d 11       		.uleb128 0x11
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  586 002c 24000000 		.4byte	.LFE3-.LFB3
  587 0030 00000000 		.4byte	0
  588 0034 00000000 		.4byte	0
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 14
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 14
 
 
  589              		.section	.debug_ranges,"",%progbits
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  619      31203230 
  619      31363036 
  620 0088 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 15
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 15
 
 
  620      20726576 
@@ -878,86 +878,81 @@ ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 1
  635 011e 4144435F 		.ascii	"ADC_Enable\000"
  635      456E6162 
  635      6C6500
- 636              	.LASF7:
- 637 0129 6C6F6E67 		.ascii	"long long unsigned int\000"
- 637      206C6F6E 
- 637      6720756E 
- 637      7369676E 
- 637      65642069 
- 638              	.LASF15:
- 639 0140 73697A65 		.ascii	"sizetype\000"
- 639      74797065 
- 639      00
- 640              	.LASF25:
- 641 0149 4144435F 		.ascii	"ADC_StartConvert\000"
- 641      53746172 
- 641      74436F6E 
- 641      76657274 
- 641      00
- 642              	.LASF18:
- 643 015a 4144435F 		.ascii	"ADC_BACKUP_STRUCT\000"
- 643      4241434B 
- 643      55505F53 
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 16
+ 636              	.LASF28:
+ 637 0129 433A5C55 		.ascii	"C:\\Users\\ayoub\\Documents\\never-lose-main\\Never"
+ 637      73657273 
+ 637      5C61796F 
+ 637      75625C44 
+ 637      6F63756D 
+ 638 0157 4C6F7365 		.ascii	"Lose.cydsn\000"
+ 638      2E637964 
+ 638      736E00
+ 639              	.LASF7:
+ 640 0162 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 640      206C6F6E 
+ 640      6720756E 
+ 640      7369676E 
+ 640      65642069 
+ 641              	.LASF15:
+ 642 0179 73697A65 		.ascii	"sizetype\000"
+ 642      74797065 
+ 642      00
+ 643              	.LASF25:
+ARM GAS  C:\Users\ayoub\AppData\Local\Temp\cctuUahr.s 			page 16
 
 
- 643      54525543 
- 643      5400
- 644              	.LASF11:
- 645 016c 63686172 		.ascii	"char\000"
- 645      00
- 646              	.LASF20:
- 647 0171 4144435F 		.ascii	"ADC_RestoreConfig\000"
- 647      52657374 
- 647      6F726543 
- 647      6F6E6669 
- 647      6700
- 648              	.LASF2:
- 649 0183 73686F72 		.ascii	"short int\000"
- 649      7420696E 
- 649      7400
- 650              	.LASF28:
- 651 018d 433A5C55 		.ascii	"C:\\Users\\Baptiste\\Documents\\master\\elec\\never"
- 651      73657273 
- 651      5C426170 
- 651      74697374 
- 651      655C446F 
- 652 01ba 2D6C6F73 		.ascii	"-lose\\NeverLose.cydsn\000"
- 652      655C4E65 
- 652      7665724C 
- 652      6F73652E 
- 652      63796473 
+ 644 0182 4144435F 		.ascii	"ADC_StartConvert\000"
+ 644      53746172 
+ 644      74436F6E 
+ 644      76657274 
+ 644      00
+ 645              	.LASF18:
+ 646 0193 4144435F 		.ascii	"ADC_BACKUP_STRUCT\000"
+ 646      4241434B 
+ 646      55505F53 
+ 646      54525543 
+ 646      5400
+ 647              	.LASF11:
+ 648 01a5 63686172 		.ascii	"char\000"
+ 648      00
+ 649              	.LASF20:
+ 650 01aa 4144435F 		.ascii	"ADC_RestoreConfig\000"
+ 650      52657374 
+ 650      6F726543 
+ 650      6F6E6669 
+ 650      6700
+ 651              	.LASF2:
+ 652 01bc 73686F72 		.ascii	"short int\000"
+ 652      7420696E 
+ 652      7400
  653              	.LASF4:
- 654 01d0 6C6F6E67 		.ascii	"long int\000"
+ 654 01c6 6C6F6E67 		.ascii	"long int\000"
  654      20696E74 
  654      00
  655              	.LASF16:
- 656 01d9 656E6162 		.ascii	"enableState\000"
+ 656 01cf 656E6162 		.ascii	"enableState\000"
  656      6C655374 
  656      61746500 
  657              	.LASF14:
- 658 01e5 6C6F6E67 		.ascii	"long double\000"
+ 658 01db 6C6F6E67 		.ascii	"long double\000"
  658      20646F75 
  658      626C6500 
  659              	.LASF0:
- 660 01f1 7369676E 		.ascii	"signed char\000"
+ 660 01e7 7369676E 		.ascii	"signed char\000"
  660      65642063 
  660      68617200 
  661              	.LASF29:
- 662 01fd 4144435F 		.ascii	"ADC_backup\000"
+ 662 01f3 4144435F 		.ascii	"ADC_backup\000"
  662      6261636B 
  662      757000
  663              	.LASF27:
- 664 0208 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_PM.c\000"
+ 664 01fe 47656E65 		.ascii	"Generated_Source\\PSoC5\\ADC_PM.c\000"
  664      72617465 
  664      645F536F 
  664      75726365 
  664      5C50536F 
  665              	.LASF23:
- 666 0228 4144435F 		.ascii	"ADC_Stop\000"
+ 666 021e 4144435F 		.ascii	"ADC_Stop\000"
  666      53746F70 
  666      00
  667              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
-ARM GAS  C:\Users\Baptiste\AppData\Local\Temp\ccTygpO2.s 			page 17
-
-

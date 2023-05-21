@@ -1,6 +1,6 @@
 /***************************************************************************//**
 * \file CyBootAsmGnu.s
-* \version 6.0
+* \version 5.70
 *
 *  \brief
 *   Assembly routines for GNU as.

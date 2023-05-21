@@ -1,6 +1,6 @@
 -- Project:   NeverLose
--- Generated: 05/18/2023 11:01:07
--- PSoC Creator  4.4
+-- Generated: 05/21/2023 21:15:55
+-- PSoC Creator  4.2
 
 ENTITY NeverLose IS
     PORT(
@@ -12,7 +12,6 @@ ENTITY NeverLose IS
         LED2(0)_PAD : OUT std_ulogic;
         LED3(0)_PAD : OUT std_ulogic;
         LED4(0)_PAD : OUT std_ulogic;
-        photores2(0)_PAD : INOUT std_ulogic;
         PWMOUT1(0)_PAD : OUT std_ulogic;
         \LCD:LCDPort(0)_PAD\ : OUT std_ulogic;
         \LCD:LCDPort(1)_PAD\ : OUT std_ulogic;
@@ -70,6 +69,8 @@ ARCHITECTURE __DEFAULT__ OF NeverLose IS
     ATTRIBUTE udbclken_assigned OF Net_142 : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_142 : SIGNAL IS true;
     SIGNAL Net_142_local : bit;
+    SIGNAL Net_159 : bit;
+    SIGNAL Net_197 : bit;
     SIGNAL Net_209 : bit;
     SIGNAL Net_38 : bit;
     SIGNAL Net_460 : bit;
@@ -141,18 +142,12 @@ ARCHITECTURE __DEFAULT__ OF NeverLose IS
     SIGNAL \PWM2:PWMUDB:control_5\ : bit;
     SIGNAL \PWM2:PWMUDB:control_6\ : bit;
     SIGNAL \PWM2:PWMUDB:control_7\ : bit;
-    SIGNAL \PWM2:PWMUDB:prevCompare1\ : bit;
     SIGNAL \PWM2:PWMUDB:runmode_enable\ : bit;
-    SIGNAL \PWM2:PWMUDB:status_0\ : bit;
-    SIGNAL \PWM2:PWMUDB:status_2\ : bit;
-    SIGNAL \PWM2:PWMUDB:status_3\ : bit;
     SIGNAL \PWM2:PWMUDB:tc_i\ : bit;
     SIGNAL \Timer:Net_261\ : bit;
     SIGNAL \Timer:Net_51\ : bit;
-    SIGNAL \Timer:Net_57\ : bit;
     SIGNAL \Timer_DAC:Net_261\ : bit;
     SIGNAL \Timer_DAC:Net_51\ : bit;
-    SIGNAL \Timer_DAC:Net_57\ : bit;
     SIGNAL \UART:BUART:counter_load_not\ : bit;
     SIGNAL \UART:BUART:pollcount_0\ : bit;
     SIGNAL \UART:BUART:pollcount_1\ : bit;
@@ -300,9 +295,8 @@ ARCHITECTURE __DEFAULT__ OF NeverLose IS
     ATTRIBUTE lib_model OF \UART:BUART:rx_postpoll\ : LABEL IS "macrocell7";
     ATTRIBUTE lib_model OF \UART:BUART:rx_status_4\ : LABEL IS "macrocell8";
     ATTRIBUTE lib_model OF \UART:BUART:rx_status_5\ : LABEL IS "macrocell9";
-    ATTRIBUTE lib_model OF \PWM2:PWMUDB:status_2\ : LABEL IS "macrocell10";
     ATTRIBUTE Location OF \ADC:DSM\ : LABEL IS "F(DSM,0)";
-    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell11";
+    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell10";
     ATTRIBUTE lib_model OF \PWM1:PWMUDB:genblk1:ctrlreg\ : LABEL IS "controlcell1";
     ATTRIBUTE lib_model OF \PWM1:PWMUDB:genblk8:stsreg\ : LABEL IS "statusicell1";
     ATTRIBUTE lib_model OF \PWM1:PWMUDB:sP16:pwmdp:u0\ : LABEL IS "datapathcell1";
@@ -314,33 +308,30 @@ ARCHITECTURE __DEFAULT__ OF NeverLose IS
     ATTRIBUTE lib_model OF \UART:BUART:sRX:RxSts\ : LABEL IS "statusicell3";
     ATTRIBUTE Location OF \DAC:viDAC8\ : LABEL IS "F(VIDAC,0)";
     ATTRIBUTE lib_model OF \PWM2:PWMUDB:genblk1:ctrlreg\ : LABEL IS "controlcell2";
-    ATTRIBUTE lib_model OF \PWM2:PWMUDB:genblk8:stsreg\ : LABEL IS "statusicell4";
     ATTRIBUTE lib_model OF \PWM2:PWMUDB:sP16:pwmdp:u0\ : LABEL IS "datapathcell6";
     ATTRIBUTE lib_model OF \PWM2:PWMUDB:sP16:pwmdp:u1\ : LABEL IS "datapathcell7";
-    ATTRIBUTE lib_model OF \PWM1:PWMUDB:runmode_enable\ : LABEL IS "macrocell12";
-    ATTRIBUTE lib_model OF \PWM1:PWMUDB:prevCompare1\ : LABEL IS "macrocell13";
-    ATTRIBUTE lib_model OF \PWM1:PWMUDB:status_0\ : LABEL IS "macrocell14";
-    ATTRIBUTE lib_model OF Net_38 : LABEL IS "macrocell15";
-    ATTRIBUTE lib_model OF \UART:BUART:txn\ : LABEL IS "macrocell16";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_state_1\ : LABEL IS "macrocell17";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_state_0\ : LABEL IS "macrocell18";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_state_2\ : LABEL IS "macrocell19";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_bitclk\ : LABEL IS "macrocell20";
-    ATTRIBUTE lib_model OF \UART:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell21";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_0\ : LABEL IS "macrocell22";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_load_fifo\ : LABEL IS "macrocell23";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_3\ : LABEL IS "macrocell24";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_2\ : LABEL IS "macrocell25";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_bitclk_enable\ : LABEL IS "macrocell26";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell27";
-    ATTRIBUTE lib_model OF \UART:BUART:pollcount_1\ : LABEL IS "macrocell28";
-    ATTRIBUTE lib_model OF \UART:BUART:pollcount_0\ : LABEL IS "macrocell29";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_status_3\ : LABEL IS "macrocell30";
-    ATTRIBUTE lib_model OF \UART:BUART:rx_last\ : LABEL IS "macrocell31";
-    ATTRIBUTE lib_model OF \PWM2:PWMUDB:runmode_enable\ : LABEL IS "macrocell32";
-    ATTRIBUTE lib_model OF \PWM2:PWMUDB:prevCompare1\ : LABEL IS "macrocell33";
-    ATTRIBUTE lib_model OF \PWM2:PWMUDB:status_0\ : LABEL IS "macrocell34";
-    ATTRIBUTE lib_model OF Net_104 : LABEL IS "macrocell35";
+    ATTRIBUTE lib_model OF \PWM1:PWMUDB:runmode_enable\ : LABEL IS "macrocell11";
+    ATTRIBUTE lib_model OF \PWM1:PWMUDB:prevCompare1\ : LABEL IS "macrocell12";
+    ATTRIBUTE lib_model OF \PWM1:PWMUDB:status_0\ : LABEL IS "macrocell13";
+    ATTRIBUTE lib_model OF Net_38 : LABEL IS "macrocell14";
+    ATTRIBUTE lib_model OF \UART:BUART:txn\ : LABEL IS "macrocell15";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_state_1\ : LABEL IS "macrocell16";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_state_0\ : LABEL IS "macrocell17";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_state_2\ : LABEL IS "macrocell18";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_bitclk\ : LABEL IS "macrocell19";
+    ATTRIBUTE lib_model OF \UART:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell20";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_0\ : LABEL IS "macrocell21";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_load_fifo\ : LABEL IS "macrocell22";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_3\ : LABEL IS "macrocell23";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_2\ : LABEL IS "macrocell24";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_bitclk_enable\ : LABEL IS "macrocell25";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell26";
+    ATTRIBUTE lib_model OF \UART:BUART:pollcount_1\ : LABEL IS "macrocell27";
+    ATTRIBUTE lib_model OF \UART:BUART:pollcount_0\ : LABEL IS "macrocell28";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_status_3\ : LABEL IS "macrocell29";
+    ATTRIBUTE lib_model OF \UART:BUART:rx_last\ : LABEL IS "macrocell30";
+    ATTRIBUTE lib_model OF \PWM2:PWMUDB:runmode_enable\ : LABEL IS "macrocell31";
+    ATTRIBUTE lib_model OF Net_104 : LABEL IS "macrocell32";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -1559,7 +1550,6 @@ BEGIN
         PORT MAP(
             pa_out => photores2(0)__PA,
             oe => open,
-            pad_in => photores2(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -3043,16 +3033,6 @@ BEGIN
             main_0 => \UART:BUART:rx_fifonotempty\,
             main_1 => \UART:BUART:rx_state_stop1_reg\);
 
-    \PWM2:PWMUDB:status_2\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
-            regmode => 0,
-            clken_mode => 1)
-        PORT MAP(
-            q => \PWM2:PWMUDB:status_2\,
-            main_0 => \PWM2:PWMUDB:runmode_enable\,
-            main_1 => \PWM2:PWMUDB:tc_i\);
-
     \ADC:DSM\:dsmodcell
         GENERIC MAP(
             cy_registers => "",
@@ -3450,23 +3430,6 @@ BEGIN
             control_0 => \PWM2:PWMUDB:control_0\,
             busclk => ClockBlock_BUS_CLK);
 
-    \PWM2:PWMUDB:genblk8:stsreg\:statusicell
-        GENERIC MAP(
-            cy_force_order => 1,
-            cy_int_mask => "1111111",
-            cy_md_select => "0100111",
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            clock => Net_102,
-            status_6 => open,
-            status_5 => open,
-            status_4 => open,
-            status_3 => \PWM2:PWMUDB:status_3\,
-            status_2 => \PWM2:PWMUDB:status_2\,
-            status_1 => open,
-            status_0 => \PWM2:PWMUDB:status_0\);
-
     \PWM2:PWMUDB:sP16:pwmdp:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
@@ -3546,7 +3509,6 @@ BEGIN
             cs_addr_1 => \PWM2:PWMUDB:runmode_enable\,
             cl0_comb => \PWM2:PWMUDB:cmp1_less\,
             z0_comb => \PWM2:PWMUDB:tc_i\,
-            f1_blk_stat_comb => \PWM2:PWMUDB:status_3\,
             busclk => ClockBlock_BUS_CLK,
             ce0i => \PWM2:PWMUDB:sP16:pwmdp:u0.ce0__sig\,
             cl0i => \PWM2:PWMUDB:sP16:pwmdp:u0.cl0__sig\,
@@ -3573,7 +3535,7 @@ BEGIN
             timer_reset => open,
             tc => \Timer:Net_51\,
             cmp => \Timer:Net_261\,
-            irq => \Timer:Net_57\);
+            irq => Net_159);
 
     \Timer_DAC:TimerHW\:timercell
         GENERIC MAP(
@@ -3586,7 +3548,31 @@ BEGIN
             timer_reset => open,
             tc => \Timer_DAC:Net_51\,
             cmp => \Timer_DAC:Net_261\,
-            irq => \Timer_DAC:Net_57\);
+            irq => Net_197);
+
+    isr_1:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_159,
+            clock => ClockBlock_BUS_CLK);
+
+    isr_2:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_197,
+            clock => ClockBlock_BUS_CLK);
+
+    isr_3:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_159,
+            clock => ClockBlock_BUS_CLK);
 
     \PWM1:PWMUDB:runmode_enable\:macrocell
         GENERIC MAP(
@@ -3895,29 +3881,6 @@ BEGIN
             q => \PWM2:PWMUDB:runmode_enable\,
             clock_0 => Net_102,
             main_0 => \PWM2:PWMUDB:control_7\);
-
-    \PWM2:PWMUDB:prevCompare1\:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \PWM2:PWMUDB:prevCompare1\,
-            clock_0 => Net_102,
-            main_0 => \PWM2:PWMUDB:cmp1_less\);
-
-    \PWM2:PWMUDB:status_0\:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * main_1)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => \PWM2:PWMUDB:status_0\,
-            clock_0 => Net_102,
-            main_0 => \PWM2:PWMUDB:prevCompare1\,
-            main_1 => \PWM2:PWMUDB:cmp1_less\);
 
     Net_104:macrocell
         GENERIC MAP(
